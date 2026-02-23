@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental - Expediente del paciente</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="exp_paciente.css">
+</head>
+<body>
+    <header>
+        <aside class="sidebar">
+            <ul class="secciones">
+                <li class="seccion no_focus elemento_logo">
+                    <img class="logo" src="img/logo.png" alt="Logo">
+                    <div class="seccion_info">
+                        <p>Empresa</p>
+                    </div>
+                </li>
+                <div class="grupo_menu">
+                    <a href="index.html">
+                        <li class="seccion">
+                            <svg class="inicio" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
+                            <div class="seccion_info">
+                                <p>Inicio</p>
+                            </div>
+                        </li>
+                    </a>
+                    <a href="gest_pacientes.html">
+                        <li class="seccion">
+                            <svg class="gest_pacientes" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-240Zm-320 80v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440h14q-11 18-16.5 38.5T472-360q-54 1-107.5 14.5T260-306q-9 5-14.5 14t-5.5 20v32h283l80 80H160Zm207-367q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Zm169.5-56.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm236 480L576-300q-13-13-18.5-28t-5.5-30q0-32 23-57t59-25q28 0 44 13t38 35q20-20 36.5-34t45.5-14q37 0 59.5 25.5T880-357q0 15-6 30t-18 27L716-160Z"/></svg>
+                            <div class="seccion_info">
+                                <p>Gestión de pacientes</p>
+                            </div>
+                        </li>
+                    </a>
+                    <a href="exp_paciente.html">
+                        <li class="seccion">
+                            <svg class="exp_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M440-280h320v-22q0-45-44-71.5T600-400q-72 0-116 26.5T440-302v22Zm216.5-183.5Q680-487 680-520t-23.5-56.5Q633-600 600-600t-56.5 23.5Q520-553 520-520t23.5 56.5Q567-440 600-440t56.5-23.5ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
+                            <div class="seccion_info">
+                                <p>Expediente de pacientes</p>
+                            </div>
+                        </li>
+                    </a>
+                    <a href="doc_clinicos.html">
+                        <li class="seccion">
+                            <svg class="doc_clinicos" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M320-440h320v-80H320v80Zm0 120h320v-80H320v80Zm0 120h200v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
+                            <div class="seccion_info">
+                                <p>Documentos clínicos</p>
+                            </div>
+                        </li>
+                    </a>
+                    <a href="citas.html">
+                        <li class="seccion">
+                            <svg class="citas" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M438-226 296-368l58-58 84 84 168-168 58 58-226 226ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg>
+                            <div class="seccion_info">
+                                <p>Citas</p>
+                            </div>
+                        </li>
+                    </a>
+                </div>
+                <a href="login.html">
+                    <li class="seccion avatar">
+                        <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
+                        <div class="seccion_info">
+                            <h3 class="nombre_usuario">Dra. <span>Nombre</span></h3>
+                            <p class="desc">Doctora</p>
+                        </div>
+                    </li>
+                </a>
+            </ul>
+        </aside>
+    </header>
+    
+    <main class="contenido">
+        <div class="contenido_header">
+            <h2>Expediente del paciente</h2>
+            <div class="usuario">
+                <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
+                <h3>Dr. Nombre</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="pacientes_header">
+            <div class="busqueda_doc_clinico">
+                <svg class="lupa" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+                <input type="text" class="input_busqueda" placeholder="Buscar expediente por N°...">
+            </div>
+            <div class="interac_tabla">
+                <div class="editar_exp">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
+                    <p>Editar</p>
+                </div>
+                <button class="btn_edit_exp"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg> Agendar cita al paciente</button>
+            </div>
+        </div>
+        <br>
+        <div class="expediente">
+            <div class="div_expediente">
+                <div class="info_basica">
+                    <div class="titulo_info_basica">
+                        <h3>Información básica</h3>
+                        <span class="ID">#N</span>
+                    </div>
+                    <div class="info_info_basica">
+                        <div class="informacion">
+                            <p>Nombre completo: <span class="nombre">NaN</span></p>
+                            <!-- <p>N° expediente: <span>NaN</span></p> -->
+                            <p>Edad: <span class="edad">NaN</span></p>
+                            <p>Fecha de nacimiento: <span class="fechaNac">NaN</span></p>
+                            <p>Sexo: <span class="sexo">NaN</span></p>
+                            <p>Teléfono: <span class="telefono">NaN</span></p>
+                            <p>Correo: <span class="correo">NaN</span></p>
+                            <p>Tipo de sangre: <span class="tipo_sangre">NaN</span></p>
+                            <p>Motivo de consulta: <span class="motivo">NaN</span></p>
+                        </div>
+                        <div class="foto"></div>
+                    </div>
+                </div>
+
+                <hr class="division">
+                
+                <div class="historial">
+                    <div class="titulo_historial"><h3>Historial clínico</h3></div>
+                    <div class="div_historial">
+                        <div class="historial_card enf_sistem">
+                            <p>Enfermedades sistémicas:</p>
+                            <ul>
+                                <li>Enfermedad 1.</li>
+                                <li>Enfermedad 2.</li>
+                                <li>Enfermedad 3.</li>
+                            </ul>
+                        </div>
+                        <div class="historial_card cir_previas">
+                            <p>Cirugias previas:</p>
+                            <ul>
+                                <li>Cirugia 1.</li>
+                                <li>Cirugia 2.</li>
+                                <li>Cirugia 3.</li>
+                            </ul>
+                        </div>
+                        <div class="historial_card medi_actuales">
+                            <p>Medicamentos actuales:</p>
+                            <ul>
+                                <li>Medicamento 1.</li>
+                                <li>Medicamento 2.</li>
+                                <li>Medicamento 3.</li>
+                            </ul>
+                        </div>
+                        <div class="historial_card alergias">
+                            <p>Alergias:</p>
+                            <ul>
+                                <li>Alergia 1.</li>
+                                <li>Alergia 2.</li>
+                                <li>Alergia 3.</li>
+                            </ul>
+                        </div>
+                        <div class="historial_card habitos">
+                            <p>Hábitos:</p>
+                            <ul>
+                                <li>Hábito 1.</li>
+                                <li>Hábito 2.</li>
+                                <li>Hábito 3.</li>
+                            </ul>
+                        </div>
+                        <div class="historial_card dolor">
+                            <p>Dolor actual:</p>
+                            <ul>
+                                <li>Dolor 1.</li>
+                                <li>Dolor 2.</li>
+                                <li>Dolor 3.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="n_exp"><span>#N</span></div> -->
+            </div>
+        </div>
+    </main>
+
+    <div class="overlay_nueva_cita overlay">
+        <div class="form">
+            <div class="div_form">
+                <svg class="cerrar cerrar_nueva_cita" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                <h3>Ingrese un nuevo paciente:</h3>
+                <div class="div_datos">
+                    <div class="juntos nom_edad">
+                        <div class="dato">
+                            <p>Nombre completo:</p>
+                            <input type="text" name="nombreCita" id="" placeholder="Ingrese el nombre completo..." readonly required>
+                        </div>
+                        <div class="dato">
+                            <p>Edad:</p>
+                            <input type="number" name="edadCita" id="" placeholder="Ingrese la edad..." readonly required min="0">
+                        </div>
+                    </div>
+                    <div class="juntos">
+                        <div class="dato">
+                            <p>Fecha y Hora:</p>
+                            <input type="datetime-local" name="fechaCita" id="" required>
+                        </div>
+                        <div class="dato">
+                            <p>Estado:</p>
+                            <input type="text" name="estadoCita" id="" value="Activo" readonly>
+                        </div>
+                    </div>
+                    <div class="dato">
+                        <p>Especialidad:</p>
+                        <div class="estado">
+                            <div class="info_esp">
+                                <p>Selecciona una especialidad</p>
+                                <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                            </div>
+                            <div class="div_esp">
+                                <p>Selecciona una especialidad</p>
+                                <p>Ortodoncia</p>
+                                <p>Maxilofacial</p>
+                                <p>Rehabilitación</p>
+                                <p>Odontopediatría</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="agregar_cita"><button type="submit" class="btn_agregar">Agregar cita</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="exp_paciente.js"></script>
+</body>
+</html>

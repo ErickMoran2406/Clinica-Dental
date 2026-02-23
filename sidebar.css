@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: max-content;
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0.8rem;
+    display: flex; 
+    flex-shrink: 0;
+    z-index: 999;
+
+    .secciones{
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        height: 100%;
+
+        .seccion{
+            padding: 0.8rem 1.3rem;
+            border-radius: 4px;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 40px 0fr;
+            transition: all 0.3s ease-in-out;
+            color: black;
+
+            .logo{ max-width: 100%; }
+            svg{
+                width: 28px; 
+                height: 28px;
+                overflow: hidden;
+                justify-self: center;
+                fill: black;
+            }
+            .seccion_info{
+                overflow: hidden;
+
+                h3, p{
+                    padding-left: 0.8rem;
+                    text-wrap: nowrap;
+                    color: black;
+                }
+            }
+        }
+        .seccion:not(.elemento_logo){ cursor: pointer; }
+        .seccion:has(.logo){ margin: 0.5rem 0; }
+        .seccion:not(.no_focus):hover{
+            background-color: var(--morado_medio);
+            
+            p, h3, span{ color: white; }
+            svg{ fill: #fff; }
+        }
+        .avatar{
+            margin-top: auto;
+            text-align: left;
+
+            .gest_usuario{
+                /* width: 40px;
+                aspect-ratio: 1/1; */
+                object-fit: cover;
+                object-position: top;
+                border-radius: 50%;
+            }
+            .seccion_info{
+                p{ font-size: 0.9rem; }
+                span{ text-decoration: underline; color: black; } 
+            }
+        }
+        .elemento_logo{ margin-bottom: 2rem; }
+        .seccion:nth-child(3){ margin-top: auto; }
+        .grupo_menu{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+    }
+}
+.sidebar:hover .secciones .seccion, .sidebar:active .secciones .seccion{ grid-template-columns: 40px 1fr; }
+.contenido{ margin-left: 110px; }

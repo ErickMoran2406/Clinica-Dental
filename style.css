@@ -1,11 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('sidebar.css');
+
+:root{
+    --morado_principal: #6F4A8E;
+    --morado_medio: #8E6BAF;
+    --morado_claro: #C9B4DB;
+    --morado_mas_claro: #F0E6FA;
+
+    --blanco: #FFFFFF;
+    --gris_claro: #F5F5F7;
+    --brillo_suave: #EADFF2;
+}
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
+    text-decoration: none;
 }
 html{
     scroll-behavior: smooth;
 }
 body{
     width: 100%;
+    position: relative;
+    background-color: var(--morado_principal);
 }
+
+.contenido{ margin: 0; }
+.contenido{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+
+    .div_saludo{
+        width: 500px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        background: rgba(255, 255, 255, 0.97);
+        box-shadow: 0 20px 60px rgba(111, 74, 142, 0.25), 0 4px 16px rgba(0,0,0,0.08);
+        backdrop-filter: blur(10px);
+        border: 5px solid rgba(201, 180, 219, 0.3);
+
+        .saludo{
+
+            p{
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: var(--morado_principal);
+            }
+            span{ font-weight: bold; }
+        }
+        .btns{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+
+            .btn_interac{
+                background-color: var(--morado_principal);
+                color: white;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.3rem;
+                transition: all 0.3s ease;
+                padding: 0.6rem 1.2rem;
+                border-radius: 8px;
+                font-weight: 500;
+                font-size: 0.9rem;
+                box-shadow: 0 3px 10px rgba(111, 74, 142, 0.3);
+
+                svg{
+                    width: 20px;
+                    height: 20px;
+                    fill: white;
+                }
+            }
+            .btn_interac:hover, .btn_interac:active{
+                background-color: var(--morado_claro);
+                transform: translateY(-2px);
+                box-shadow: 0 6px 16px rgba(111, 74, 142, 0.4);
+            }
+        }
+        .info_fecha{
+            display: flex;
+            justify-content: space-between;
+            background: var(--morado_mas_claro);
+            border-radius: 8px;
+            padding: 0.6rem 1rem;
+            /* border-left: 3px solid var(--morado_principal); */
+            
+            .fecha, .hora{ font-size: 0.9rem; }
+        }
+    }
+
+    .citas_hoy{
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+
+        .citas_hoy_header{
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+
+            svg{ fill: var(--morado_principal); }
+
+            h3{
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--morado_principal);
+                flex: 1;
+            }
+
+            .citas_count{
+                background-color: var(--morado_principal);
+                color: white;
+                font-size: 0.75rem;
+                font-weight: 600;
+                border-radius: 999px;
+                padding: 0.1rem 0.55rem;
+            }
+        }
+
+        .lista_citas{
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .cita_item{
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.55rem 0.8rem;
+            border-radius: 8px;
+            background: var(--morado_mas_claro);
+            transition: background 0.2s ease;
+
+            &:hover{ background: var(--brillo_suave); }
+
+            .cita_hora{
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: var(--morado_principal);
+                min-width: 42px;
+            }
+
+            .cita_info{
+                flex: 1;
+
+                .cita_nombre{
+                    font-size: 0.88rem;
+                    font-weight: 500;
+                    color: #333;
+                }
+            }
+
+            .cita_estado{
+                font-size: 0.73rem;
+                font-weight: 600;
+                padding: 0.2rem 0.6rem;
+                border-radius: 999px;
+                white-space: nowrap;
+            }
+
+            .estado_pendiente{ background-color: #FFF3CD; color: #856404; }
+            .estado_en_proceso{ background-color: #D1ECF1; color: #0C5460; }
+            .estado_finalizada{ background-color: #D4EDDA; color: #155724; }
+        }
+    }
+
+    .indicadores {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+
+        .indicador_card {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.7rem 0.9rem;
+            background: var(--morado_mas_claro);
+            border-radius: 10px;
+            border-left: 3px solid var(--morado_claro);
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: var(--brillo_suave);
+                border-left-color: var(--morado_principal);
+                transform: translateY(-1px);
+            }
+
+            .indicador_icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+                background: white;
+                box-shadow: 0 2px 6px rgba(111, 74, 142, 0.15);
+                flex-shrink: 0;
+
+                svg { fill: var(--morado_principal); }
+            }
+
+            .indicador_info {
+                display: flex;
+                flex-direction: column;
+                gap: 0.05rem;
+
+                .indicador_valor {
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    color: var(--morado_principal);
+                    line-height: 1;
+                }
+
+                .indicador_label {
+                    font-size: 0.72rem;
+                    font-weight: 400;
+                    color: #666;
+                }
+            }
+        }
+
+        /* Tarjeta destacada para citas completadas */
+        .indicador_destacado {
+            background: linear-gradient(135deg, var(--morado_principal), var(--morado_medio));
+            border-left-color: transparent;
+
+            &:hover {
+                background: linear-gradient(135deg, var(--morado_principal), var(--morado_medio));
+                filter: brightness(1.08);
+                border-left-color: transparent;
+            }
+
+            .indicador_icon {
+                background: rgba(255,255,255,0.2);
+                box-shadow: none;
+                svg { fill: white; }
+            }
+
+            .indicador_info {
+                .indicador_valor { color: white; }
+                .indicador_label { color: rgba(255,255,255,0.8); }
+            }
+        }
+    }
+}
+
