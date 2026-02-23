@@ -203,7 +203,7 @@ body{
                         }
                     }
                     .foto{
-                        background-image: url('https://www.freeiconspng.com/thumbs/pikachu-transparent/pikachu-transparent-clipart-4.png');
+                        background-image: url('img/foto_paciente.png');
                         background-size: cover;
                         background-position: center;
                         background-repeat: no-repeat;
