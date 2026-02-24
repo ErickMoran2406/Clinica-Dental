@@ -118,20 +118,6 @@ body{
                     cursor: pointer;
                 }
             }
-            .editar_exp::before{
-                content: '';
-                position: absolute;
-                width: 120%;
-                height: 100%;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                padding-bottom: 1rem;
-                border-bottom: solid;
-                opacity: 0;
-                transition: opacity 0.3s ease-in-out;
-            }
-            .editar_exp:hover::before{ opacity: 1; }
             .btn_edit_exp{
                 background-color: var(--morado_principal);
                 color: white;
@@ -290,6 +276,8 @@ body{
             border-radius: 10px;
             padding: 2rem 1rem;
             gap: 1.5rem;
+            /* max-height: 90vh;
+            overflow-y: auto; */
             background-color: var(--morado_principal);
             box-shadow: 0 2px 10px var(--morado_claro);
 
@@ -309,6 +297,7 @@ body{
                     p{
                         font-size: 1.1rem;
                         margin-bottom: 0.5rem;
+                        user-select: none;
                     }
                     .estado{
                         display: flex;
@@ -318,7 +307,7 @@ body{
                         background-color: white;
                         color: #aaa;
 
-                        .info_estado{
+                        .info_esp{
                             width: 100%;
                             display: flex;
                             align-items: center;
@@ -338,7 +327,58 @@ body{
                             }
                             .svg_select.activo{ transform: rotate(180deg); }
                         }
-                        .div_estados{
+                        .div_esp {
+                            display: none;
+                            flex-direction: column;
+                            position: absolute;
+                            top: 110%;
+                            width: 100%;
+                            border-radius: 5px;
+                            background-color: white;
+                            z-index: 1001;
+
+                            p {
+                                padding: 0.5rem 0.8rem;
+                                color: gray;
+                                font-size: 0.9rem;
+                                margin-bottom: 0;
+                                user-select: none;
+                            }
+                            p:hover {
+                                background-color: var(--morado_claro);
+                                color: white;
+                            }
+                        }
+                    }
+                    .sexo{
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                        border-radius: 5px;
+                        background-color: white;
+                        color: #aaa;
+
+                        .info_sexo{
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding: 0.5rem 0.8rem;
+
+                            p{
+                                color: gray;
+                                font-size: 0.9rem;
+                                margin-bottom: 0;
+                            }
+                            .svg_select{
+                                fill: var(--morado_principal);
+                                width: 25px;
+                                height: 25px;
+                                transition: transform 0.3s ease-in-out;
+                            }
+                            .svg_select.activo{ transform: rotate(180deg); }
+                        }
+                        .div_sexos{
                             display: none;
                             flex-direction: column;
                             position: absolute;
@@ -348,6 +388,9 @@ body{
                             background-color: white;
                             color: #aaa;
                             z-index: 1001;
+
+                            max-height: 180px;
+                            overflow-y: auto;
                             /* background-color: red; */
 
                             p{
@@ -355,6 +398,12 @@ body{
                                 color: gray;
                                 font-size: 0.9rem;
                                 margin-bottom: 0;
+                                display: flex;
+                                align-items: center;
+                                gap: 0.5rem;
+                                user-select: none;
+
+                                svg{ fill: gray; width: 15px; height: 15px; }
                             }
                             p:hover{
                                 background-color: var(--morado_claro);
@@ -376,66 +425,29 @@ body{
                     }
                     input:focus{ border-color: var(--morado_claro); }
                     input::placeholder{ color: gray; }
+                    textarea{
+                        width: 100%;
+                        padding: 0.5rem 0.8rem;
+                        border-radius: 5px;
+                        border: solid transparent;
+                        outline: none;
+                        color: black;
+                        font-size: 0.9rem;
+                        transition: border-color 0.3s ease-in-out;
+                        background-color: white;
+                        resize: none;
+                    }
                 }
                 .juntos{
                     display: flex;
                     gap: 1rem;
                     width: 100%;
                 }
-                .nom_edad .dato:nth-child(2){ width: 60%; }
-                .estado{
-                    display: flex;
-                    flex-direction: column;
-                    position: relative;
-                    border-radius: 5px;
-                    background-color: white;
-                    color: #aaa;
-                    user-select: none;
-
-                    .info_esp{
-                        width: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        padding: 0.5rem 0.8rem;
-
-                        p{
-                            color: gray;
-                            font-size: 0.9rem;
-                            margin-bottom: 0;
-                        }
-                        svg{
-                            fill: var(--morado_principal);
-                            width: 25px;
-                            height: 25px;
-                        }
-                    }
-                    .div_esp{
-                        display: none;
-                        flex-direction: column;
-                        position: absolute;
-                        top: 110%;
-                        width: 100%;
-                        border-radius: 5px;
-                        background-color: white;
-                        color: #aaa;
-                        z-index: 1001;
-                        /* background-color: red; */
-
-                        p{
-                            padding: 0.5rem 0.8rem;
-                            color: gray;
-                            font-size: 0.9rem;
-                            margin-bottom: 0;
-                        }
-                        p:hover{
-                            background-color: var(--morado_claro);
-                            color: white;
-                        }
-                    }
-                }
+                .n_nom_edad .dato:nth-child(2){ width: 60%; }
+                .fecha_sexo_tel .dato:nth-child(2){ width: 100%; }
+                .correo_sangre .dato:nth-child(2){ width: 70%; }
             }
-            .agregar_cita{
+            .agregar_cita, .agregar_doc{
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -472,6 +484,23 @@ body{
             }
             .cerrar:hover{
                 background-color: var(--morado_medio);
+            }
+        }
+    }
+}
+
+.overlay_editar_exp{
+    display: none;
+
+    .form{
+
+        .div_form{
+
+            .div_datos{
+
+                .n_nom_edad .dato:nth-child(1){ width: 40%; }
+                .n_nom_edad .dato:nth-child(2){ width: 100%; }
+                .n_nom_edad .dato:nth-child(3){ width: 40%; }
             }
         }
     }

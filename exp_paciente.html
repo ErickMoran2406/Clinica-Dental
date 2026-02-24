@@ -182,7 +182,7 @@
         <div class="form">
             <div class="div_form">
                 <svg class="cerrar cerrar_nueva_cita" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                <h3>Ingrese un nuevo paciente:</h3>
+                <h3>Agendar una cita al paciente:</h3>
                 <div class="div_datos">
                     <div class="juntos nom_edad">
                         <div class="dato">
@@ -221,6 +221,94 @@
                         </div>
                     </div>
                     <div class="agregar_cita"><button type="submit" class="btn_agregar">Agregar cita</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay_editar_exp overlay">
+        <div class="form">
+            <div class="div_form">
+                <svg class="cerrar cerrar_nuevo_doc" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                <h3>Ingrese un nuevo documento clínico:</h3>
+
+                <div class="div_datos">
+
+                    <div class="juntos n_nom_edad">
+                        <div class="dato">
+                            <p>N°:</p>
+                            <input type="number" name="edadCita" id="" placeholder="Ingrese el N°..." required min="0">
+                        </div>
+                        <div class="dato">
+                            <p>Nombre completo:</p>
+                            <input type="text" name="nombreCita" id="" placeholder="Ingrese el nombre completo..." required>
+                        </div>
+                        <div class="dato">
+                            <p>Edad:</p>
+                            <input type="number" name="edadCita" id="" placeholder="Ingrese la edad..." required min="0">
+                        </div>
+                    </div>
+
+                    <div class="juntos fecha_sexo_tel">
+                        <div class="dato">
+                            <p>Fecha de nacimiento:</p>
+                            <input type="datetime-local" name="" id="" required min="0">
+                        </div>
+
+                        <div class="dato">
+                            <p>Sexo:</p>
+                            <div class="sexo">
+                                <div class="info_sexo">
+                                    <p>Selecciona un sexo</p>
+                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </div>
+                                <div class="div_sexos">
+                                    <p>Selecciona un sexo</p>
+                                    <p>M <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
+                                    <p>F <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dato">
+                            <p>Teléfono:</p>
+                            <input type="tel" name="" id="" placeholder="Ingrese el teléfono..." required min="0">
+                        </div>
+                    </div>
+
+                    <div class="juntos correo_sangre">
+                        <div class="dato">
+                            <p>Correo:</p>
+                            <input type="email" name="" id="" placeholder="Ingrese el correo..." required>
+                        </div>
+                        <div class="dato">
+                            <p>Tipo de sangre:</p>
+                            <div class="sexo">
+                                <div class="info_sexo">
+                                    <p>Selecciona un tipo de sangre</p>
+                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </div>
+                                <div class="div_sexos div_sangre">
+                                    <p>Selecciona un tipo de sangre</p>
+                                    <p>A+</p>
+                                    <p>A-</p>
+                                    <p>B+</p>
+                                    <p>B-</p>
+                                    <p>AB+</p>
+                                    <p>AB-</p>
+                                    <p>O+</p>
+                                    <p>O-</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dato">
+                        <p>Motivo de consulta:</p>
+                        <textarea rows="3" name="" id="" placeholder="Ingrese el motivo de consulta del paciente..." maxlength="200"></textarea>
+                    </div>
+
+                    <div class="agregar_doc"><button type="submit" class="btn_agregar">Editar expediente</button></div>
                 </div>
             </div>
         </div>

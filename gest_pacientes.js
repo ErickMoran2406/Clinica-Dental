@@ -8,12 +8,12 @@ const btnAgregarPaciente = document.querySelector('.btn_agregar')
 const overlayEditar = document.querySelector('.overlay_editar')
 const editar = document.querySelector('.div_opc_tabla .editar')
 const btnCerrarEditar = document.querySelector('.cerrar_editar')
-const selectEstados = document.querySelector('.estado')
 const divestadosOpcion = document.querySelector('.div_estados')
+const svgSelect = document.querySelector('.svg_select')
+const selectEstados = document.querySelector('.estado')
 const estadoOpcion = document.querySelectorAll('.div_estados p')
 const infoEstado = document.querySelector('.info_estado p');
 const btnEditar = document.querySelector('.btn_editar')
-const svgSelect = document.querySelector('.svg_select')
 
 // Opción de eliminar paciente
 const overlayEliminar = document.querySelector('.overlay_eliminar_paciente')
