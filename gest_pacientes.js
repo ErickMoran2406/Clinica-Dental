@@ -436,5 +436,5 @@ tablaCuerpo.addEventListener('click', (e) => {
 
 function mostrarAlerta(){
     alerta.style.top = "10%"
-    setTimeout(() => { alerta.style.top = "-10%" }, 3000)
+    setTimeout(() => { alerta.style.top = "-30%" }, 3000)
 }

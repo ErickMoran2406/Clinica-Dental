@@ -672,7 +672,7 @@ body{
 
 .alerta{
     position: absolute;
-    top: -10%; left: 50%; /* 10% para aparecer */
+    top: -30%; left: 50%; /* 30% para aparecer */
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
