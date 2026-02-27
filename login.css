@@ -82,6 +82,7 @@ form{ width: 100%; }
 
 .div_recuperar_contra{ margin: -15px 0 15px; }
 .div_recuperar_contra a{ font-size: 0.9rem; color: #333; }
+.div_recuperar_contra a:hover{ text-decoration: underline; }
 
 .btn{
     width: 100%;

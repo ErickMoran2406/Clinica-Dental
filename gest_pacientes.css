@@ -155,7 +155,6 @@ body{
             }
         }
     }
-    hr{ margin: 1rem 0; }
 
     .opc_tabla{
         display: flex;
@@ -229,6 +228,7 @@ body{
 
                 .tabla_filas{
                     cursor: pointer;
+                    position: relative;
 
                     td{ 
                         color: black; 
@@ -245,6 +245,38 @@ body{
                             align-items: center;
                             width: 100%;
                             height: 18px;
+                        }
+                        .motivo{
+                            background-color: var(--morado_principal);
+                            color: white;
+                            border: none;
+                            cursor: pointer;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 0.3rem;
+                            transition: all 0.3s ease;
+                            padding: 0.5rem 1rem;
+                            border-radius: 10px;
+                            font-weight: 500;
+                            font-size: 0.8rem;
+                            margin: 0 auto;
+                            box-shadow: 0 3px 10px rgba(111, 74, 142, 0.3);
+                        }
+                        .motivo:hover, .motivo:active{
+                            background-color: var(--morado_claro);
+                            box-shadow: 0 6px 16px rgba(111, 74, 142, 0.4);
+                        }
+                    }
+                    .estado{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        
+                        img{
+                            object-fit: cover;
+                            width: 2rem;
+                            aspect-ratio: 1/1;
                         }
                     }
                 }
@@ -304,7 +336,7 @@ body{
                         font-size: 1.1rem;
                         margin-bottom: 0.5rem;
                     }
-                    .estado{
+                    .sexo{
                         display: flex;
                         flex-direction: column;
                         position: relative;
@@ -312,7 +344,7 @@ body{
                         background-color: white;
                         color: #aaa;
 
-                        .info_estado{
+                        .info_sexo{
                             width: 100%;
                             display: flex;
                             align-items: center;
@@ -332,7 +364,7 @@ body{
                             }
                             .svg_select.activo{ transform: rotate(180deg); }
                         }
-                        .div_estados{
+                        .div_sexos{
                             display: none;
                             flex-direction: column;
                             position: absolute;
@@ -342,6 +374,9 @@ body{
                             background-color: white;
                             color: #aaa;
                             z-index: 1001;
+
+                            max-height: 180px;
+                            overflow-y: auto;
                             /* background-color: red; */
 
                             p{
@@ -349,6 +384,12 @@ body{
                                 color: gray;
                                 font-size: 0.9rem;
                                 margin-bottom: 0;
+                                display: flex;
+                                align-items: center;
+                                gap: 0.5rem;
+                                user-select: none;
+
+                                svg{ fill: gray; width: 15px; height: 15px; }
                             }
                             p:hover{
                                 background-color: var(--morado_claro);
@@ -370,13 +411,27 @@ body{
                     }
                     input:focus{ border-color: var(--morado_claro); }
                     input::placeholder{ color: gray; }
+                    textarea{
+                        width: 100%;
+                        padding: 0.5rem 0.8rem;
+                        border-radius: 5px;
+                        border: solid transparent;
+                        outline: none;
+                        color: black;
+                        font-size: 0.9rem;
+                        transition: border-color 0.3s ease-in-out;
+                        background-color: white;
+                        resize: none;
+                    }
                 }
-                .edad_tel, .cita_estado{
+                .nombre_edad, .tel_correo, .correo_sexo_sangre{
                     display: flex;
                     gap: 1rem;
                     width: 100%;
+                    user-select: none;
                 }
-                .edad_tel .dato:nth-child(1){ width: 50%; }
+                .nombre_edad .dato:nth-child(2){ width: 50%; }
+                .tel_correo .dato:nth-child(1){ width: 50%; }
             }
             .enviar{
                 display: flex;
@@ -454,9 +509,7 @@ body{
                 border-radius: 50%;
                 background-color: rgba(0, 0, 0, 0.2);
             }
-            h3{
-                font-size: 1.5rem;
-            }
+            h3{ font-size: 1.5rem; }
         }
         .info_eliminar_paciente{
             display: flex;
@@ -469,10 +522,7 @@ body{
                 font-size: 1rem;
                 text-align: center;
             }
-            span{
-                font-weight: bold;
-                /* text-decoration: underline; */
-            }
+            span{ font-weight: bold; }
             .paciente{
                 display: flex;
                 justify-content: center;
@@ -488,10 +538,7 @@ body{
                     width: 25px;
                     height: 25px;
                 }
-                span{
-                    font-weight: bold;
-                    /* text-decoration: underline; */
-                }
+                span{ font-weight: bold; }
             }
         }
         .btns_eliminar_paciente{
@@ -512,7 +559,6 @@ body{
             }
             button:hover{
                 background-color: var(--morado_claro);
-                font-weight: bold;
                 transform: translateY(-2px);
             }
         }
@@ -535,17 +581,104 @@ body{
     }
 }
 
+.overlay_motivo{
+    display: none;
+
+    .div_motivo{
+        position: relative;
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 2.2rem 1.5rem;
+        border-radius: 15px;
+        background-color: var(--morado_principal);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+
+        .header_motivo{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+
+            svg{
+                fill: white;
+                width: 60px;
+                height: 60px;
+                padding: 0.8rem;
+                border: solid white 2px;
+                border-radius: 50%;
+                background-color: rgba(0,0,0,0.2);
+            }
+            h3{ font-size: 1.4rem; }
+        }
+
+        .paciente_motivo{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--morado_medio);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            width: 100%;
+            justify-content: center;
+
+            svg{ fill: white; width: 22px; height: 22px; }
+            span{ font-weight: 600; font-size: 0.95rem; }
+        }
+
+        .contenido_motivo{
+            width: 100%;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            min-height: 100px;
+
+            .texto_motivo{
+                font-size: 0.95rem;
+                color: rgba(255,255,255,0.85);
+                line-height: 1.6;
+            }
+        }
+        .contenido_fecha_registro{
+            width: 100%;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 0.5rem;
+            text-align: center;
+
+            .texto_fecha_registro{
+                font-size: 0.95rem;
+                color: rgba(255,255,255,0.85);
+                line-height: 1.6;
+            }
+        }
+
+        .cerrar_motivo{
+            position: absolute;
+            top: 3%; right: 3%;
+            width: 38px; height: 38px;
+            fill: white;
+            cursor: pointer;
+            padding: 0.4rem;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+
+            &:hover{ background-color: var(--morado_medio); }
+        }
+    }
+}
+
 .alerta{
     position: absolute;
-    top: 10%; left: 50%;
+    top: -10%; left: 50%; /* 10% para aparecer */
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100000;
-    transition: opacity 0.3s ease-in-out;
-
-    opacity: 0;
+    transition: all 0.3s ease-in-out;
 
     .div_alerta{
         display: flex;

@@ -98,6 +98,10 @@
 
         <div class="opc_tabla">
             <div class="div_opc_tabla">
+                <div class="ver_exp opcs">
+                    <svg class="exp_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M440-280h320v-22q0-45-44-71.5T600-400q-72 0-116 26.5T440-302v22Zm216.5-183.5Q680-487 680-520t-23.5-56.5Q633-600 600-600t-56.5 23.5Q520-553 520-520t23.5 56.5Q567-440 600-440t56.5-23.5ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
+                    <p>Ver expediente</p>
+                </div>
                 <div class="editar opcs">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
                     <p>Editar</p>
@@ -119,122 +123,133 @@
                         <th>Edad</th>
                         <th>Teléfono</th>
                         <th>Correo</th>
-                        <th>Fecha de registro</th>
-                        <th>Última cita</th>
-                        <th>Estado</th>
+                        <th>Sexo</th>
+                        <th>Tipo sangre</th>
+                        <td>Motivo</td>
+                        <td>Estado</td>
                     </tr>
                 </thead>
 
                 <tbody class="tabla_cuerpo">
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 1" data-estado="activo" data-fecha-registro="2026-02-10">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>01</span></td>
                         <td>Eustaquio López Gómez</td>
                         <td>23</td>
                         <td>81-1234-5678</td>
                         <td>eustaquio.lopez@gmail.com</td>
-                        <td>2026-02-19</td>
-                        <td>2026-02-10</td>
-                        <td>Activo</td>
+                        <td>M</td>
+                        <td>O+</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/activo.png" alt=""></td>
                     </tr>
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 2" data-estado="activo" data-fecha-registro="2026-02-10">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>02</span></td>
                         <td>Giliberto Pérez Duarte</td>
                         <td>24</td>
                         <td>81-2345-6789</td>
-                        <td>gilberto@gmail.com</td>
-                        <td>2026-02-08</td>
-                        <td>2026-02-02</td>
-                        <td>Pendiente</td>
+                        <td>gilberto.perez@gmail.com</td>
+                        <td>M</td>
+                        <td>A+</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/activo.png" alt=""></td>
                     </tr>
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 3" data-estado="activo" data-fecha-registro="2026-02-10">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>03</span></td>
                         <td>Laura Mendez Torres</td>
                         <td>50</td>
                         <td>81-3456-7890</td>
                         <td>laura.mendez@gmail.com</td>
-                        <td>2026-01-05</td>
-                        <td>2026-02-10</td>
-                        <td>Activo</td>
+                        <td>F</td>
+                        <td>B+</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/activo.png" alt=""></td>
                     </tr>
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 4" data-estado="activo" data-fecha-registro="2026-02-10">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>04</span></td>
-                        <td>Carlos Ramírez</td>
+                        <td>Carlos Ramírez Hernández</td>
                         <td>42</td>
                         <td>81-4567-8901</td>
                         <td>carlos.ramirez@gmail.com</td>
-                        <td>2026-01-15</td>
-                        <td>2026-02-15</td>
-                        <td>Activo</td>
+                        <td>M</td>
+                        <td>O-</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/activo.png" alt=""></td>
                     </tr>
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 5" data-estado="activo" data-fecha-registro="2026-02-10">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>05</span></td>
                         <td>Sofía Herández Cruz</td>
                         <td>26</td>
                         <td>81-5678-9012</td>
                         <td>sofia.herandez@gmail.com</td>
-                        <td>2026-01-10</td>
-                        <td>2026-02-15</td>
-                        <td>Pendiente</td>
+                        <td>F</td>
+                        <td>A-</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/activo.png" alt=""></td>
                     </tr>
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 6" data-estado="inactivo" data-fecha-registro="2026-02-20">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>06</span></td>
                         <td>Miguel Ángel Salinas</td>
                         <td>30</td>
                         <td>81-6789-0123</td>
                         <td>miguel.salinas@gmail.com</td>
-                        <td>2026-01-12</td>
-                        <td>2026-02-14</td>
-                        <td>Activo</td>
+                        <td>M</td>
+                        <td>AB+</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
                     </tr>
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 7" data-estado="inactivo" data-fecha-registro="2026-02-20">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>07</span></td>
                         <td>Fernando Ríos Castillo</td>
                         <td>21</td>
                         <td>81-7890-1234</td>
                         <td>fernando.rios@gmail.com</td>
-                        <td>2026-01-15</td>
-                        <td>2026-02-16</td>
-                        <td>Cancelado</td>
+                        <td>M</td>
+                        <td>B-</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
                     </tr>
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 8" data-estado="inactivo" data-fecha-registro="2026-02-20">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>08</span></td>
                         <td>Alejandro Gómez Vargas</td>
                         <td>32</td>
                         <td>81-8901-2345</td>
                         <td>alejandro.gomez@gmail.com</td>
-                        <td>2026-01-18</td>
-                        <td>2026-02-17</td>
-                        <td>Activo</td>
+                        <td>M</td>
+                        <td>O+</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
                     </tr>
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 9" data-estado="inactivo" data-fecha-registro="2026-02-20">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>09</span></td>
                         <td>Mariana Torres Aguilar</td>
                         <td>28</td>
                         <td>81-7890-1234</td>
                         <td>mariana.torres@gmail.com</td>
-                        <td>2026-01-14</td>
-                        <td>2026-02-18</td>
-                        <td>Activo</td>
+                        <td>F</td>
+                        <td>A+</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
                     </tr>
-                    <tr class="tabla_filas">
+                    <tr class="tabla_filas" data-motivo="Motivo 10" data-estado="inactivo" data-fecha-registro="2026-02-20">
                         <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
                         <td><span>10</span></td>
                         <td>Ricardo Sánchez Peña</td>
                         <td>99</td>
                         <td>81-0123-4567</td>
                         <td>ricardo.sanchez@gmail.com</td>
-                        <td>2026-01-22</td>
-                        <td>2026-02-19</td>
-                        <td>Activo</td>
+                        <td>M</td>
+                        <td>AB-</td>
+                        <td><button class="motivo">Ver motivo</button></td>
+                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
                     </tr>
                 </tbody>
 
@@ -248,46 +263,63 @@
                 <svg class="cerrar cerrar_editar" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                 <h3>Ingrese los nuevos datos:</h3>
                 <div class="div_datos">
-                    <div class="dato">
-                        <p>Nombre completo:</p>
-                        <input type="text" name="nombre" id="" placeholder="Ingrese el nombre completo...">
-                    </div>
-                    <div class="edad_tel">
+                    <div class="nombre_edad">
+                        <div class="dato">
+                            <p>Nombre completo:</p>
+                            <input type="text" name="nombreEditar" id="" placeholder="Ingrese el nombre completo..." required>
+                        </div>
                         <div class="dato">
                             <p>Edad:</p>
-                            <input type="number" name="edad" id="" placeholder="Ingrese la edad..." min="0">
+                            <input type="number" name="edadEditar" id="" placeholder="Ingrese la edad..." required>
                         </div>
+                    </div>
+                    <div class="tel_correo">
                         <div class="dato">
                             <p>Teléfono:</p>
-                            <input type="tel" name="telefono" id="" placeholder="Ingrese el teléfono...">
-                        </div>
-                    </div>
-                    <div class="dato">
-                        <p>Correo:</p>
-                        <input type="email" name="correo" id="" placeholder="Ingrese el correo...">
-                    </div>
-                    <div class="cita_estado">
-                        <div class="dato">
-                            <p>Última cita:</p>
-                            <input type="datetime" name="cita" id="" placeholder="Ingrese la última cita...">
+                            <input type="tel" name="telefonoEditar" id="" placeholder="Ingrese el teléfono..." required>
                         </div>
                         <div class="dato">
-                            <p>Estado:</p>
-                            <div class="estado">
-                                <div class="info_estado">
-                                    <p>Selecciona un estado</p>
+                            <p>Correo:</p>
+                            <input type="email" name="correoEditar" id="" placeholder="Ingrese el correo..." required>
+                        </div>
+                    </div>
+                    <div class="correo_sexo_sangre">
+                        <div class="dato">
+                            <p>Sexo:</p>
+                            <div class="sexo">
+                                <div class="info_sexo">
+                                    <p>Selecciona un sexo</p>
                                     <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                                 </div>
-                                <div class="div_estados">
-                                    <p>Selecciona un Estado</p>
-                                    <p>Activo</p>
-                                    <p>Pendiente</p>
-                                    <p>Cancelado</p>
+                                <div class="div_sexos">
+                                    <p>Selecciona un sexo</p>
+                                    <p>M <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
+                                    <p>F <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="dato">
+                            <p>Tipo de sangre:</p>
+                            <div class="sexo">
+                                <div class="info_sexo info_sangre">
+                                    <p>Selecciona un tipo de sangre</p>
+                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </div>
+                                <div class="div_sexos div_sangre">
+                                    <p>Selecciona un tipo de sangre</p>
+                                    <p>A+</p><p>A-</p><p>B+</p><p>B-</p>
+                                    <p>AB+</p><p>AB-</p><p>O+</p><p>O-</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="enviar"><button type="submit" class="btn_editar">Editar paciente</button></div>
+                    <div class="dato">
+                        <p>Motivo de consulta:</p>
+                        <input type="text" name="motivoEditar" placeholder="Ingrese el motivo de consulta...">
+                    </div>
+                    <div class="enviar"><button type="submit" class="btn_editar">Editar datos</button></div>
                 </div>
             </div>
         </div>
@@ -299,36 +331,64 @@
                 <svg class="cerrar cerrar_nuevo_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                 <h3>Ingrese un nuevo paciente:</h3>
                 <div class="div_datos">
-                    <div class="dato">
-                        <p>Nombre completo:</p>
-                        <input type="text" name="nombreAgregar" id="" placeholder="Ingrese el nombre completo..." required>
-                    </div>
-                    <div class="edad_tel">
+                    <div class="nombre_edad">
+                        <div class="dato">
+                            <p>Nombre completo:</p>
+                            <input type="text" name="nombreAgregar" id="" placeholder="Ingrese el nombre completo..." required>
+                        </div>
                         <div class="dato">
                             <p>Edad:</p>
                             <input type="number" name="edadAgregar" id="" placeholder="Ingrese la edad..." required>
                         </div>
+                    </div>
+                    <div class="tel_correo">
                         <div class="dato">
                             <p>Teléfono:</p>
                             <input type="tel" name="telefonoAgregar" id="" placeholder="Ingrese el teléfono..." required>
                         </div>
+                        <div class="dato">
+                            <p>Correo:</p>
+                            <input type="email" name="correoAgregar" id="" placeholder="Ingrese el correo..." required>
+                        </div>
+                    </div>
+                    <div class="correo_sexo_sangre">
+                        <div class="dato">
+                            <p>Sexo:</p>
+                            <div class="sexo">
+                                <div class="info_sexo">
+                                    <p>Selecciona un sexo</p>
+                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </div>
+                                <div class="div_sexos">
+                                    <p>Selecciona un sexo</p>
+                                    <p>M <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
+                                    <p>F <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dato">
+                            <p>Tipo de sangre:</p>
+                            <div class="sexo">
+                                <div class="info_sexo info_sangre">
+                                    <p>Selecciona un tipo de sangre</p>
+                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </div>
+                                <div class="div_sexos div_sangre">
+                                    <p>Selecciona un tipo de sangre</p>
+                                    <p>A+</p><p>A-</p><p>B+</p><p>B-</p>
+                                    <p>AB+</p><p>AB-</p><p>O+</p><p>O-</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="dato">
-                        <p>Correo:</p>
-                        <input type="email" name="correoAgregar" id="" placeholder="Ingrese el correo..." required>
+                        <p>Motivo de consulta:</p>
+                        <input type="text" name="motivoAgregar" placeholder="Ingrese el motivo de consulta...">
                     </div>
                     <div class="enviar"><button type="submit" class="btn_agregar">Agregar paciente</button></div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="alerta">
-        <div class="div_alerta">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M508.5-291.5Q520-303 520-320t-11.5-28.5Q497-360 480-360t-28.5 11.5Q440-337 440-320t11.5 28.5Q463-280 480-280t28.5-11.5ZM440-440h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-            <div class="info_alerta">
-                <h3>Campos incompletos</h3>
-                <p>Es necesario llenar todos los campos</p>
             </div>
         </div>
     </div>
@@ -340,7 +400,7 @@
                 <svg class="" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
                 <h3>Eliminar registro</h3>
             </div>
-
+            
             <div class="info_eliminar_paciente">
                 <p>¿Deseas eliminar el registro de <span class="registro_paciente">N</span>?</p>
                 <div class="paciente">
@@ -356,6 +416,52 @@
         </div>
     </div>
 
+    <div class="alerta">
+        <div class="div_alerta">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M508.5-291.5Q520-303 520-320t-11.5-28.5Q497-360 480-360t-28.5 11.5Q440-337 440-320t11.5 28.5Q463-280 480-280t28.5-11.5ZM440-440h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+            <div class="info_alerta">
+                <h3>Campos incompletos</h3>
+                <p>Es necesario llenar todos los campos</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay_motivo overlay">
+        <div class="div_motivo">
+            <svg class="cerrar cerrar_motivo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            
+            <div class="header_motivo">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M87-556q26-140 135.5-232T480-880q74 0 139.5 24T737-788q-14 26-22.5 44.5T703-709q-44-42-101-66.5T480-800q-101 0-181 56.5T183-599q-27-1-52.5 10T87-556ZM480-80q-148 0-257.5-92T87-404q17 22 42.5 33.5T183-360q36 88 116 144t181 56q133 0 226.5-93.5T800-480q0-17-1.5-34t-5.5-34q11 4 22.5 6t24.5 2q9 0 18-1t17-3q2 16 3.5 31.5T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80ZM336-496l84-84-85-85-42 42 43 42-43 43 43 42Zm447.5-127.5Q760-647 760-680q0-27 15-57.5T840-840q50 72 65 102.5t15 57.5q0 33-23.5 56.5T840-600q-33 0-56.5-23.5ZM625-495l43-43-43-43 42-42-42-42-85 85 85 85Zm-145 75q-26 0-50.5 6T383-397l-143-83q0-16-8-30t-22-22q-22-12-45.5-5.5T128-510q-12 22-5.5 45.5T150-428q14 8 30 8t30-8l119 69q-17 17-30.5 36.5T276-280h66q21-36 57-58t81-22q45 0 81 22t57 58h66q-24-62-78.5-101T480-420Zm0-60Z"/></svg>
+                <h3>Motivo de consulta</h3>
+            </div>
+
+            <div class="paciente_motivo">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
+                <span class="nombre_motivo">Nombre del paciente</span>
+            </div>
+
+            <div class="contenido_motivo">
+                <p class="texto_motivo">Sin motivo registrado.</p>
+            </div>
+
+            <div class="contenido_fecha_registro">
+                <p class="texto_fecha_registro" title="Fecha de registro">Sin fecha de registro</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="div_textarea">
+        <textarea name="" id="" placeholder="Use este apartado para escribir sus notas."></textarea>
+        <div class="div_abrir_area">
+            <svg class="abrir_area" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+        </div>
+        <div class="div_borrar_area">
+            <svg class="borrar_area" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+        </div>
+    </div>
+
     <script src="gest_pacientes.js"></script>
+    <script src="sidebar.js"></script>
 </body>
 </html>

@@ -56,7 +56,6 @@ body{
             }
         }
     }
-    hr{ margin: 1rem 0; width: 100%; }
     .pacientes_header{
         display: flex;
         justify-content: space-between;
@@ -196,7 +195,19 @@ body{
                         width: 500px;
                         aspect-ratio: 1/1;
                         border-radius: 50px;
+                        box-shadow: 0 0 10px var(--morado_claro);
                         background-color: var(--morado_medio);
+                    }
+                }
+                .div_motivo{
+                    display: flex;
+                    align-items: center;
+
+                    p{
+                        font-size: 1.1rem;
+                        color: #ddd;
+                        text-align: justify;
+                        span{ font-weight: 600; }
                     }
                 }
             }

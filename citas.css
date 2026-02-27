@@ -56,7 +56,6 @@ body{
             }
         }
     }
-    hr{ margin: 1rem 0; }
     .cita_header{
         display: flex;
         justify-content: space-between;

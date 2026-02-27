@@ -3,7 +3,7 @@ const horaSpan = document.querySelector('.hora span')
 const ahora = new Date();
 
 const fecha = ahora.toLocaleDateString("es-MX", {
-    weekday: "long",   // día de la semana
+    weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric"

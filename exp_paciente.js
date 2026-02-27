@@ -107,14 +107,37 @@ document.addEventListener('click', (e) => {
 btnEditarExp.addEventListener('click', () => { overlayEditarExp.style.display = 'flex' })
 btnNuevaCita.addEventListener('click', () => { overlayNuevaCita.style.display = 'flex' })
 
+const ID = localStorage.getItem('ID')
+const nombre = localStorage.getItem('nombre')
+const edad = localStorage.getItem('edad')
+const fechaNac = localStorage.getItem('fechaNac')
+const telefono = localStorage.getItem('telefono')
+const correo = localStorage.getItem('correo')
+const sexo = localStorage.getItem('sexo')
+const tipoSangre = localStorage.getItem('tipoSangre')
+const motivo = localStorage.getItem('motivo')
+
 const IDPaciente = document.querySelector('.ID')
 const nombrePaciente = document.querySelector('.nombre')
 const edadPaciente = document.querySelector('.edad')
 const fechaNacPaciente = document.querySelector('.fechaNac')
 const telefonoPaciente = document.querySelector('.telefono')
 const correoPaciente = document.querySelector('.correo')
+const sexoPaciente = document.querySelector('.sexo')
 const tipoSangrePaciente = document.querySelector('.tipo_sangre')
 const motivoPaciente = document.querySelector('.motivo')
+
+if(nombre){
+    IDPaciente.textContent = `#${ID}`
+    nombrePaciente.textContent = nombre
+    edadPaciente.textContent = edad
+    telefonoPaciente.textContent = telefono
+    correoPaciente.textContent = correo
+    if(sexo === "M"){ sexoPaciente.textContent = "Masculino" }
+    else if(sexo === "F"){ sexoPaciente.textContent = "Femenino" }
+    tipoSangrePaciente.textContent = tipoSangre
+    motivoPaciente.textContent = motivo
+}
 
 cerrarPopups.forEach(btnCerrar => {
     btnCerrar.addEventListener('click', () => {
