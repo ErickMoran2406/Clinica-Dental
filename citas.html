@@ -18,7 +18,7 @@
                     </div>
                 </li>
                 <div class="grupo_menu">
-                    <a href="index.html">
+                    <a href="inicio.html">
                         <li class="seccion">
                             <svg class="inicio" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
                             <div class="seccion_info">
@@ -59,11 +59,11 @@
                         </li>
                     </a>
                 </div>
-                <a href="login.html">
+                <a href="index.html">
                     <li class="seccion avatar">
                         <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
                         <div class="seccion_info">
-                            <h3 class="nombre_usuario">Dra. <span>Nombre</span></h3>
+                            <h3 class="nombre_usuario">Dra. <span class="usuario"></span></h3>
                             <p class="desc">Doctora</p>
                         </div>
                     </li>
@@ -75,17 +75,17 @@
     <main class="contenido">
         <div class="contenido_header">
             <h2>Agenda de citas</h2>
-            <div class="usuario">
+            <div class="div_usuario">
                 <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
-                <h3>Dr. Nombre</h3>
+                <h3><strong>Dra. <span class="usuario"></span></strong></h3>
             </div>
         </div>
         <hr>
         <div class="cita_header">
-            <div class="busqueda_cita">
+            <!-- <div class="busqueda_cita">
                 <svg class="lupa" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
                 <input type="text" class="input_busqueda" placeholder="Buscar cita...">
-            </div>
+            </div> -->
             <div class="interac_cita">
                 <button class="btn_nueva_cita"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg> 
                     Nueva cita</button>
@@ -95,18 +95,18 @@
         <div class="panel">
             <div class="panel_item citas_dia">
                 <p>Citas del día</p>
-                <span>NaN</span>
+                <span>0</span>
             </div>
-            <div class="panel_item citas_pendientes">
-                <p>Citas pendientes</p>
-                <span>NaN</span>
+            <div class="panel_item citas_totales">
+                <p>Citas totales</p>
+                <span>0</span>
             </div>
-            <div class="panel_item citas_canceladas">
-                <p>Citas canceladas</p>
-                <span>NaN</span>
+            <div class="panel_item pacientes_totales">
+                <p>Pacientes totales</p>
+                <span>0</span>
             </div>
             <div class="panel_item horarios">
-                <p>Horarios disponibles</p>
+                <p>Horarios</p>
                 <div class="div_horarios">
                     <span>9:00 am - 1:00 pm</span>
                     <span>2:00 pm - 5:00 pm</span>
@@ -146,46 +146,113 @@
         <div class="form">
             <div class="div_form">
                 <svg class="cerrar cerrar_nueva_cita" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                <h3>Ingrese una nueva cita:</h3>
+                <h3>Agendar una cita al paciente:</h3>
                 <div class="div_datos">
                     <div class="juntos nom_edad">
                         <div class="dato">
                             <p>Nombre completo:</p>
-                            <input type="text" name="nombreCita" id="" placeholder="Ingrese el nombre completo..." required>
+                            <div class="servicio select_paciente">
+                                <div class="info_servicio info_paciente_select">
+                                    <p>Selecciona un Paciente</p>
+                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </div>
+                                <div class="div_servicios div_pacientes">
+                                    <p>Selecciona un Paciente</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="dato">
+                        <!-- <div class="dato">
                             <p>Edad:</p>
                             <input type="number" name="edadCita" id="" placeholder="Ingrese la edad..." required min="0">
+                        </div> -->
+                        <div class="dato">
+                            <p>Servicio:</p>
+                            <div class="servicio">
+                                <div class="info_servicio">
+                                    <p>Selecciona un Servicio</p>
+                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </div>
+                                <div class="div_servicios">
+                                    <p>Selecciona un Servicio</p>
+                                    <p class="serv_seccion" disabled>— Consultas y Visitas Generales —</p>
+                                    <p>Primera visita Odontologica</p>
+                                    <p>Consulta Odontopediatría</p>
+                                    <p>Consulta de valoración para implantes dentales</p>
+                                    <p class="serv_seccion" disabled>— Cirugía Oral y Maxilofacial —</p>
+                                    <p>Extracción de piezas dentarias</p>
+                                    <p>Extracción de muelas de juicio</p>
+                                    <p>Exodoncia</p>
+                                    <p>Cirugía de quistes dentarios</p>
+                                    <p>Cirugía de prognatismo maxilar inferior</p>
+                                    <p>Cirugía del tercer molar</p>
+                                    <p>Apicectomía</p>
+                                    <p>Alargamiento de corona</p>
+                                    <p class="serv_seccion" disabled>— Endodoncia y Restauración —</p>
+                                    <p>Endopostes de fibras de vidrio</p>
+                                    <p class="serv_seccion" disabled>— Prótesis y Restauraciones Estéticas —</p>
+                                    <p>Coronas estéticas</p>
+                                    <p>Coronas infantiles</p>
+                                    <p>Carillas de porcelana</p>
+                                    <p>Aplicación de incrustación estética</p>
+                                    <p class="serv_seccion" disabled>— Ortodoncia —</p>
+                                    <p>Brackets para niños</p>
+                                    <p>Brackets de zafiro</p>
+                                    <p>Brackets de cerámica</p>
+                                    <p class="serv_seccion" disabled>— Estética Dental —</p>
+                                    <p>Blanqueamiento dental</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="juntos">
                         <div class="dato">
-                            <p>Fecha y Hora:</p>
-                            <input type="datetime-local" name="fechaCita" id="" required>
+                            <p>Fecha:</p>
+                            <input type="date" name="fechaCita" id="" required>
                         </div>
                         <div class="dato">
-                            <p>Estado:</p>
-                            <input type="text" name="estadoCita" id="" value="Activo" readonly>
+                            <p>Hora:</p>
+                            <input type="time" name="horaCita" id="" required>
                         </div>
                     </div>
                     <div class="dato">
-                        <p>Especialidad:</p>
-                        <div class="estado">
-                            <div class="info_esp">
-                                <p>Selecciona una especialidad</p>
-                                <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                            </div>
-                            <div class="div_esp">
-                                <p>Selecciona una especialidad</p>
-                                <p>Ortodoncia</p>
-                                <p>Maxilofacial</p>
-                                <p>Rehabilitación</p>
-                                <p>Odontopediatría</p>
-                            </div>
+                        <p>Motivo de consulta:</p>
+                        <input type="text" name="motivoCita" placeholder="Ingrese el motivo de consulta del paciente...">
+                    </div>
+                    <div class="dato">
+                        <p>Notas sobre la consulta:</p>
+                        <textarea name="notaCita" id="" placeholder="Ingrese las notas necesarias acerca de la consulta del paciente..." required></textarea>
+                    </div>
+                    <div class="agregar_cita"><button type="submit" class="btn_agregar_cita">Agregar cita</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay_info_citas overlay">
+        <div class="div_info_citas">
+            <svg class="cerrar cerrar_info_citas" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            <h3>Información de las citas</h3>
+            <div class="info_citas">
+
+                <div class="info_cita">
+
+                    <!-- <div class="info_paciente">
+                        <div class="nombre_hora">
+                            <p>Persona</p>
+                            <p>Hora</p>
+                        </div>
+                        <div class="interac_info">
+                            <svg class="svg_borrar" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+                            <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                         </div>
                     </div>
-                    <div class="agregar_cita"><button type="submit" class="btn_agregar">Agregar cita</button></div>
+                    <div class="motivo_cita">
+                        <span>MOTIVO DE CONSULTA</span>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum labore amet porro sunt in quidem quasi eligendi, repellendus maxime unde illo fugiat magni eaque nemo nisi? Nemo eos molestiae dicta.</p>
+                    </div> -->
+
                 </div>
+
             </div>
         </div>
     </div>
@@ -197,6 +264,16 @@
         </div>
         <div class="div_borrar_area">
             <svg class="borrar_area" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+        </div>
+    </div>
+
+    <div class="alerta">
+        <div class="div_alerta">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M508.5-291.5Q520-303 520-320t-11.5-28.5Q497-360 480-360t-28.5 11.5Q440-337 440-320t11.5 28.5Q463-280 480-280t28.5-11.5ZM440-440h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+            <div class="info_alerta">
+                <h3>Campos incompletos</h3>
+                <p>Es necesario llenar todos los campos</p>
+            </div>
         </div>
     </div>
 

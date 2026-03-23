@@ -18,7 +18,7 @@
                     </div>
                 </li>
                 <div class="grupo_menu">
-                    <a href="index.html">
+                    <a href="inicio.html">
                         <li class="seccion">
                             <svg class="inicio" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
                             <div class="seccion_info">
@@ -59,11 +59,11 @@
                         </li>
                     </a>
                 </div>
-                <a href="login.html">
+                <a href="index.html">
                     <li class="seccion avatar">
                         <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
                         <div class="seccion_info">
-                            <h3 class="nombre_usuario">Dra. <span>Nombre</span></h3>
+                            <h3 class="nombre_usuario">Dra. <span class="usuario"></span></h3>
                             <p class="desc">Doctora</p>
                         </div>
                     </li>
@@ -75,16 +75,16 @@
     <main class="contenido">
         <div class="contenido_header">
             <h2>Gestión de pacientes</h2>
-            <div class="usuario">
+            <div class="div_usuario">
                 <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
-                <h3>Dr. Nombre</h3>
+                <h3><strong>Dra. <span class="usuario"></span></strong></h3>
             </div>
         </div>
         <hr>
         <div class="pacientes_header">
             <div class="n_pacientes">
                 <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
-                <p>total de pacientes: <span class="numero_total_pacientes">N</span></p>
+                <p>total de pacientes: <span class="numero_total_pacientes">0</span></p>
             </div>
             <div class="busqueda_paciente">
                 <svg class="lupa" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
@@ -94,7 +94,6 @@
                 <button class="btn_nuevo_paciente"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg> Nuevo paciente</button>
             </div>
         </div>
-
 
         <div class="opc_tabla">
             <div class="div_opc_tabla">
@@ -120,139 +119,16 @@
                         <th></th>
                         <th>N°</th>
                         <th>Nombre completo</th>
-                        <th>Edad</th>
+                        <th>Fecha nacimiento</th>
                         <th>Teléfono</th>
                         <th>Correo</th>
                         <th>Sexo</th>
                         <th>Tipo sangre</th>
-                        <td>Motivo</td>
-                        <td>Estado</td>
+                        <!-- <th>Motivo</th> -->
+                        <th>Estado</th>
                     </tr>
                 </thead>
-
-                <tbody class="tabla_cuerpo">
-                    <tr class="tabla_filas" data-motivo="Motivo 1" data-estado="activo" data-fecha-registro="2026-02-10">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>01</span></td>
-                        <td>Eustaquio López Gómez</td>
-                        <td>23</td>
-                        <td>81-1234-5678</td>
-                        <td>eustaquio.lopez@gmail.com</td>
-                        <td>M</td>
-                        <td>O+</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/activo.png" alt=""></td>
-                    </tr>
-                    <tr class="tabla_filas" data-motivo="Motivo 2" data-estado="activo" data-fecha-registro="2026-02-10">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>02</span></td>
-                        <td>Giliberto Pérez Duarte</td>
-                        <td>24</td>
-                        <td>81-2345-6789</td>
-                        <td>gilberto.perez@gmail.com</td>
-                        <td>M</td>
-                        <td>A+</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/activo.png" alt=""></td>
-                    </tr>
-                    <tr class="tabla_filas" data-motivo="Motivo 3" data-estado="activo" data-fecha-registro="2026-02-10">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>03</span></td>
-                        <td>Laura Mendez Torres</td>
-                        <td>50</td>
-                        <td>81-3456-7890</td>
-                        <td>laura.mendez@gmail.com</td>
-                        <td>F</td>
-                        <td>B+</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/activo.png" alt=""></td>
-                    </tr>
-                    <tr class="tabla_filas" data-motivo="Motivo 4" data-estado="activo" data-fecha-registro="2026-02-10">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>04</span></td>
-                        <td>Carlos Ramírez Hernández</td>
-                        <td>42</td>
-                        <td>81-4567-8901</td>
-                        <td>carlos.ramirez@gmail.com</td>
-                        <td>M</td>
-                        <td>O-</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/activo.png" alt=""></td>
-                    </tr>
-                    <tr class="tabla_filas" data-motivo="Motivo 5" data-estado="activo" data-fecha-registro="2026-02-10">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>05</span></td>
-                        <td>Sofía Herández Cruz</td>
-                        <td>26</td>
-                        <td>81-5678-9012</td>
-                        <td>sofia.herandez@gmail.com</td>
-                        <td>F</td>
-                        <td>A-</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/activo.png" alt=""></td>
-                    </tr>
-                    <tr class="tabla_filas" data-motivo="Motivo 6" data-estado="inactivo" data-fecha-registro="2026-02-20">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>06</span></td>
-                        <td>Miguel Ángel Salinas</td>
-                        <td>30</td>
-                        <td>81-6789-0123</td>
-                        <td>miguel.salinas@gmail.com</td>
-                        <td>M</td>
-                        <td>AB+</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
-                    </tr>
-                    <tr class="tabla_filas" data-motivo="Motivo 7" data-estado="inactivo" data-fecha-registro="2026-02-20">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>07</span></td>
-                        <td>Fernando Ríos Castillo</td>
-                        <td>21</td>
-                        <td>81-7890-1234</td>
-                        <td>fernando.rios@gmail.com</td>
-                        <td>M</td>
-                        <td>B-</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
-                    </tr>
-                    <tr class="tabla_filas" data-motivo="Motivo 8" data-estado="inactivo" data-fecha-registro="2026-02-20">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>08</span></td>
-                        <td>Alejandro Gómez Vargas</td>
-                        <td>32</td>
-                        <td>81-8901-2345</td>
-                        <td>alejandro.gomez@gmail.com</td>
-                        <td>M</td>
-                        <td>O+</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
-                    </tr>
-                    <tr class="tabla_filas" data-motivo="Motivo 9" data-estado="inactivo" data-fecha-registro="2026-02-20">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>09</span></td>
-                        <td>Mariana Torres Aguilar</td>
-                        <td>28</td>
-                        <td>81-7890-1234</td>
-                        <td>mariana.torres@gmail.com</td>
-                        <td>F</td>
-                        <td>A+</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
-                    </tr>
-                    <tr class="tabla_filas" data-motivo="Motivo 10" data-estado="inactivo" data-fecha-registro="2026-02-20">
-                        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente" id=""></td>
-                        <td><span>10</span></td>
-                        <td>Ricardo Sánchez Peña</td>
-                        <td>99</td>
-                        <td>81-0123-4567</td>
-                        <td>ricardo.sanchez@gmail.com</td>
-                        <td>M</td>
-                        <td>AB-</td>
-                        <td><button class="motivo">Ver motivo</button></td>
-                        <td class="estado"><img src="img/inactivo.png" alt=""></td>
-                    </tr>
-                </tbody>
-
+                <tbody class="tabla_cuerpo"></tbody>
             </table>
         </div>
     </main>
@@ -263,26 +139,70 @@
                 <svg class="cerrar cerrar_editar" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                 <h3>Ingrese los nuevos datos:</h3>
                 <div class="div_datos">
+
                     <div class="nombre_edad">
                         <div class="dato">
                             <p>Nombre completo:</p>
-                            <input type="text" name="nombreEditar" id="" placeholder="Ingrese el nombre completo..." required>
-                        </div>
-                        <div class="dato">
-                            <p>Edad:</p>
-                            <input type="number" name="edadEditar" id="" placeholder="Ingrese la edad..." required>
+                            <input type="text" name="nombreEditar" placeholder="Ingrese el nombre completo..." required>
                         </div>
                     </div>
+
+                    <!-- Fecha nacimiento editar -->
+                    <div class="fecha_nac">
+                        <div class="dato">
+                            <p>Año de nacimiento:</p>
+                            <input type="number" name="anioEditar" placeholder="Ej: 1990" min="1920" max="2025">
+                        </div>
+                        <div class="dato">
+                            <p>Mes de nacimiento:</p>
+                            <div class="sexo select_mes_editar">
+                                <div class="info_sexo info_mes_editar">
+                                    <p>Mes</p>
+                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </div>
+                                <div class="div_sexos div_mes_editar">
+                                    <p>Mes</p>
+                                    <p data-val="01">Enero</p>
+                                    <p data-val="02">Febrero</p>
+                                    <p data-val="03">Marzo</p>
+                                    <p data-val="04">Abril</p>
+                                    <p data-val="05">Mayo</p>
+                                    <p data-val="06">Junio</p>
+                                    <p data-val="07">Julio</p>
+                                    <p data-val="08">Agosto</p>
+                                    <p data-val="09">Septiembre</p>
+                                    <p data-val="10">Octubre</p>
+                                    <p data-val="11">Noviembre</p>
+                                    <p data-val="12">Diciembre</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dato">
+                            <p>Día de nacimiento:</p>
+                            <div class="sexo select_dia_editar">
+                                <div class="info_sexo info_dia_editar">
+                                    <p>Día</p>
+                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                </div>
+                                <div class="div_sexos div_dia_editar">
+                                    <p>Día</p>
+                                    <!-- Los días se generan con JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="tel_correo">
                         <div class="dato">
                             <p>Teléfono:</p>
-                            <input type="tel" name="telefonoEditar" id="" placeholder="Ingrese el teléfono..." required>
+                            <input type="number" name="telefonoEditar" placeholder="Ingrese el teléfono..." maxlength="10" pattern="\d{1,10}" oninput="if(this.value.length > 10) this.value = this.value.slice(0,10)" required>
                         </div>
                         <div class="dato">
                             <p>Correo:</p>
-                            <input type="email" name="correoEditar" id="" placeholder="Ingrese el correo..." required>
+                            <input type="email" name="correoEditar" placeholder="Ingrese el correo..." required>
                         </div>
                     </div>
+
                     <div class="correo_sexo_sangre">
                         <div class="dato">
                             <p>Sexo:</p>
@@ -293,12 +213,11 @@
                                 </div>
                                 <div class="div_sexos">
                                     <p>Selecciona un sexo</p>
-                                    <p>M <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
-                                    <p>F <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
+                                    <p>M <svg class="flecha_sexo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
+                                    <p>F <svg class="flecha_sexo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="dato">
                             <p>Tipo de sangre:</p>
                             <div class="sexo">
@@ -313,12 +232,12 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div class="dato">
+
+                    <!-- <div class="dato">
                         <p>Motivo de consulta:</p>
                         <input type="text" name="motivoEditar" placeholder="Ingrese el motivo de consulta...">
-                    </div>
+                    </div> -->
                     <div class="enviar"><button type="submit" class="btn_editar">Editar datos</button></div>
                 </div>
             </div>
@@ -327,68 +246,235 @@
 
     <div class="overlay_nuevo_paciente overlay">
         <div class="form">
-            <div class="div_form">
-                <svg class="cerrar cerrar_nuevo_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                <h3>Ingrese un nuevo paciente:</h3>
-                <div class="div_datos">
-                    <div class="nombre_edad">
-                        <div class="dato">
-                            <p>Nombre completo:</p>
-                            <input type="text" name="nombreAgregar" id="" placeholder="Ingrese el nombre completo..." required>
+            <div class="secciones_form">
+                <div class="seccion info_basica activo">
+                    <span>1</span>
+                    <h3>Información Básica</h3>
+                </div>
+                <div class="seccion antec_med">
+                    <span>2</span>
+                    <h3>Antecedentes Médicos</h3>
+                </div>
+                <div class="seccion perfil_dental">
+                    <span>3</span>
+                    <h3>Perfil Dental</h3>
+                </div>
+            </div>
+
+            <div class="carrusel_forms">
+                <div class="div_form">
+                    <svg class="cerrar cerrar_nuevo_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    <h3>Información Básica:</h3>
+                    <div class="div_datos">
+
+                        <div class="nombre_edad">
+                            <div class="dato">
+                                <p>Nombre completo:</p>
+                                <input type="text" name="nombreAgregar" placeholder="Ingrese el nombre completo..." required>
+                            </div>
+                            
                         </div>
-                        <div class="dato">
-                            <p>Edad:</p>
-                            <input type="number" name="edadAgregar" id="" placeholder="Ingrese la edad..." required>
-                        </div>
-                    </div>
-                    <div class="tel_correo">
-                        <div class="dato">
-                            <p>Teléfono:</p>
-                            <input type="tel" name="telefonoAgregar" id="" placeholder="Ingrese el teléfono..." required>
-                        </div>
-                        <div class="dato">
-                            <p>Correo:</p>
-                            <input type="email" name="correoAgregar" id="" placeholder="Ingrese el correo..." required>
-                        </div>
-                    </div>
-                    <div class="correo_sexo_sangre">
-                        <div class="dato">
-                            <p>Sexo:</p>
-                            <div class="sexo">
-                                <div class="info_sexo">
-                                    <p>Selecciona un sexo</p>
-                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                                </div>
-                                <div class="div_sexos">
-                                    <p>Selecciona un sexo</p>
-                                    <p>M <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
-                                    <p>F <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
+
+                        <div class="fecha_nac">
+                            <div class="dato">
+                                <p>Año de nacimiento:</p>
+                                <input type="number" inputmode="numeric" name="anioAgregar" placeholder="Ej: 1990" min="1920" max="2025" maxlength="4" pattern="\d{1,4}" oninput="if(this.value.length > 4) this.value = this.value.slice(0,4)">
+                            </div>
+                            <div class="dato">
+                                <p>Mes de nacimiento:</p>
+                                <div class="sexo select_mes_agregar">
+                                    <div class="info_sexo info_mes_agregar">
+                                        <p>Mes</p>
+                                        <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                    </div>
+                                    <div class="div_sexos div_mes_agregar">
+                                        <p>Mes</p>
+                                        <p data-val="01">Enero</p>
+                                        <p data-val="02">Febrero</p>
+                                        <p data-val="03">Marzo</p>
+                                        <p data-val="04">Abril</p>
+                                        <p data-val="05">Mayo</p>
+                                        <p data-val="06">Junio</p>
+                                        <p data-val="07">Julio</p>
+                                        <p data-val="08">Agosto</p>
+                                        <p data-val="09">Septiembre</p>
+                                        <p data-val="10">Octubre</p>
+                                        <p data-val="11">Noviembre</p>
+                                        <p data-val="12">Diciembre</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="dato">
-                            <p>Tipo de sangre:</p>
-                            <div class="sexo">
-                                <div class="info_sexo info_sangre">
-                                    <p>Selecciona un tipo de sangre</p>
-                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                                </div>
-                                <div class="div_sexos div_sangre">
-                                    <p>Selecciona un tipo de sangre</p>
-                                    <p>A+</p><p>A-</p><p>B+</p><p>B-</p>
-                                    <p>AB+</p><p>AB-</p><p>O+</p><p>O-</p>
+                            <div class="dato">
+                                <p>Día de nacimiento:</p>
+                                <div class="sexo select_dia_agregar">
+                                    <div class="info_sexo info_dia_agregar">
+                                        <p>Día</p>
+                                        <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                    </div>
+                                    <div class="div_sexos div_dia_agregar">
+                                        <p>Día</p>
+                                        <!-- Los días se generan con JS -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
+                        <div class="selects_sexo_sangre">
+                            <div class="dato">
+                                <p>Sexo:</p>
+                                <div class="sexo">
+                                    <div class="info_sexo select_sexo">
+                                        <p>Selecciona un sexo:</p>
+                                        <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                    </div>
+                                    <div class="div_sexos">
+                                        <p>Selecciona un sexo:</p>
+                                        <p>M <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
+                                        <p>F <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dato">
+                                <p>Tipo de sangre:</p>
+                                <div class="sangre">
+                                    <div class="info_sangre select_sangre">
+                                        <p>Selecciona un tipo de sangre:</p>
+                                        <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                    </div>
+                                    <div class="div_sangres">
+                                        <p>Selecciona un tipo de sangre</p>
+                                        <p>A+</p>
+                                        <p>A-</p>
+                                        <p>B+</p>
+                                        <p>B-</p>
+                                        <p>AB+</p>
+                                        <p>AB-</p>
+                                        <p>O+</p>
+                                        <p>O-</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tel_correo">
+                            <div class="dato">
+                                <p>Teléfono:</p>
+                                <input type="number" name="telefonoAgregar" placeholder="Ingrese el teléfono..." maxlength="10" pattern="\d{1,10}" oninput="if(this.value.length > 10) this.value = this.value.slice(0,10)" required>
+                            </div>
+                            <div class="dato">
+                                <p>Correo:</p>
+                                <input type="email" name="correoAgregar" placeholder="Ingrese el correo..." required>
+                            </div>
+                        </div>
+
+                        <div class="dir_emergencia">
+                            <div class="dato">
+                                <p>Dirección:</p>
+                                <input type="text" name="direccionAgregar" placeholder="Ingrese la dirección..." required>
+                            </div>
+                            <div class="dato">
+                                <p>Contacto de emergencia:</p>
+                                <input type="number" name="emergenciaAgregar" placeholder="Ingrese el teléfono..." maxlength="10" pattern="\d{1,10}" oninput="if(this.value.length > 10) this.value = this.value.slice(0,10)" required>
+                            </div>
+                        </div>
+
+                        <!-- <div class="dato">
+                            <p>Motivo de consulta:</p>
+                            <input type="text" name="motivoAgregar" placeholder="Ingrese el motivo de consulta...">
+                        </div> -->
                     </div>
-                    <div class="dato">
-                        <p>Motivo de consulta:</p>
-                        <input type="text" name="motivoAgregar" placeholder="Ingrese el motivo de consulta...">
-                    </div>
-                    <div class="enviar"><button type="submit" class="btn_agregar">Agregar paciente</button></div>
                 </div>
+
+                <div class="div_form">
+                    <svg class="cerrar cerrar_nuevo_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    <h3>Antecedentes Médicos:</h3>
+                    <div class="div_datos">
+
+                        <div class="dato">
+                            <p>Alergias:</p>
+                            <input type="text" name="alergiasAgregar" placeholder="Ingrese las alergias..." required>
+                        </div>
+
+                        <div class="dato">
+                            <p>Medicamentos actuales:</p>
+                            <input type="text" name="medActAgregar" placeholder="Ingrese los medicamentos..." required>
+                        </div>
+                        <div class="dato">
+                            <p>Cirugías previas:</p>
+                            <input type="text" name="cirugiasAgregar" placeholder="Ingrese las cirugias..." required>
+                        </div>
+
+                        <div class="dato">
+                            <p>Enfermedades sistémicas:</p>
+                            <input type="text" name="enfAgregar" placeholder="Ingrese las enfermedades...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="div_form">
+                    <svg class="cerrar cerrar_nuevo_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    <h3>Perfil Dental:</h3>
+                    <div class="div_datos">
+
+                        <div class="dato">
+                            <p>Hábitos:</p>
+                            <div class="habitos_grid">
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoFumar">
+                                    <span class="habito_label">🚬 Fumar</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoRefrescos">
+                                    <span class="habito_label">🥤 Consumir refrescos frecuentemente</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoDulces">
+                                    <span class="habito_label">🍬 Consumir dulces frecuentemente</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoBruxismo">
+                                    <span class="habito_label">😬 Bruxismo (rechinar dientes)</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoUnias">
+                                    <span class="habito_label">💅 Morder uñas</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoHielo">
+                                    <span class="habito_label">🧊 Masticar hielo</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoRespiracion">
+                                    <span class="habito_label">👄 Respirar por la boca</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoEstres">
+                                    <span class="habito_label">😤 Apretar dientes por estrés</span>
+                                </label>
+                                <label class="habito_item habito_otro">
+                                    <input type="checkbox" name="habitoOtro" id="checkOtro">
+                                    <span class="habito_label">➕ Otro:</span>
+                                    <input type="text" name="habitoOtroTexto" class="input_habito_otro" placeholder="Especifique..." disabled>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- <div class="dato">
+                            <p>Dolor o sensación actual:</p>
+                            <input type="text" name="dolorAgregar" placeholder="Ingrese el dolor o sensación actual...">
+                        </div> -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="div_btn_agregar">
+                <div class="div_btns_forms">
+                    <div class="btn_prev"><button class="btn_prev_form btns_prev_next desactivado"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button></div>
+                    <div class="btn_next"><button class="btn_next_form btns_prev_next"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></button></div>
+                </div>
+                <div class="enviar"><button type="submit" class="btn_agregar">Agregar paciente</button></div>
             </div>
         </div>
     </div>
@@ -400,15 +486,13 @@
                 <svg class="" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
                 <h3>Eliminar registro</h3>
             </div>
-            
             <div class="info_eliminar_paciente">
                 <p>¿Deseas eliminar el registro de <span class="registro_paciente">N</span>?</p>
                 <div class="paciente">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg>
                     <span class="registro_paciente">Nombre del paciente</span>
-                </div> 
+                </div>
             </div>
-            
             <div class="btns_eliminar_paciente">
                 <button class="btn_eliminar_cancelar">Cancelar</button>
                 <button class="btn_eliminar_enviar">Si, eliminar</button>
@@ -423,31 +507,6 @@
                 <h3>Campos incompletos</h3>
                 <p>Es necesario llenar todos los campos</p>
             </div>
-        </div>
-    </div>
-
-    <div class="overlay_motivo overlay">
-        <div class="div_motivo">
-            <svg class="cerrar cerrar_motivo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-            
-            <div class="header_motivo">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M87-556q26-140 135.5-232T480-880q74 0 139.5 24T737-788q-14 26-22.5 44.5T703-709q-44-42-101-66.5T480-800q-101 0-181 56.5T183-599q-27-1-52.5 10T87-556ZM480-80q-148 0-257.5-92T87-404q17 22 42.5 33.5T183-360q36 88 116 144t181 56q133 0 226.5-93.5T800-480q0-17-1.5-34t-5.5-34q11 4 22.5 6t24.5 2q9 0 18-1t17-3q2 16 3.5 31.5T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80ZM336-496l84-84-85-85-42 42 43 42-43 43 43 42Zm447.5-127.5Q760-647 760-680q0-27 15-57.5T840-840q50 72 65 102.5t15 57.5q0 33-23.5 56.5T840-600q-33 0-56.5-23.5ZM625-495l43-43-43-43 42-42-42-42-85 85 85 85Zm-145 75q-26 0-50.5 6T383-397l-143-83q0-16-8-30t-22-22q-22-12-45.5-5.5T128-510q-12 22-5.5 45.5T150-428q14 8 30 8t30-8l119 69q-17 17-30.5 36.5T276-280h66q21-36 57-58t81-22q45 0 81 22t57 58h66q-24-62-78.5-101T480-420Zm0-60Z"/></svg>
-                <h3>Motivo de consulta</h3>
-            </div>
-
-            <div class="paciente_motivo">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Z"/></svg>
-                <span class="nombre_motivo">Nombre del paciente</span>
-            </div>
-
-            <div class="contenido_motivo">
-                <p class="texto_motivo">Sin motivo registrado.</p>
-            </div>
-
-            <div class="contenido_fecha_registro">
-                <p class="texto_fecha_registro" title="Fecha de registro">Sin fecha de registro</p>
-            </div>
-
         </div>
     </div>
 

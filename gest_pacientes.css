@@ -49,7 +49,7 @@ body{
             gap: 0.5rem;
             justify-content: center;
             align-items: center;
-            
+
             svg{
                 width: 30px;
                 height: 30px;
@@ -213,13 +213,13 @@ body{
 
         .tabla{
             width: 100%;
-            
+
             .tabla_header{
                 text-align: center;
                 background-color: var(--morado_claro);
 
                 .tabla_cols{
-                    
+
                     th{ padding: 0.5rem; }
                 }
             }
@@ -230,15 +230,15 @@ body{
                     cursor: pointer;
                     position: relative;
 
-                    td{ 
-                        color: black; 
+                    td{
+                        color: black;
                         padding: 0.3rem;
                         background-color: rgb(250, 250, 250);
 
                         span{
                             color: black;
                             font-weight: 500;
-                        } 
+                        }
                         input[type="checkbox"]{
                             display: flex;
                             justify-content: center;
@@ -272,7 +272,7 @@ body{
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        
+
                         img{
                             object-fit: cover;
                             width: 2rem;
@@ -293,31 +293,31 @@ body{
     height: 100%;
     z-index: 9999;
     display: none;
+    /* display: flex; */
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
 
     .form{
-        width: 100%;
-        height: 100%;
+        width: 60%;
+        /* height: 100%; */
+        border-radius: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
+        box-shadow: 0 2px 10px var(--morado_claro);
 
         .div_form{
             position: relative;
-            width: 50%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-radius: 10px;
             padding: 2rem 1rem;
             gap: 1.5rem;
             background-color: var(--morado_principal);
-            box-shadow: 0 2px 10px var(--morado_claro);
 
             h3{ text-align: center; font-size: 2rem; }
             .div_datos{
@@ -332,10 +332,270 @@ body{
                 .dato{
                     width: 100%;
 
-                    p{
-                        font-size: 1.1rem;
-                        margin-bottom: 0.5rem;
+                    p{ font-size: 1rem; margin-bottom: 0.5rem; }
+                    .sexo, .sangre{
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                        border-radius: 5px;
+                        background-color: white;
+                        color: #aaa;
+
+                        .info_sexo, .info_sangre{
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding: 0.5rem 0.8rem;
+
+                            p{
+                                color: gray;
+                                font-size: 0.9rem;
+                                margin-bottom: 0;
+                            }
+                            .svg_select{
+                                fill: var(--morado_principal);
+                                width: 25px;
+                                height: 25px;
+                                transition: transform 0.3s ease-in-out;
+                            }
+                            .svg_select.activo{ transform: rotate(180deg); }
+                        }
+                        .div_sexos, .div_sangres{
+                            display: none;
+                            flex-direction: column;
+                            position: absolute;
+                            top: 110%;
+                            width: 100%;
+                            border-radius: 5px;
+                            background-color: white;
+                            color: #aaa;
+                            z-index: 1001;
+
+                            max-height: 180px;
+                            overflow-y: auto;
+                            /* background-color: red; */
+
+                            p{
+                                padding: 0.5rem 0.8rem;
+                                color: gray;
+                                font-size: 0.9rem;
+                                margin-bottom: 0;
+                                display: flex;
+                                align-items: center;
+                                gap: 0.5rem;
+                                user-select: none;
+
+                                svg{ fill: gray; width: 15px; height: 15px; }
+                            }
+                            p:hover{
+                                background-color: var(--morado_claro);
+                                color: white;
+
+                                svg{ fill: white; }
+                            }
+                        }
                     }
+                    input{
+                        position: relative;
+                        width: 100%;
+                        padding: 0.5rem 0.8rem;
+                        border-radius: 5px;
+                        border: solid transparent;
+                        outline: none;
+                        color: black;
+                        font-size: 0.9rem;
+                        transition: border-color 0.3s ease-in-out;
+                        background-color: white;
+                    }
+                    input:focus{ border-color: var(--morado_claro); }
+                    input::placeholder{ color: gray; }
+                    textarea{
+                        width: 100%;
+                        padding: 0.5rem 0.8rem;
+                        border-radius: 5px;
+                        border: solid transparent;
+                        outline: none;
+                        color: black;
+                        font-size: 0.9rem;
+                        transition: border-color 0.3s ease-in-out;
+                        background-color: white;
+                        resize: none;
+                    }
+                }
+                .nombre_edad, .tel_correo, .dir_emergencia, .fecha_nac, .tipo_sangre_alergias, .med_cirugias{
+                    display: flex;
+                    gap: 1rem;
+                    width: 100%;
+                    user-select: none;
+                }
+                .nombre_edad .dato:nth-child(2){ width: 50%; }
+                .tel_correo .dato:nth-child(1){ width: 50%; }
+                .dir_emergencia .dato:nth-child(2){ width: 50%; }
+
+                .div_btn_agregar{
+                    display: flex;
+                    align-items: center;
+                    padding-top: 0.5rem;
+                    width: 100%;
+
+                    .div_btns_forms{
+                        display: flex;
+                        gap: 0.5rem;
+                        width: 100%;
+
+                        button{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 0.8rem;
+                            border: none;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            font-size: 0.9rem;
+                            background-color: var(--morado_medio);
+                            transition: all 0.2s ease-in-out;
+
+                            svg{ fill: white; width: 30px; aspect-ratio: 1/1; }
+                        }
+                        .btns_prev_next.desactivado{
+                            opacity: 0.5;
+                            box-shadow: 0 0 0;
+                            cursor: unset;
+                        }
+                        button:hover{
+                            /* transform: translateY(-3px); */
+                            box-shadow: 0 0 5px var(--morado_claro);
+                        }
+
+                    }
+                    .enviar{
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items: center;
+                        width: 100%;
+                        /* margin-top: 1rem; */
+
+                        button{
+                            padding: 0.8rem 1.5rem;
+                            border: none;
+                            border-radius: 8px;
+                            /* width: 20%; */
+                            cursor: pointer;
+                            font-size: 0.9rem;
+                            background-color: var(--morado_medio);
+                            transition: all 0.2s ease-in-out;
+                        }
+                        button:hover{
+                            transform: translateY(-3px);
+                            box-shadow: 0 0 5px var(--morado_claro);
+                        }
+                    }
+                }
+            }
+            .cerrar{
+                width: 43px;
+                height: 43px;
+                position: absolute;
+                top: 3%; right: 2%;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0.5rem;
+                border-radius: 50%;
+                fill: white;
+                transition: background-color 0.3s ease;
+            }
+            .cerrar:hover{ background-color: var(--morado_medio); }
+        }
+    }
+}
+.overlay_nuevo_paciente{
+    /* display: flex; */
+    user-select: none;
+
+    .form{ overflow: hidden; }
+    .secciones_form{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: var(--morado_medio);
+
+        .seccion{
+            width: 31%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            position: relative;
+
+            span{
+                background-color: var(--morado_principal);
+                width: 12%;
+                aspect-ratio: 1/1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* padding: 0.5rem 1rem; */
+                border-radius: 50%;
+                font-size: 1.2rem;
+            }
+            h3{
+                font-size: 1.1rem;
+            }
+        }
+        .seccion::after{
+            content: '';
+            position: absolute;
+            width: 100%; height: 100%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0.8rem;
+            opacity: 0;
+            border-bottom: solid 8px var(--morado_mas_claro);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .seccion:hover{ &::after{ opacity: 1; } }
+        .seccion.activo{ &::after{ opacity: 1; } }
+    }
+    .carrusel_forms{
+        display: flex;
+        width: 300%;
+        margin-left: 200%;
+        transition: margin-left 0.4s ease-in-out;
+        overflow: hidden;
+
+        .div_form{
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            gap: 1.5rem;
+            background-color: var(--morado_principal);
+
+            h3{ text-align: center; font-size: 2rem; }
+            .div_datos{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                padding: 0 1.5rem;
+
+                .dato{
+                    width: 100%;
+
+                    p{ font-size: 1rem; margin-bottom: 0.5rem; }
                     .sexo{
                         display: flex;
                         flex-direction: column;
@@ -394,6 +654,8 @@ body{
                             p:hover{
                                 background-color: var(--morado_claro);
                                 color: white;
+
+                                svg{ fill: white; }
                             }
                         }
                     }
@@ -423,8 +685,59 @@ body{
                         background-color: white;
                         resize: none;
                     }
+
+                    .habitos_grid{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 0.45rem;
+                        width: 100%;
+                    }
+                    .habito_item{
+                        display: flex;
+                        align-items: center;
+                        gap: 0.8rem;
+                        background-color: rgba(255, 255, 255, 0.1);
+                        border: 1px solid rgba(255, 255, 255, 0.18);
+                        border-radius: 8px;
+                        padding: 0.5rem 0.9rem;
+                        cursor: pointer;
+                        transition: background-color 0.2s ease, border-color 0.2s ease;
+                        user-select: none;
+                    }
+                    .habito_item:hover{
+                        background-color: rgba(255, 255, 255, 0.2);
+                        border-color: rgba(255, 255, 255, 0.4);
+                    }
+                    .habito_item:has(input:checked){
+                        background-color: rgba(201, 180, 219, 0.3);
+                        border-color: var(--morado_claro);
+                    }
+                    .habito_item input[type="checkbox"]{
+                        width: 15px;
+                        min-width: 15px;
+                        height: 15px;
+                        accent-color: var(--morado_claro);
+                        cursor: pointer;
+                        padding: 0;
+                        background-color: unset;
+                        border-radius: 3px;
+                    }
+                    .habito_label{ font-size: 0.9rem; color: white; flex: 1; }
+                    .habito_otro{ grid-column: 1 / -1; }
+                    .input_habito_otro{
+                        flex: 1;
+                        padding: 0.28rem 0.6rem !important;
+                        border-radius: 5px !important;
+                        font-size: 0.9rem !important;
+                        background-color: rgba(255,255,255,0.9) !important;
+                        border: 1px solid transparent !important;
+                        color: #333 !important;
+                        transition: opacity 0.25s ease, border-color 0.25s ease !important;
+                        min-width: 0;
+                    }
+                    .input_habito_otro:disabled{ opacity: 0.3; cursor: not-allowed; }
                 }
-                .nombre_edad, .tel_correo, .correo_sexo_sangre{
+                .nombre_edad, .tel_correo, .dir_emergencia, .fecha_nac{
                     display: flex;
                     gap: 1rem;
                     width: 100%;
@@ -432,28 +745,12 @@ body{
                 }
                 .nombre_edad .dato:nth-child(2){ width: 50%; }
                 .tel_correo .dato:nth-child(1){ width: 50%; }
+                .dir_emergencia .dato:nth-child(2){ width: 50%; }
             }
-            .enviar{
+            .selects_sexo_sangre{
                 display: flex;
-                justify-content: center;
-                align-items: center;
                 width: 100%;
-                margin-top: 1rem;
-
-                button{
-                    padding: 0.8rem 1.5rem;
-                    border: none;
-                    border-radius: 8px;
-                    /* width: 20%; */
-                    cursor: pointer;
-                    font-size: 0.9rem;
-                    background-color: var(--morado_medio);
-                    transition: all 0.2s ease-in-out;
-                }
-                button:hover{
-                    transform: translateY(-3px);
-                    box-shadow: 0 0 5px var(--morado_claro);
-                }
+                gap: 1rem;
             }
             .cerrar{
                 width: 43px;
@@ -468,11 +765,79 @@ body{
                 fill: white;
                 transition: background-color 0.3s ease;
             }
-            .cerrar:hover{
+        }
+    }
+    .div_btn_agregar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 2.5rem 1.5rem 2.5rem;
+        width: 100%;
+        background-color: var(--morado_principal);
+
+        .div_btns_forms{
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+
+            button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.8rem;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 0.9rem;
                 background-color: var(--morado_medio);
+                transition: all 0.2s ease-in-out;
+
+                svg{ fill: white; width: 30px; aspect-ratio: 1/1; }
+            }
+            .btns_prev_next.desactivado{
+                opacity: 0.5;
+                box-shadow: 0 0 0;
+                cursor: unset;
+                transform: translateY(0px);
+            }
+            button:hover{
+                transform: translateY(-3px);
+                box-shadow: 0 0 5px var(--morado_claro);
+            }
+
+        }
+        .enviar{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+
+            button{
+                padding: 0.8rem 1.5rem;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 0.9rem;
+                background-color: var(--morado_medio);
+                transition: all 0.2s ease-in-out;
+            }
+            button:hover{
+                transform: translateY(-3px);
+                box-shadow: 0 0 5px var(--morado_claro);
+            }
+            button.activo{
+                opacity: 0.5;
+                transform: translateY(0);
+                box-shadow: 0 0 0;
+                cursor: initial;
             }
         }
     }
+}
+
+.div_mes_agregar.visible,
+.div_dia_agregar.visible {
+    display: flex !important;
 }
 
 .overlay_eliminar_paciente{
@@ -707,3 +1072,6 @@ body{
         }
     }
 }
+
+.overlay .div_form, .overlay .div_datos, .overlay .dato, .overlay .sexo{ overflow: visible; }
+.div_sexos { z-index: 99999 !important; }

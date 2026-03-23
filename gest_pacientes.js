@@ -1,440 +1,791 @@
-// Botón de agrear paciente.
 const overlayNuevoPaciente = document.querySelector('.overlay_nuevo_paciente')
+const inputsNuevoPaciente = document.querySelectorAll('.overlay_nuevo_paciente input')
 const btnNuevoPaciente = document.querySelector('.btn_nuevo_paciente')
-const cerrarNuevoPaciente = document.querySelector('.cerrar_nuevo_paciente')
 const btnAgregarPaciente = document.querySelector('.btn_agregar')
 
-const todosLosSexos = document.querySelectorAll('.overlay_nuevo_paciente .sexo')
+const selectSexoAgregar = document.querySelector('.overlay_nuevo_paciente .carrusel_forms .div_form:nth-child(1) .selects_sexo_sangre .sexo')
+const divSexoOpcionAgregar = selectSexoAgregar.querySelector('.div_sexos')
+const svgSelectSexoAgregar = selectSexoAgregar.querySelector('.svg_select')
+const sexoOpcionAgregar = selectSexoAgregar.querySelectorAll('.div_sexos p')
+const infoSexoAgregar = selectSexoAgregar.querySelector('.info_sexo p')
 
-const selectSexos = todosLosSexos[0]
-const divSexoOpcion = todosLosSexos[0].querySelector('.div_sexos')
-const svgSelectSexo = todosLosSexos[0].querySelector('.svg_select')
-const sexoOpcion = todosLosSexos[0].querySelectorAll('.div_sexos p')
-const infoSexo = todosLosSexos[0].querySelector('.info_sexo p')
-const flechas = document.querySelectorAll('.flecha')
+const selectMesAgregar = document.querySelector('.select_mes_agregar')
+const infoMesAgregar = document.querySelector('.info_mes_agregar p')
+const svgMesAgregar = document.querySelector('.select_mes_agregar .svg_select')
+const divMesAgregar = document.querySelector('.div_mes_agregar')
 
-const selectSangre = todosLosSexos[1]
-const divSangreOpcion = todosLosSexos[1].querySelector('.div_sexos')
-const svgSelectSangre = todosLosSexos[1].querySelector('.svg_select')
-const sangreOpcion = todosLosSexos[1].querySelectorAll('.div_sexos p')
-const infoSangre = todosLosSexos[1].querySelector('.info_sexo p')
+const selectDiaAgregar = document.querySelector('.select_dia_agregar')
+const infoDiaAgregar = document.querySelector('.info_dia_agregar p')
+const svgDiaAgregar = document.querySelector('.select_dia_agregar .svg_select')
+const divDiaAgregar = document.querySelector('.div_dia_agregar')
 
-// Opción de editar paciente
+const selectSangreAgregar = document.querySelector('.overlay_nuevo_paciente .carrusel_forms .div_form:nth-child(1) .selects_sexo_sangre .sangre')
+const divSangreOpcionAgregar = selectSangreAgregar.querySelector('.div_sangres')
+const svgSelectSangreAgregar = selectSangreAgregar.querySelector('.svg_select')
+const sangreOpcionAgregar = selectSangreAgregar.querySelectorAll('.div_sangres p')
+const infoSangreAgregar = selectSangreAgregar.querySelector('.info_sangre p')
+
 const overlayEditar = document.querySelector('.overlay_editar')
+const inputsEditar = document.querySelectorAll('.overlay_editar input')
 const editar = document.querySelector('.div_opc_tabla .editar')
 const btnCerrarEditar = document.querySelector('.cerrar_editar')
-const divestadosOpcion = document.querySelector('.div_estados')
-const svgSelect = document.querySelector('.svg_select')
-const selectEstados = document.querySelector('.estado')
-const estadoOpcion = document.querySelectorAll('.div_estados p')
-const infoEstado = document.querySelector('.info_estado p');
 const btnEditar = document.querySelector('.btn_editar')
 
-const todosLosSexosEditar = document.querySelectorAll('.overlay_editar .sexo')
+const selectSexosEditar = document.querySelector('.overlay_editar .correo_sexo_sangre .dato:nth-child(1) .sexo')
+const divSexoOpcionEditar = selectSexosEditar.querySelector('.div_sexos')
+const svgSelectSexoEditar = selectSexosEditar.querySelector('.svg_select')
+const sexoOpcionEditar = selectSexosEditar.querySelectorAll('.div_sexos p')
+const infoSexoEditar = selectSexosEditar.querySelector('.info_sexo p')
 
-const selectSexosEditar = todosLosSexosEditar[0]
-const divSexoOpcionEditar = todosLosSexosEditar[0].querySelector('.div_sexos')
-const svgSelectSexoEditar = todosLosSexosEditar[0].querySelector('.svg_select')
-const sexoOpcionEditar = todosLosSexosEditar[0].querySelectorAll('.div_sexos p')
-const infoSexoEditar = todosLosSexosEditar[0].querySelector('.info_sexo p')
-const flechasEditar = document.querySelectorAll('.flecha')
+const selectSangreEditar = document.querySelector('.overlay_editar .correo_sexo_sangre .dato:nth-child(2) .sexo')
+const divSangreOpcionEditar = selectSangreEditar.querySelector('.div_sexos')
+const svgSelectSangreEditar = selectSangreEditar.querySelector('.svg_select')
+const sangreOpcionEditar = selectSangreEditar.querySelectorAll('.div_sexos p')
+const infoSangreEditar = selectSangreEditar.querySelector('.info_sexo p')
 
-const selectSangreEditar = todosLosSexosEditar[1]
-const divSangreOpcionEditar = todosLosSexosEditar[1].querySelector('.div_sexos')
-const svgSelectSangreEditar = todosLosSexosEditar[1].querySelector('.svg_select')
-const sangreOpcionEditar = todosLosSexosEditar[1].querySelectorAll('.div_sexos p')
-const infoSangreEditar = todosLosSexosEditar[1].querySelector('.info_sexo p')
+const selectMesEditar = document.querySelector('.select_mes_editar')
+const infoMesEditar = document.querySelector('.info_mes_editar p')
+const svgMesEditar = document.querySelector('.select_mes_editar .svg_select')
+const divMesEditar = document.querySelector('.div_mes_editar')
 
-// Opción de eliminar paciente
+const selectDiaEditar = document.querySelector('.select_dia_editar')
+const infoDiaEditar = document.querySelector('.info_dia_editar p')
+const svgDiaEditar = document.querySelector('.select_dia_editar .svg_select')
+const divDiaEditar = document.querySelector('.div_dia_editar')
+
 const overlayEliminar = document.querySelector('.overlay_eliminar_paciente')
 const eliminar = document.querySelector('.div_opc_tabla .eliminar')
 const btnCerrarEliminar = document.querySelector('.cerrar_eliminar_paciente')
 const btnCancelarEliminar = document.querySelector('.btn_eliminar_cancelar')
 const btnEnviarEliminar = document.querySelector('.btn_eliminar_enviar')
-
-// Opción de ver expediente
 const verExp = document.querySelector('.div_opc_tabla .ver_exp')
 
-// Tablas
-const lupa = document.querySelector('.lupa');
-const search = document.querySelector('.input_busqueda');
-const tablaCuerpo = document.querySelector('.tabla_cuerpo');
-const filas = document.querySelectorAll('.tabla_filas');
-const totalPacientes = document.querySelector('.numero_total_pacientes');
-const checkbox = document.querySelectorAll('input[type="checkbox"]');
-const opcs = document.querySelectorAll('.opcs');
-const infoTablas = document.querySelectorAll('.tabla_filas td')
-let filaSeleccionada = null;
+const search = document.querySelector('.input_busqueda')
+const tablaCuerpo = document.querySelector('.tabla_cuerpo')
+const totalPacientes = document.querySelector('.numero_total_pacientes')
+const opcs = document.querySelectorAll('.opcs')
+const alerta = document.querySelector('.alerta')
+let filaSeleccionada = null
+let modoEditar = false
 
-// Motivo del paciente
-const overlayMotivo = document.querySelector('.overlay_motivo')
-const cerrarMotivo = document.querySelector('.cerrar_motivo')
-const nombreMotivo = document.querySelector('.nombre_motivo')
-const textoMotivo = document.querySelector('.texto_motivo')
-const textoFechaRegistro = document.querySelector('.texto_fecha_registro')
+const mesesNombres = ['Mes','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
 
-// Alerta de llenado de campos.
-const alerta = document.querySelector('.alerta');
+function generarDias(divDia, infoDia, mesVal, anioVal) {
+    const diaActual = infoDia.textContent.trim()
+    const totalDias = (mesVal && anioVal)
+        ? new Date(Number(anioVal), Number(mesVal), 0).getDate() : 31
 
+    divDia.innerHTML = '<p>Día</p>'
+    for (let d = 1; d <= totalDias; d++) {
+        const p = document.createElement('p')
+        p.dataset.val = String(d).padStart(2, '0')
+        p.textContent = d
+        divDia.appendChild(p)
+    }
+    divDia.querySelectorAll('p[data-val]').forEach(opc => {
+        opc.addEventListener('click', (e) => {
+            e.stopPropagation()
+            infoDia.textContent = opc.dataset.val
+            infoDia.style.color = '#333'
+            divDia.style.display = 'none'
+            divDia.parentElement.querySelector('.svg_select').classList.remove('activo')
+        })
+    })
+    const diasDisponibles = Array.from(divDia.querySelectorAll('p[data-val]')).map(p => p.dataset.val)
+    if (!diasDisponibles.includes(diaActual)) {
+        infoDia.textContent = 'Día'
+        infoDia.style.color = ''
+    }
+}
+
+generarDias(divDiaAgregar, infoDiaAgregar, null, null)
+generarDias(divDiaEditar, infoDiaEditar, null, null)
+
+function toggleSelect(divOpcion, svg) {
+    const isOpen = divOpcion.style.display === 'flex'
+    svg.classList.toggle('activo', !isOpen)
+    divOpcion.style.display = isOpen ? 'none' : 'flex'
+}
+
+function cerrarTodo(...grupos) {
+    grupos.forEach(([svg, div]) => {
+        svg.classList.remove('activo')
+        div.style.display = 'none'
+    })
+}
+
+function cerrarSiClickFuera(contenedor, e, svg, divOpcion) {
+    if (!contenedor.contains(e.target)) {
+        svg.classList.remove('activo')
+        divOpcion.style.display = 'none'
+    }
+}
+
+selectSexoAgregar.addEventListener('click', (e) => {
+    e.stopPropagation()
+    cerrarTodo([svgMesAgregar, divMesAgregar], [svgDiaAgregar, divDiaAgregar], [svgSelectSangreAgregar, divSangreOpcionAgregar])
+    toggleSelect(divSexoOpcionAgregar, svgSelectSexoAgregar)
+})
+sexoOpcionAgregar.forEach(opc => {
+    opc.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const opcion = opc.textContent.trim()
+        if (opcion === 'Selecciona un sexo') return
+        infoSexoAgregar.textContent = opcion[0]
+        infoSexoAgregar.style.color = '#333'
+        svgSelectSexoAgregar.classList.remove('activo')
+        divSexoOpcionAgregar.style.display = 'none'
+    })
+})
+
+selectMesAgregar.addEventListener('click', (e) => {
+    e.stopPropagation()
+    cerrarTodo([svgSelectSexoAgregar, divSexoOpcionAgregar], [svgDiaAgregar, divDiaAgregar], [svgSelectSangreAgregar, divSangreOpcionAgregar])
+    toggleSelect(divMesAgregar, svgMesAgregar)
+})
+divMesAgregar.querySelectorAll('p[data-val]').forEach(opc => {
+    opc.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const val = opc.dataset.val
+        infoMesAgregar.textContent = mesesNombres[Number(val)]
+        infoMesAgregar.style.color = '#333'
+        svgMesAgregar.classList.remove('activo')
+        divMesAgregar.style.display = 'none'
+        const anio = document.querySelector('input[name="anioAgregar"]').value.trim()
+        generarDias(divDiaAgregar, infoDiaAgregar, val, anio)
+    })
+})
+
+selectDiaAgregar.addEventListener('click', (e) => {
+    e.stopPropagation()
+    cerrarTodo([svgSelectSexoAgregar, divSexoOpcionAgregar], [svgMesAgregar, divMesAgregar], [svgSelectSangreAgregar, divSangreOpcionAgregar])
+    toggleSelect(divDiaAgregar, svgDiaAgregar)
+})
+
+selectSangreAgregar.addEventListener('click', (e) => {
+    e.stopPropagation()
+    cerrarTodo([svgSelectSexoAgregar, divSexoOpcionAgregar], [svgMesAgregar, divMesAgregar], [svgDiaAgregar, divDiaAgregar])
+    toggleSelect(divSangreOpcionAgregar, svgSelectSangreAgregar)
+})
+sangreOpcionAgregar.forEach(opc => {
+    opc.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const opcion = opc.textContent.trim()
+        if (opcion === 'Selecciona un tipo de sangre') return
+        infoSangreAgregar.textContent = opcion
+        infoSangreAgregar.style.color = '#333'
+        svgSelectSangreAgregar.classList.remove('activo')
+        divSangreOpcionAgregar.style.display = 'none'
+    })
+})
+
+selectSexosEditar.addEventListener('click', (e) => {
+    e.stopPropagation()
+    cerrarTodo([svgSelectSangreEditar, divSangreOpcionEditar], [svgMesEditar, divMesEditar], [svgDiaEditar, divDiaEditar])
+    toggleSelect(divSexoOpcionEditar, svgSelectSexoEditar)
+})
+sexoOpcionEditar.forEach(opc => {
+    opc.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const opcion = opc.textContent.trim()
+        if (opcion === 'Selecciona un sexo') return
+        infoSexoEditar.textContent = opcion[0]
+        infoSexoEditar.style.color = '#333'
+        svgSelectSexoEditar.classList.remove('activo')
+        divSexoOpcionEditar.style.display = 'none'
+    })
+})
+
+selectSangreEditar.addEventListener('click', (e) => {
+    e.stopPropagation()
+    cerrarTodo([svgSelectSexoEditar, divSexoOpcionEditar], [svgMesEditar, divMesEditar], [svgDiaEditar, divDiaEditar])
+    toggleSelect(divSangreOpcionEditar, svgSelectSangreEditar)
+})
+sangreOpcionEditar.forEach(opc => {
+    opc.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const opcion = opc.textContent.trim()
+        if (opcion === 'Selecciona un tipo de sangre') return
+        infoSangreEditar.textContent = opcion
+        infoSangreEditar.style.color = '#333'
+        svgSelectSangreEditar.classList.remove('activo')
+        divSangreOpcionEditar.style.display = 'none'
+    })
+})
+
+selectMesEditar.addEventListener('click', (e) => {
+    e.stopPropagation()
+    cerrarTodo([svgSelectSexoEditar, divSexoOpcionEditar], [svgSelectSangreEditar, divSangreOpcionEditar], [svgDiaEditar, divDiaEditar])
+    toggleSelect(divMesEditar, svgMesEditar)
+})
+divMesEditar.querySelectorAll('p[data-val]').forEach(opc => {
+    opc.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const val = opc.dataset.val
+        infoMesEditar.textContent = mesesNombres[Number(val)]
+        infoMesEditar.style.color = '#333'
+        svgMesEditar.classList.remove('activo')
+        divMesEditar.style.display = 'none'
+        const anio = document.querySelector('input[name="anioEditar"]').value.trim()
+        generarDias(divDiaEditar, infoDiaEditar, val, anio)
+    })
+})
+
+selectDiaEditar.addEventListener('click', (e) => {
+    e.stopPropagation()
+    cerrarTodo([svgSelectSexoEditar, divSexoOpcionEditar], [svgSelectSangreEditar, divSangreOpcionEditar], [svgMesEditar, divMesEditar])
+    toggleSelect(divDiaEditar, svgDiaEditar)
+})
+
+document.addEventListener('click', (e) => {
+    cerrarSiClickFuera(selectSexoAgregar, e, svgSelectSexoAgregar, divSexoOpcionAgregar)
+    cerrarSiClickFuera(selectMesAgregar, e, svgMesAgregar, divMesAgregar)
+    cerrarSiClickFuera(selectDiaAgregar, e, svgDiaAgregar, divDiaAgregar)
+    cerrarSiClickFuera(selectSangreAgregar, e, svgSelectSangreAgregar, divSangreOpcionAgregar)
+    cerrarSiClickFuera(selectSexosEditar, e, svgSelectSexoEditar, divSexoOpcionEditar)
+    cerrarSiClickFuera(selectSangreEditar, e, svgSelectSangreEditar, divSangreOpcionEditar)
+    cerrarSiClickFuera(selectMesEditar, e, svgMesEditar, divMesEditar)
+    cerrarSiClickFuera(selectDiaEditar, e, svgDiaEditar, divDiaEditar)
+})
+
+async function cargarPacientes(){
+    try{
+        const response = await fetch('http://localhost/clinicadental/base_de_datos.php?action=obtener_pacientes')
+        const pacientes = await response.json()
+
+        tablaCuerpo.innerHTML = ''
+        if(!pacientes || pacientes.length === 0){ totalPacientes.textContent = 0; return }
+
+        pacientes.forEach(p => {
+            const img = p.estado === 'Inactivo' ? 'img/inactivo.png' : 'img/activo.png'
+            const numero = String(p.id_paciente).padStart(2, '0')
+            const fila = document.createElement('tr')
+            fila.classList.add('tabla_filas')
+            fila.dataset.idPaciente = p.id_paciente
+            fila.dataset.estado = p.estado || 'Activo'
+            fila.dataset.fechaRegistro = p.fecha || ''
+            fila.dataset.direccion = p.direccion || ''
+            fila.dataset.emergencia = p.tel_emergencia || ''
+            fila.innerHTML = `
+                <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente"></td>
+                <td><span>${numero}</span></td>
+                <td>${p.nombre}</td>
+                <td>${p.fecha_nac}</td>
+                <td>${p.telefono}</td>
+                <td>${p.correo}</td>
+                <td>${p.sexo || ''}</td>
+                <td>${p.tipo_sangre}</td>
+                <td class="estado"><img src="${img}" alt=""></td>
+            `
+            tablaCuerpo.appendChild(fila)
+        })
+
+        totalPacientes.textContent = tablaCuerpo.querySelectorAll('.tabla_filas').length
+        localStorage.setItem('totalPacientes', totalPacientes.textContent)
+
+    } catch(error){ console.error('Error cargando pacientes:', error) }
+}
+cargarPacientes()
+
+async function agregarNuevoPaciente(){
+    const hoy = new Date()
+    const nombre = document.querySelector('input[name="nombreAgregar"]').value.trim()
+    const anio = document.querySelector('input[name="anioAgregar"]').value.trim()
+    const mesVal = Array.from(divMesAgregar.querySelectorAll('p[data-val]'))
+        .find(p => mesesNombres[Number(p.dataset.val)] === infoMesAgregar.textContent.trim()) ?.dataset.val || ''
+    const diaVal = infoDiaAgregar.textContent.trim()
+    const fechaNac = (anio && mesVal && diaVal && diaVal !== 'Día') ? `${anio}-${mesVal}-${diaVal}` : ''
+
+    let telefono = document.querySelector('input[name="telefonoAgregar"]').value.trim()
+    const correo = document.querySelector('input[name="correoAgregar"]').value.trim()
+    let sexo = infoSexoAgregar.textContent.trim()
+    const tipoSan = infoSangreAgregar.textContent.trim()
+    const fechaRegistro = hoy.toISOString().split('T')[0]
+
+    let emergencia = document.querySelector('input[name="emergenciaAgregar"]').value.trim()
+    emergencia = emergencia.replace(/-/g, '')
+    emergencia = `${emergencia.slice(0, 2)}-${emergencia.slice(2, 6)}-${emergencia.slice(6, 10)}`
+    
+    const direccion = document.querySelector('input[name="direccionAgregar"]').value.trim()
+    const alergias = document.querySelector('input[name="alergiasAgregar"]').value.trim()
+    const medicamentos = document.querySelector('input[name="medActAgregar"]').value.trim()
+    const cirugias = document.querySelector('input[name="cirugiasAgregar"]').value.trim()
+    const enfermedades = document.querySelector('input[name="enfAgregar"]').value.trim()
+
+    const checkboxes = document.querySelectorAll('.overlay_nuevo_paciente .habitos_grid input[type="checkbox"]')
+    const habitos = Array.from(checkboxes)
+        .filter(cb => cb.checked)
+        .map(cb => {
+            if (cb.name === 'habitoOtro') {
+                const otro = document.querySelector('input[name="habitoOtroTexto"]').value.trim()
+                return otro ? `Otro: ${otro}` : null
+            }
+            const span = cb.closest('label')?.querySelector('.habito_label')
+            return span ? span.textContent.trim().replace(/^[^\w\s]+/, '').replace(/:$/, '').trim() : cb.name
+        })
+        .filter(Boolean)
+
+    telefono = telefono.replace(/-/g, '')
+    telefono = `${telefono.slice(0, 2)}-${telefono.slice(2, 6)}-${telefono.slice(6, 10)}`
+
+    if(!nombre || !fechaNac || telefono === '--' || !correo || sexo === 'Selecciona un sexo' ||
+        tipoSan === 'Selecciona un tipo de sangre' || tipoSan === 'Selecciona un tipo de sangre:'
+    ){ mostrarAlerta(); return }
+
+    sexo = sexo === 'M' ? 'Masculino' : sexo === 'F' ? 'Femenino' : sexo
+
+    const datosPaciente = {
+        nombre,
+        fecha_nac: fechaNac,
+        telefono,
+        correo,
+        sexo,
+        tipo_sangre: tipoSan,
+        direccion,
+        emergencia,
+        alergias,
+        med_act: medicamentos,
+        cir_prev: cirugias,
+        enfermedades,
+        habitos,
+        id_usuario: 1
+    }
+
+    try{
+        const response = await fetch('http://localhost/clinicadental/base_de_datos.php?action=agregar_paciente', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(datosPaciente)
+        })
+
+        const resultado = await response.json()
+
+        if(resultado.success){
+            const numero = String(resultado.id_paciente).padStart(2, '0')
+            const nuevaFila = document.createElement('tr')
+            nuevaFila.classList.add('tabla_filas')
+            nuevaFila.dataset.idPaciente = resultado.id_paciente
+            nuevaFila.dataset.estado = 'Activo'
+            nuevaFila.dataset.fechaRegistro = fechaRegistro
+            nuevaFila.dataset.direccion = direccion
+            nuevaFila.dataset.emergencia = emergencia
+            nuevaFila.innerHTML = `
+                <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente"></td>
+                <td><span>${numero}</span></td>
+                <td>${nombre}</td>
+                <td>${fechaNac}</td>
+                <td>${telefono}</td>
+                <td>${correo}</td>
+                <td>${sexo}</td>
+                <td>${tipoSan}</td>
+                <td class="estado"><img src="img/activo.png" alt=""></td>
+            `
+            tablaCuerpo.appendChild(nuevaFila)
+            totalPacientes.textContent = tablaCuerpo.querySelectorAll('.tabla_filas').length
+            localStorage.setItem('totalPacientes', totalPacientes.textContent)
+            overlayNuevoPaciente.style.display = 'none'
+
+        } else{
+            if(resultado.error === 'duplicado'){
+                document.querySelector('.info_alerta h3').textContent = 'Paciente duplicado'
+                document.querySelector('.info_alerta p').textContent = resultado.mensaje
+                mostrarAlerta()
+                setTimeout(() => {
+                    document.querySelector('.info_alerta h3').textContent = 'Campos incompletos'
+                    document.querySelector('.info_alerta p').textContent = 'Es necesario llenar todos los campos'
+                }, 3000)
+            } else{ console.error('Error:', resultado.error); mostrarAlerta() }
+        }
+    } catch(error){ console.error('Error de conexión:', error) }
+}
+
+async function confirmarEdicionPaciente(){
+    const nombre = document.querySelector('input[name="nombreAgregar"]').value.trim()
+    const anio = document.querySelector('input[name="anioAgregar"]').value.trim()
+    const mesVal = Array.from(divMesAgregar.querySelectorAll('p[data-val]'))
+        .find(p => mesesNombres[Number(p.dataset.val)] === infoMesAgregar.textContent.trim())
+        ?.dataset.val || ''
+    const diaVal = infoDiaAgregar.textContent.trim()
+    const fechaNac = (anio && mesVal && diaVal && diaVal !== 'Día') ? `${anio}-${mesVal}-${diaVal}` : ''
+
+    let telefono = document.querySelector('input[name="telefonoAgregar"]').value.trim()
+    let emergencia = document.querySelector('input[name="emergenciaAgregar"]').value.trim()
+    const correo = document.querySelector('input[name="correoAgregar"]').value.trim()
+    let sexo = infoSexoAgregar.textContent.trim()
+    const tipoSangre = infoSangreAgregar.textContent.trim()
+
+    if(!nombre || !fechaNac || !telefono || !correo ||
+        sexo === 'Selecciona un sexo' ||
+        tipoSangre === 'Selecciona un tipo de sangre' ||
+        tipoSangre === 'Selecciona un tipo de sangre:' 
+    ){ mostrarAlerta(); return }
+
+    telefono = telefono.replace(/-/g, '')
+    telefono = `${telefono.slice(0, 2)}-${telefono.slice(2, 6)}-${telefono.slice(6, 10)}`
+
+    emergencia = emergencia.replace(/-/g, '')
+    emergencia = `${emergencia.slice(0, 2)}-${emergencia.slice(2, 6)}-${emergencia.slice(6, 10)}`
+
+    sexo = sexo.startsWith('M') ? 'Masculino' : sexo.startsWith('F') ? 'Femenino' : sexo
+
+    const alergias = document.querySelector('input[name="alergiasAgregar"]').value.trim()
+    const medicamentos = document.querySelector('input[name="medActAgregar"]').value.trim()
+    const cirugias = document.querySelector('input[name="cirugiasAgregar"]').value.trim()
+    const enfermedades = document.querySelector('input[name="enfAgregar"]').value.trim()
+    const direccion = document.querySelector('input[name="direccionAgregar"]').value.trim()
+
+    const checkboxesEditar = document.querySelectorAll('.overlay_nuevo_paciente .habitos_grid input[type="checkbox"]')
+    const habitos = Array.from(checkboxesEditar)
+        .filter(cb => cb.checked)
+        .map(cb => {
+            if (cb.name === 'habitoOtro') {
+                const otro = document.querySelector('input[name="habitoOtroTexto"]').value.trim()
+                return otro ? `Otro: ${otro}` : null
+            }
+            const span = cb.closest('label')?.querySelector('.habito_label')
+            return span ? span.textContent.trim().replace(/^[^\w\s]+/, '').replace(/:$/, '').trim() : cb.name
+        })
+        .filter(Boolean)
+
+    // Guardar el ID antes de nullear filaSeleccionada
+    const idPaciente = filaSeleccionada.dataset.idPaciente
+
+    if(filaSeleccionada){
+        filaSeleccionada.cells[2].textContent = nombre
+        filaSeleccionada.cells[3].textContent = fechaNac
+        filaSeleccionada.cells[4].textContent = telefono
+        filaSeleccionada.cells[5].textContent = correo
+        filaSeleccionada.cells[6].textContent = sexo
+        filaSeleccionada.cells[7].textContent = tipoSangre
+        filaSeleccionada.dataset.direccion = direccion
+        filaSeleccionada.dataset.emergencia = emergencia
+    }
+
+    document.querySelector('.overlay_nuevo_paciente .carrusel_forms .div_form:nth-child(1) h3').textContent = 'Información Básica:'
+    document.querySelector('.btn_agregar').textContent = 'Agregar paciente'
+    modoEditar = false
+    overlayNuevoPaciente.style.display = 'none'
+    resetCheckboxes()
+    filaSeleccionada = null
+
+    // Enviar a MySQL
+    const datosEditar = {
+        id_paciente: idPaciente,
+        nombre,
+        fecha_nac: fechaNac,
+        telefono,
+        correo,
+        sexo,
+        tipo_sangre: tipoSangre,
+        direccion,
+        emergencia,
+        alergias,
+        med_act: medicamentos,
+        cir_prev: cirugias,
+        enfermedades,
+        habitos
+    }
+
+    try{
+        await fetch('http://localhost/clinicadental/base_de_datos.php?action=editar_paciente', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(datosEditar)
+        })
+    } catch(error){ console.error('Error editando:', error) }
+}
+
+btnEditar.addEventListener('click', confirmarEdicionPaciente)
 editar.addEventListener('click', abrirEditar)
 eliminar.addEventListener('click', abrirEliminar)
 verExp.addEventListener('click', verExpediente)
-btnCerrarEditar.addEventListener('click', () => { 
-    overlayEditar.style.display = 'none'
+
+btnCerrarEditar.addEventListener('click', () => { overlayEditar.style.display = 'none'; resetCheckboxes() })
+btnCerrarEliminar.addEventListener('click', () => { overlayEliminar.style.display = 'none'; resetCheckboxes() })
+btnCancelarEliminar.addEventListener('click', () => { overlayEliminar.style.display = 'none'; resetCheckboxes() })
+overlayEditar.addEventListener('click', (e) => { if (e.target === overlayEditar) overlayEditar.style.display = 'none' })
+overlayEliminar.addEventListener('click', (e) => { if (e.target === overlayEliminar) overlayEliminar.style.display = 'none' })
+
+function resetCheckboxes() {
     tablaCuerpo.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false)
-    opcs.forEach(opc => { opc.style.pointerEvents = 'none'; opc.style.cursor = 'no-drop'; opc.style.opacity = '0.5'; })
-})
-btnCerrarEliminar.addEventListener('click', () => {
+    opcs.forEach(opc => { opc.style.pointerEvents = 'none'; opc.style.cursor = 'no-drop'; opc.style.opacity = '0.5' })
+}
+
+async function abrirEditar(){
+    const checkboxMarcado = tablaCuerpo.querySelector('input[type="checkbox"]:checked')
+    if (!checkboxMarcado) return
+    filaSeleccionada = checkboxMarcado.closest('.tabla_filas')
+    modoEditar = true
+
+    // Declarar idPaciente PRIMERO
+    const idPaciente = filaSeleccionada.dataset.idPaciente
+
+    const [anio, mes, dia] = filaSeleccionada.cells[3].textContent.trim().split('-')
+
+    document.querySelector('input[name="nombreAgregar"]').value = filaSeleccionada.cells[2].textContent.trim()
+    document.querySelector('input[name="anioAgregar"]').value = anio || ''
+    document.querySelector('input[name="telefonoAgregar"]').value = filaSeleccionada.cells[4].textContent.trim().replace(/-/g, '')
+    document.querySelector('input[name="correoAgregar"]').value = filaSeleccionada.cells[5].textContent.trim()
+
+    const sexoVal = filaSeleccionada.cells[6].textContent.trim()
+    infoSexoAgregar.textContent = 
+        (sexoVal === 'M' || sexoVal === 'Masculino') ? 'M → Masculino' : 
+        (sexoVal === 'F' || sexoVal === 'Femenino') ? 'F → Femenino' : sexoVal
+    infoSexoAgregar.style.color = '#333'
+
+    infoMesAgregar.textContent = mes ? mesesNombres[Number(mes)] : 'Mes'
+    infoMesAgregar.style.color = mes ? '#333' : ''
+    generarDias(divDiaAgregar, infoDiaAgregar, mes, anio)
+    if (dia) { infoDiaAgregar.textContent = dia; infoDiaAgregar.style.color = '#333' }
+
+    // Cargar datos del paciente desde MySQL
+    try {
+        const resPaciente = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_paciente&id=${idPaciente}`)
+        const paciente = await resPaciente.json()
+        
+        if(paciente){
+            document.querySelector('input[name="direccionAgregar"]').value = paciente.direccion || ''
+            document.querySelector('input[name="emergenciaAgregar"]').value = (paciente.tel_emergencia || '').replace(/-/g, '')
+        }
+    } catch(error){ console.error('Error cargando paciente:', error) }
+
+    infoSangreAgregar.textContent = filaSeleccionada.cells[7].textContent.trim()
+    infoSangreAgregar.style.color = '#333'
+
+    // Cargar antecedentes desde MySQL
+    try {
+        const res = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_antecedmed&id=${idPaciente}`)
+        const ant = await res.json()
+        if(ant){
+            document.querySelector('input[name="alergiasAgregar"]').value = ant.alergias || ''
+            document.querySelector('input[name="medActAgregar"]').value = ant.med_act || ''
+            document.querySelector('input[name="cirugiasAgregar"]').value = ant.cir_prev || ''
+            document.querySelector('input[name="enfAgregar"]').value = ant.enfermedades || ''
+
+            const habitos = ant.habitos ? ant.habitos.split(', ').map(h => h.trim()).filter(Boolean) : []
+            document.querySelectorAll('.overlay_nuevo_paciente .habitos_grid input[type="checkbox"]').forEach(cb => cb.checked = false)
+            const inputOtroTexto = document.querySelector('input[name="habitoOtroTexto"]')
+            habitos.forEach(h => {
+                if (h.startsWith('Otro:')) {
+                    const cbOtro = document.querySelector('input[name="habitoOtro"]')
+                    if (cbOtro) {
+                        cbOtro.checked = true
+                        inputOtroTexto.disabled = false
+                        inputOtroTexto.value = h.replace('Otro:', '').trim()
+                    }
+                } else {
+                    document.querySelectorAll('.overlay_nuevo_paciente .habitos_grid input[type="checkbox"]').forEach(cb => {
+                        const label = cb.closest('label')?.querySelector('.habito_label')?.textContent.trim()
+                        if (label && label.replace(/^[^\w\s]+/, '').replace(/:$/, '').trim() === h) cb.checked = true
+                    })
+                }
+            })
+        }
+    } catch(error){ console.error('Error cargando antecedentes:', error) }
+
+    document.querySelector('.btn_agregar').textContent = 'Guardar cambios'
+    overlayNuevoPaciente.style.display = 'flex'
+    multiFormulario("200", seccionesForm[0], seccionesForm[1], seccionesForm[2])
+    btnPrevForm.classList.add('desactivado')
+    btnNextForm.classList.remove('desactivado')
+    i = 200
+}
+
+function abrirEliminar(){
+    overlayEliminar.style.display = 'flex'
+    const marcados = tablaCuerpo.querySelectorAll('input[type="checkbox"]:checked')
+    const texto = marcados.length === 1
+        ? marcados[0].closest('.tabla_filas').cells[2].textContent
+        : `${marcados.length} pacientes`
+    document.querySelectorAll('.registro_paciente').forEach(el => el.textContent = texto)
+}
+
+btnEnviarEliminar.addEventListener('click', async () => {
+    const marcados = tablaCuerpo.querySelectorAll('input[type="checkbox"]:checked')
+    const ids = Array.from(marcados).map(cb => Number(cb.closest('.tabla_filas').dataset.idPaciente))
+
+    try{
+        await fetch('http://localhost/clinicadental/base_de_datos.php?action=eliminar_paciente', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ids })
+        })
+    } catch(error){ console.error('Error eliminando:', error) }
+
+    marcados.forEach(cb => cb.closest('.tabla_filas')?.remove())
     overlayEliminar.style.display = 'none'
-    tablaCuerpo.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false)
-    opcs.forEach(opc => { opc.style.pointerEvents = 'none'; opc.style.cursor = 'no-drop'; opc.style.opacity = '0.5'; })
+    resetCheckboxes()
+    totalPacientes.textContent = tablaCuerpo.querySelectorAll('.tabla_filas').length
+    localStorage.setItem('totalPacientes', totalPacientes.textContent)
 })
-btnCancelarEliminar.addEventListener('click', () => {
-    overlayEliminar.style.display = 'none'
-    tablaCuerpo.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false)
-    opcs.forEach(opc => { opc.style.pointerEvents = 'none'; opc.style.cursor = 'no-drop'; opc.style.opacity = '0.5'; })
-})
-overlayEditar.addEventListener('click', (e) => { if(e.target === overlayEditar) overlayEditar.style.display = 'none'; });
-overlayEliminar.addEventListener('click', (e) => { if(e.target === overlayEliminar) overlayEliminar.style.display = 'none'; });
-
-btnNuevoPaciente.addEventListener('click', () => { overlayNuevoPaciente.style.display = 'flex' })
-cerrarNuevoPaciente.addEventListener('click', () => { overlayNuevoPaciente.style.display = 'none' })
-
-btnAgregarPaciente.addEventListener('click', () => {
-    const hoy = new Date();
-
-    const nombre = document.querySelector('input[name="nombreAgregar"]').value.trim();
-    const edad = document.querySelector('input[name="edadAgregar"]').value.trim();
-    let telefono = document.querySelector('input[name="telefonoAgregar"]').value.trim();
-    const correo = document.querySelector('input[name="correoAgregar"]').value.trim();
-    let sexo = infoSexo.textContent.trim()
-    const tipoSangre = infoSangre.textContent.trim()
-    const motivo = document.querySelector('input[name="motivoAgregar"]').value.trim()
-    const fechaRegistro = hoy.toISOString().split("T")[0];
-    sexo = sexo[0]
-
-    telefono = telefono.replace(/-/g, '');
-    telRegion = telefono.slice(0, 2); tel1 = telefono.slice(2, 6); tel2 = telefono.slice(6, 10);
-    telefono = `${telRegion}-${tel1}-${tel2}`
-
-
-    if(nombre === "" || edad === "" || telefono === "" || correo === "" || sexo === "Selecciona un sexo" || tipoSangre === "Selecciona un tipo de sangre" || motivo === ""){ 
-        mostrarAlerta(); return
-    }
-
-    const filasActuales = tablaCuerpo.querySelectorAll('.tabla_filas');
-    const numero = String(filasActuales.length + 1).padStart(2, '0');
-
-    const nuevaFila = document.createElement('tr');
-    nuevaFila.classList.add('tabla_filas');
-    nuevaFila.dataset.motivo = motivo || 'Sin motivo registrado.'
-    nuevaFila.dataset.fechaRegistro = fechaRegistro || 'Sin fecha de registro registrada.'
-    nuevaFila.dataset.estado = 'Activo';
-    nuevaFila.innerHTML = `
-        <td class="eliminar_paciente"><input type="checkbox" name="eliminar_paciente"></td>
-        <td><span>${numero}</span></td>
-        <td>${nombre}</td>
-        <td>${edad}</td>
-        <td>${telefono}</td>
-        <td>${correo}</td>
-        <td>${sexo}</td>
-        <td>${tipoSangre}</td>
-        <td><button class="motivo">Ver motivo</button></td>
-        <td class="estado"><img src="img/activo.png" alt=""></td>
-    `;
-
-    tablaCuerpo.appendChild(nuevaFila);
-    totalPacientes.textContent = tablaCuerpo.querySelectorAll('.tabla_filas').length;
-
-    document.querySelector('input[name="nombreAgregar"]').value = '';
-    document.querySelector('input[name="edadAgregar"]').value = '';
-    document.querySelector('input[name="telefonoAgregar"]').value = '';
-    document.querySelector('input[name="correoAgregar"]').value = '';
-    infoSexo.textContent = 'Selecciona un sexo';
-    infoSangre.textContent = 'Selecciona un tipo de sangre';
-    document.querySelector('input[name="motivoAgregar"]').value = '';
-    overlayNuevoPaciente.style.display = 'none';
-})
-
-selectSexos.addEventListener('click', (e) => {
-    e.stopPropagation();
-    selectSexoSangre(divSexoOpcion, svgSelectSexo)
-})
-selectSangre.addEventListener('click', (e) => {
-    e.stopPropagation();
-    selectSexoSangre(divSangreOpcion, svgSelectSangre)
-});
-selectSexosEditar.addEventListener('click', (e) => {
-    e.stopPropagation();
-    selectSexoSangre(divSexoOpcionEditar, svgSelectSexoEditar)
-});
-selectSangreEditar.addEventListener('click', (e) => {
-    e.stopPropagation();
-    selectSexoSangre(divSangreOpcionEditar, svgSelectSangreEditar)
-});
-function selectSexoSangre(opcion, svg){
-    const isOpen = opcion.style.display === 'flex';
-    svg.classList.toggle('activo', !isOpen)
-    opcion.style.display = isOpen ? 'none' : 'flex';
-}
-
-sexoOpcion.forEach(opc => {
-    opc.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const opcion = opc.textContent.trim();
-        opcionSexoSangre(opcion, infoSexo, svgSelectSexo, divSexoOpcion)
-    });
-});
-sangreOpcion.forEach(opc => {
-    opc.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const opcion = opc.textContent.trim();
-        opcionSexoSangre(opcion, infoSangre, svgSelectSangre, divSangreOpcion)
-    });
-});
-sexoOpcionEditar.forEach(opc => {
-    opc.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const opcion = opc.textContent.trim();
-        opcionSexoSangre(opcion, infoSexoEditar, svgSelectSexoEditar, divSexoOpcionEditar)
-    });
-});
-sangreOpcionEditar.forEach(opc => {
-    opc.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const opcion = opc.textContent.trim();
-        opcionSexoSangre(opcion, infoSangreEditar, svgSelectSangreEditar, divSangreOpcionEditar)
-    });
-});
-function opcionSexoSangre(opcion, info, svg, divOpcion){
-    if(opcion === 'Selecciona un tipo de sangre' || opcion === 'Selecciona un sexo') return;
-    info.textContent = opcion;
-    info.style.color = '#333';
-    svg.classList.remove('activo')
-    divOpcion.style.display = 'none';
-}
-
-document.addEventListener('click', (e) => {
-    cerrarClickDocumento(selectSexos, e, svgSelectSexo, divSexoOpcion)
-    cerrarClickDocumento(selectSangre, e, svgSelectSangre, divSangreOpcion)
-    cerrarClickDocumento(selectSexosEditar, e, svgSelectSexoEditar, divSexoOpcionEditar)
-    cerrarClickDocumento(selectSangreEditar, e, svgSelectSangreEditar, divSangreOpcionEditar)
-});
-function cerrarClickDocumento(select, e, svg, divOpcion){
-    if(!select.contains(e.target)){
-        svg.classList.remove('activo')
-        divOpcion.style.display = 'none';
-    }
-}
-
-
-
-btnEditar.addEventListener('click', () => {
-    const hoy = new Date();
-
-    const nombre = document.querySelector('input[name="nombreEditar"]').value.trim();
-    const edad = document.querySelector('input[name="edadEditar"]').value.trim();
-    let telefono = document.querySelector('input[name="telefonoEditar"]').value.trim();
-    const correo = document.querySelector('input[name="correoEditar"]').value.trim();
-    let sexo = infoSexoEditar.textContent.trim();
-    const tipoSangre = infoSangreEditar.textContent.trim();
-    const motivo = document.querySelector('input[name="motivoEditar"]').value.trim();
-
-    if(nombre === "" || edad === "" || telefono === "" || correo === "" || sexo === "Selecciona un sexo" || tipoSangre === "Selecciona un tipo de sangre" || motivo === ""){
-        mostrarAlerta(); return;
-    }
-
-    telefono = telefono.replace(/-/g, '');
-    telRegion = telefono.slice(0, 2); tel1 = telefono.slice(2, 6); tel2 = telefono.slice(6, 10);
-    telefono = `${telRegion}-${tel1}-${tel2}`;
-    sexo = sexo[0];
-
-    // Actualizar la fila en la tabla
-    if(filaSeleccionada){
-        filaSeleccionada.cells[2].textContent = nombre;
-        filaSeleccionada.cells[3].textContent = edad;
-        filaSeleccionada.cells[4].textContent = telefono;
-        filaSeleccionada.cells[5].textContent = correo;
-        filaSeleccionada.cells[6].textContent = sexo;
-        filaSeleccionada.cells[7].textContent = tipoSangre;
-        filaSeleccionada.dataset.motivo = motivo;
-    }
-
-    overlayEditar.style.display = 'none';
-    tablaCuerpo.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-    opcs.forEach(opc => { opc.style.pointerEvents = 'none'; opc.style.cursor = 'no-drop'; opc.style.opacity = '0.5'; });
-    filaSeleccionada = null;
-});
-
-btnEnviarEliminar.addEventListener('click', () => {
-    const checkboxesActuales = tablaCuerpo.querySelectorAll('input[type="checkbox"]:checked');
-    
-    checkboxesActuales.forEach(cb => {
-        const fila = cb.closest('.tabla_filas');
-        if (fila) fila.remove();
-    });
-
-    totalPacientes.textContent = tablaCuerpo.querySelectorAll('.tabla_filas').length;
-
-    tablaCuerpo.querySelectorAll('.tabla_filas').forEach((fila, index) => {
-        fila.cells[1].querySelector('span').textContent = String(index + 1).padStart(2, '0');
-    });
-
-    overlayEliminar.style.display = 'none';
-    opcs.forEach(opc => {
-        opc.style.pointerEvents = 'none'; // ← estaba faltando esto
-        opc.style.cursor = 'no-drop';
-        opc.style.opacity = '0.5';
-    });
-});
 
 tablaCuerpo.addEventListener('change', (e) => {
-    const box = e.target.closest('input[type="checkbox"]');
-    if (!box) return;
+    if (!e.target.closest('input[type="checkbox"]')) return
+    const marcado = tablaCuerpo.querySelectorAll('input[type="checkbox"]:checked').length > 0
+    opcs.forEach(opc => {
+        opc.style.pointerEvents = marcado ? 'all' : 'none'
+        opc.style.cursor = marcado ? 'pointer' : 'no-drop'
+        opc.style.opacity = marcado ? '1' : '0.5'
+    })
+})
 
-    const marcado = tablaCuerpo.querySelectorAll('input[type="checkbox"]:checked').length > 0;
-
-    if (marcado) {
-        opcs.forEach(opc => {
-            opc.style.pointerEvents = 'all';
-            opc.style.cursor = 'pointer';
-            opc.style.opacity = '1';
-        });
-    } else {
-        opcs.forEach(opc => {
-            opc.style.pointerEvents = 'none';
-            opc.style.cursor = 'no-drop';
-            opc.style.opacity = '0.5';
-        });
-    }
-});
-
-function abrirEditar(){
-    const checkboxMarcado = tablaCuerpo.querySelector('input[type="checkbox"]:checked');
-    if (!checkboxMarcado) return;
-
-    filaSeleccionada = checkboxMarcado.closest('.tabla_filas');
-
-    document.querySelector('input[name="nombreEditar"]').value = filaSeleccionada.cells[2].textContent.trim();
-    document.querySelector('input[name="edadEditar"]').value = filaSeleccionada.cells[3].textContent.trim();
-    document.querySelector('input[name="telefonoEditar"]').value = filaSeleccionada.cells[4].textContent.trim();
-    document.querySelector('input[name="correoEditar"]').value = filaSeleccionada.cells[5].textContent.trim();
-    infoSexoEditar.textContent = filaSeleccionada.cells[6].textContent.trim();
-    infoSangreEditar.textContent = filaSeleccionada.cells[7].textContent.trim();
-    document.querySelector('input[name="motivoEditar"]').value = filaSeleccionada.dataset.motivo || '';
-
-    overlayEditar.style.display = 'flex';
-}
-function abrirEliminar(){
-    overlayEliminar.style.display = 'flex';
-
-    const checkboxesMarcados = tablaCuerpo.querySelectorAll('input[type="checkbox"]:checked');
-    const cantidad = checkboxesMarcados.length;
-
-    if(cantidad === 1){
-        const fila = checkboxesMarcados[0].closest('.tabla_filas');
-        const nombre = fila.cells[2].textContent;
-        document.querySelectorAll('.registro_paciente').forEach(el => { el.textContent = nombre; });
-    } else {
-        document.querySelectorAll('.registro_paciente').forEach(el => { el.textContent = `${cantidad} pacientes`; });
-    }
-}
+tablaCuerpo.addEventListener('click', (e) => {
+    if (e.target.type === 'checkbox') return
+    const fila = e.target.closest('.tabla_filas')
+    if (!fila) return
+    const cb = fila.querySelector('input[type="checkbox"]')
+    cb.checked = !cb.checked
+    cb.dispatchEvent(new Event('change', { bubbles: true }))
+})
 
 function verExpediente(){
-    const checkboxMarcado = tablaCuerpo.querySelector('input[type="checkbox"]:checked');
-    
-    if(checkboxMarcado){
-        const fila = checkboxMarcado.closest('.tabla_filas');
-        
-        const ID = fila.cells[1].textContent.trim()
-        const nombre = fila.cells[2].textContent.trim()
-        const edad = fila.cells[3].textContent.trim()
-        const telefono = fila.cells[4].textContent.trim()
-        const correo = fila.cells[5].textContent.trim()
-        const sexo = fila.cells[6].textContent.trim();
-        const tipoSangre = fila.cells[7].textContent.trim();
-        const motivo = fila.dataset.motivo || 'Sin motivo registrado.'
-
-        console.log(ID, nombre, edad, telefono, correo, sexo, tipoSangre, motivo)
-
-        localStorage.setItem('ID', ID)
-        localStorage.setItem('nombre', nombre)
-        localStorage.setItem('edad', edad)
-        localStorage.setItem('telefono', telefono)
-        localStorage.setItem('correo', correo)
-        localStorage.setItem('sexo', sexo)
-        localStorage.setItem('tipoSangre', tipoSangre)
-        localStorage.setItem('motivo', motivo)
-
-        window.location.href = "exp_paciente.html"
-    }
+    const checkboxMarcado = tablaCuerpo.querySelector('input[type="checkbox"]:checked')
+    if (!checkboxMarcado) return
+    const fila = checkboxMarcado.closest('.tabla_filas')
+    const [anio, mes, dia] = fila.cells[3].textContent.trim().split('-')
+    localStorage.setItem('idPaciente', fila.dataset.idPaciente)
+    localStorage.setItem('ID', fila.cells[1].textContent.trim())
+    localStorage.setItem('nombre', fila.cells[2].textContent.trim())
+    localStorage.setItem('fechaNac', fila.cells[3].textContent.trim())
+    localStorage.setItem('anio', anio || '')
+    localStorage.setItem('mes', mes || '')
+    localStorage.setItem('dia', dia || '')
+    localStorage.setItem('telefono', fila.cells[4].textContent.trim())
+    localStorage.setItem('correo', fila.cells[5].textContent.trim())
+    localStorage.setItem('sexo', fila.cells[6].textContent.trim())
+    localStorage.setItem('tipoSangre', fila.cells[7].textContent.trim())
+    window.location.href = 'exp_paciente.html'
 }
-function cerrarEliminar(){
-    overlayEliminar.style.display = 'none'
-    tablaCuerpo.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false)
-    opcs.forEach(opc => { opc.style.pointerEvents = 'none'; opc.style.cursor = 'no-drop'; opc.style.opacity = '0.5'; })
-}
-function cerrarEditar(){
-    overlayEditar.style.display = 'none'
-    tablaCuerpo.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false)
-    opcs.forEach(opc => { opc.style.pointerEvents = 'none'; opc.style.cursor = 'no-drop'; opc.style.opacity = '0.5'; })
-}
-
-totalPacientes.textContent = filas.length;
 
 search.addEventListener('input', () => {
-    const termino = search.value.toLowerCase().trim();
-    
-    filas.forEach(fila => {
-        // Obtenemos el nombre completo de la 3ra columna (índice 2)
-        const ID = fila.cells[1].textContent.toLowerCase();
-        const nombre = fila.cells[2].textContent.toLowerCase();
-        const edad = fila.cells[3].textContent.toLowerCase();
-        const telefono = fila.cells[4].textContent.toLowerCase();
-        const correo = fila.cells[5].textContent.toLowerCase();
-        const sexo = fila.cells[6].textContent.toLowerCase();
-        const tipoSangre = fila.cells[7].textContent.toLowerCase();
-        
-        if (nombre.includes(termino) || ID.includes(termino) || edad.includes(termino) || correo.includes(termino) || sexo.includes(termino) || tipoSangre.includes(termino)){
-            fila.style.display = '';
-        } else{ fila.style.display = 'none'; }
-    });
-});
-
-tablaCuerpo.addEventListener('click', (e) => {
-    const btnMotivo = e.target.closest('.motivo')
-    if (!btnMotivo) return
-
-    const fila = btnMotivo.closest('.tabla_filas')
-    const nombre = fila.cells[2].textContent.trim()
-    const motivo = fila.dataset.motivo || 'Sin motivo de consulta registrado.'
-    const fechaRegistro = fila.dataset.fechaRegistro || 'Sin fecha de registro registrada.'
-
-    nombreMotivo.textContent = nombre
-    textoMotivo.textContent = motivo
-    textoFechaRegistro.textContent = fechaRegistro
-    overlayMotivo.style.display = 'flex'
+    const termino = search.value.toLowerCase().trim()
+    tablaCuerpo.querySelectorAll('.tabla_filas').forEach(fila => {
+        const hay = [1, 2, 3, 4, 5, 6, 7].some(i => fila.cells[i].textContent.toLowerCase().includes(termino))
+        fila.style.display = hay ? '' : 'none'
+    })
 })
 
-cerrarMotivo.addEventListener('click', () => overlayMotivo.style.display = 'none')
-overlayMotivo.addEventListener('click', (e) => { 
-    if (e.target === overlayMotivo) overlayMotivo.style.display = 'none' 
+const cerrarForm = document.querySelectorAll('.cerrar_nuevo_paciente')
+const carruselForm = document.querySelector('.carrusel_forms')
+const seccionesForm = document.querySelectorAll('.secciones_form .seccion')
+const btnPrevForm = document.querySelector('.btn_prev_form')
+const btnNextForm = document.querySelector('.btn_next_form')
+let i = 200
+
+const checkOtro = document.getElementById('checkOtro')
+const inputOtro = document.querySelector('.input_habito_otro')
+if(checkOtro && inputOtro){
+    checkOtro.addEventListener('change', () => {
+        inputOtro.disabled = !checkOtro.checked
+        if (checkOtro.checked) inputOtro.focus()
+        else inputOtro.value = ''
+    })
+}
+
+btnNuevoPaciente.addEventListener('click', () => {
+    document.querySelector('input[name="nombreAgregar"]').value = ''
+    document.querySelector('input[name="anioAgregar"]').value = ''
+    document.querySelector('input[name="telefonoAgregar"]').value = ''
+    document.querySelector('input[name="correoAgregar"]').value = ''
+    document.querySelector('input[name="direccionAgregar"]').value = ''
+    document.querySelector('input[name="emergenciaAgregar"]').value = ''
+    document.querySelector('input[name="alergiasAgregar"]').value = ''
+    document.querySelector('input[name="medActAgregar"]').value = ''
+    document.querySelector('input[name="cirugiasAgregar"]').value = ''
+    document.querySelector('input[name="enfAgregar"]').value = ''
+    // document.querySelector('input[name="dolorAgregar"]').value = ''
+    document.querySelector('input[name="habitoOtroTexto"]').value = ''
+    document.querySelector('input[name="habitoOtroTexto"]').disabled = true
+
+    infoSexoAgregar.textContent = 'Selecciona un sexo:'
+    infoSexoAgregar.style.color = ''
+    infoSangreAgregar.textContent = 'Selecciona un tipo de sangre:'
+    infoSangreAgregar.style.color = ''
+    infoMesAgregar.textContent = 'Mes'
+    infoMesAgregar.style.color = ''
+    infoDiaAgregar.textContent = 'Día'
+    infoDiaAgregar.style.color = ''
+
+    // Checkboxes de hábitos
+    document.querySelectorAll('.overlay_nuevo_paciente .habitos_grid input[type="checkbox"]').forEach(cb => cb.checked = false)
+
+    overlayNuevoPaciente.style.display = 'flex'
+    multiFormulario("200", seccionesForm[0], seccionesForm[1], seccionesForm[2])
+    btnPrevForm.classList.add('desactivado')
+    btnNextForm.classList.remove('desactivado')
+    i = 200
 })
 
-tablaCuerpo.addEventListener('click', (e) => {
-    if (e.target.type === 'checkbox' || e.target.closest('.motivo')) return;
+inputsNuevoPaciente.forEach(input => {
+    input.addEventListener('keypress', (tecla) => { if (tecla.key === 'Enter') agregarNuevoPaciente() })
+})
 
-    const fila = e.target.closest('.tabla_filas');
-    if (!fila) return;
+btnAgregarPaciente.addEventListener('click', () => {
+    if (modoEditar) confirmarEdicionPaciente()
+    else agregarNuevoPaciente()
+})
 
-    const checkbox = fila.querySelector('input[type="checkbox"]');
-    checkbox.checked = !checkbox.checked;
+cerrarForm.forEach(cerrar => {
+    cerrar.addEventListener('click', () => {
+        overlayNuevoPaciente.style.display = 'none'
+        if(modoEditar){
+            document.querySelector('.overlay_nuevo_paciente .carrusel_forms .div_form:nth-child(1) h3').textContent = 'Información Básica:'
+            document.querySelector('.btn_agregar').textContent = 'Agregar paciente'
+            modoEditar = false; resetCheckboxes(); filaSeleccionada = null
+        }
+    })
+})
 
-    checkbox.dispatchEvent(new Event('change', { bubbles: true }));
-});
+seccionesForm[0].addEventListener('click', () => {
+    multiFormulario("200", seccionesForm[0], seccionesForm[1], seccionesForm[2])
+    btnPrevForm.classList.add('desactivado')
+    btnNextForm.classList.remove('desactivado')
+    i = 200
+})
+seccionesForm[1].addEventListener('click', () => {
+    multiFormulario(0, seccionesForm[1], seccionesForm[0], seccionesForm[2])
+    btnPrevForm.classList.remove('desactivado')
+    btnNextForm.classList.remove('desactivado')
+    i = 0
+})
+seccionesForm[2].addEventListener('click', () => {
+    multiFormulario("-200", seccionesForm[2], seccionesForm[0], seccionesForm[1])
+    btnPrevForm.classList.remove('desactivado')
+    btnNextForm.classList.add('desactivado')
+    i = -200
+})
 
+btnPrevForm.addEventListener('click', () => {
+    if (i >= 200) return
+    i += 200
+    if (i === 200) btnPrevForm.classList.add('desactivado')
+    btnNextForm.classList.remove('desactivado')
+    actualizarBtns()
+    carruselForm.style.marginLeft = `${i}%`
+})
+btnNextForm.addEventListener('click', () => {
+    if (i <= -200) return
+    i -= 200
+    if (i === -200) btnNextForm.classList.add('desactivado')
+    btnPrevForm.classList.remove('desactivado')
+    actualizarBtns()
+    carruselForm.style.marginLeft = `${i}%`
+})
+
+function multiFormulario(marginLeft, valor0, valor1, valor2) {
+    carruselForm.style.marginLeft = `${marginLeft}%`
+    valor0.classList.add('activo')
+    valor1.classList.remove('activo')
+    valor2.classList.remove('activo')
+}
+
+function actualizarBtns(){
+    if (i === -200) multiFormulario("-200", seccionesForm[2], seccionesForm[0], seccionesForm[1])
+    if (i === 0) multiFormulario(0, seccionesForm[1], seccionesForm[0], seccionesForm[2])
+    if (i === 200) multiFormulario("200", seccionesForm[0], seccionesForm[1], seccionesForm[2])
+}
 
 function mostrarAlerta(){
-    alerta.style.top = "10%"
-    setTimeout(() => { alerta.style.top = "-30%" }, 3000)
+    alerta.style.top = '20%'
+    setTimeout(() => { alerta.style.top = '-30%' }, 3000)
 }

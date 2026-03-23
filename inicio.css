@@ -113,6 +113,7 @@ body{
         display: flex;
         flex-direction: column;
         gap: 0.6rem;
+        
 
         .citas_hoy_header{
             display: flex;
@@ -128,7 +129,7 @@ body{
                 flex: 1;
             }
 
-            .citas_count{
+            .citasHoy{
                 background-color: var(--morado_principal);
                 color: white;
                 font-size: 0.75rem;
@@ -186,12 +187,13 @@ body{
         }
     }
 
-    .indicadores {
+    .indicadores{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 0.6rem;
+        user-select: none;
 
-        .indicador_card {
+        .indicador_card{
             display: flex;
             align-items: center;
             gap: 0.7rem;
@@ -201,13 +203,13 @@ body{
             border-left: 3px solid var(--morado_claro);
             transition: all 0.2s ease;
 
-            &:hover {
+            &:hover{
                 background: var(--brillo_suave);
                 border-left-color: var(--morado_principal);
                 transform: translateY(-1px);
             }
 
-            .indicador_icon {
+            .indicador_icon{
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -221,19 +223,18 @@ body{
                 svg { fill: var(--morado_principal); }
             }
 
-            .indicador_info {
+            .indicador_info{
                 display: flex;
                 flex-direction: column;
-                gap: 0.05rem;
+                gap: 0.1rem;
 
-                .indicador_valor {
+                .indicador_valor, .citasHoy{
                     font-size: 1.3rem;
                     font-weight: 700;
                     color: var(--morado_principal);
                     line-height: 1;
                 }
-
-                .indicador_label {
+                .indicador_label{
                     font-size: 0.72rem;
                     font-weight: 400;
                     color: #666;
@@ -241,26 +242,23 @@ body{
             }
         }
 
-        /* Tarjeta destacada para citas completadas */
-        .indicador_destacado {
+        .indicador_destacado{
             background: linear-gradient(135deg, var(--morado_principal), var(--morado_medio));
             border-left-color: transparent;
 
-            &:hover {
+            &:hover{
                 background: linear-gradient(135deg, var(--morado_principal), var(--morado_medio));
                 filter: brightness(1.08);
-                border-left-color: transparent;
+                border-left-color: var(--morado_claro);
             }
-
-            .indicador_icon {
+            .indicador_icon{
                 background: rgba(255,255,255,0.2);
                 box-shadow: none;
-                svg { fill: white; }
+                svg{ fill: white; }
             }
-
-            .indicador_info {
-                .indicador_valor { color: white; }
-                .indicador_label { color: rgba(255,255,255,0.8); }
+            .indicador_info{
+                .citasHoy{ color: white; }
+                .indicador_label{ color: rgba(255,255,255,0.8); }
             }
         }
     }

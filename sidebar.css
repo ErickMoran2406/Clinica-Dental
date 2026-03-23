@@ -63,15 +63,12 @@ hr{ margin: 1.5rem 0; width: 100%; }
             text-align: left;
 
             .gest_usuario{
-                /* width: 40px;
-                aspect-ratio: 1/1; */
                 object-fit: cover;
                 object-position: top;
-                border-radius: 50%;
             }
             .seccion_info{
                 p{ font-size: 0.9rem; }
-                span{ text-decoration: underline; color: black; } 
+                span{ color: black; } 
             }
         }
         .elemento_logo{ margin-bottom: 2rem; }
@@ -89,8 +86,6 @@ hr{ margin: 1.5rem 0; width: 100%; }
 }
 .sidebar:hover .secciones .seccion, .sidebar:active .secciones .seccion{ grid-template-columns: 40px 1fr; }
 .contenido{ margin-left: 110px; }
-
-
 
 .div_textarea{
     position: fixed;
@@ -182,4 +177,12 @@ hr{ margin: 1.5rem 0; width: 100%; }
             fill: white;
         }
     }
+}
+
+.contenido .contenido_header .div_usuario{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    svg{ fill: white; }
+    strong{ display: flex; gap: 0.5rem; }
 }

@@ -18,7 +18,7 @@
                     </div>
                 </li>
                 <div class="grupo_menu">
-                    <a href="index.html">
+                    <a href="inicio.html">
                         <li class="seccion">
                             <svg class="inicio" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
                             <div class="seccion_info">
@@ -59,11 +59,11 @@
                         </li>
                     </a>
                 </div>
-                <a href="login.html">
+                <a href="index.html">
                     <li class="seccion avatar">
                         <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
                         <div class="seccion_info">
-                            <h3 class="nombre_usuario">Dra. <span>Nombre</span></h3>
+                            <h3 class="nombre_usuario">Dra. <span class="usuario"></span></h3>
                             <p class="desc">Doctora</p>
                         </div>
                     </li>
@@ -75,9 +75,9 @@
     <main class="contenido">
         <div class="contenido_header">
             <h2>Expediente del paciente</h2>
-            <div class="usuario">
+            <div class="div_usuario">
                 <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
-                <h3>Dr. Nombre</h3>
+                <h3><strong>Dra. <span class="usuario"></span></strong></h3>
             </div>
         </div>
         <hr>
@@ -89,9 +89,8 @@
             <div class="interac_tabla">
                 <div class="editar_exp">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M200-200h57l391-391-57-57-391 391v57Zm-80 80v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm640-584-56-56 56 56Zm-141 85-28-29 57 57-29-28Z"/></svg>
-                    <p>Editar</p>
+                    <p>Editar expediente</p>
                 </div>
-                <button class="btn_edit_exp"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg> Agendar cita al paciente</button>
             </div>
         </div>
         <br>
@@ -99,128 +98,150 @@
             <div class="div_expediente">
                 <div class="info_basica">
                     <div class="titulo_info_basica">
-                        <h3>Información básica</h3>
-                        <span class="ID">#N</span>
+                        <h3>Información Básica</h3>
+                        <span class="ID">-</span>
                     </div>
                     <div class="info_info_basica">
-                        <div class="informacion">
-                            <p>Nombre: <span class="nombre">NaN</span></p>
-                            <p>Edad: <span class="edad">NaN</span></p>
-                            <p>Sexo: <span class="sexo">NaN</span></p>
-                            <p>Teléfono: <span class="telefono">NaN</span></p>
-                            <p>Correo: <span class="correo">NaN</span></p>
-                            <p>Tipo de sangre: <span class="tipo_sangre">NaN</span></p>
+                        <div class="info_campo ancho2">
+                            <span class="label">Nombre completo</span>
+                            <span class="valor nombre">-</span>
                         </div>
-                        <div class="foto"></div>
-                    </div> <br>
-                    <div class="div_motivo">
-                        <p>Motivo de consulta: <span class="motivo">NaN</span></p>
+                        <div class="info_campo">
+                            <span class="label">Fecha de nacimiento</span>
+                            <span class="valor fechaNac">-</span>
+                        </div>
+                        <div class="info_campo">
+                            <span class="label">Sexo</span>
+                            <span class="valor sexo">-</span>
+                        </div>
+                        <div class="info_campo">
+                            <span class="label">Teléfono</span>
+                            <span class="valor tel">-</span>
+                        </div>
+                        <div class="info_campo">
+                            <span class="label">Correo</span>
+                            <span class="valor correo">-</span>
+                        </div>
+                        <div class="info_campo">
+                            <span class="label">Dirección</span>
+                            <span class="valor dir">-</span>
+                        </div>
+                        <div class="info_campo">
+                            <span class="label">Contacto de emergencia</span>
+                            <span class="valor contacto">-</span>
+                        </div>
                     </div>
                 </div>
 
-                <hr class="division">
+                <!-- <hr class="division"> -->
+                <br>
                 
-                <div class="historial">
-                    <div class="titulo_historial"><h3>Historial clínico</h3></div>
-                    <div class="div_historial">
-                        <div class="historial_card enf_sistem">
-                            <p>Enfermedades sistémicas:</p>
-                            <ul>
-                                <li>Enfermedad 1.</li>
-                                <li>Enfermedad 2.</li>
-                                <li>Enfermedad 3.</li>
-                            </ul>
+                <div class="antec_med">
+                    <div class="titulo_antec_med"><h3>Antecedentes Médicos</h3></div>
+                    <div class="div_antec_med">
+                        <div class="antec_campo">
+                            <span class="label">Tipo de sangre</span>
+                            <span class="valor tipo_sangre">-</span>
                         </div>
-                        <div class="historial_card cir_previas">
-                            <p>Cirugias previas:</p>
-                            <ul>
-                                <li>Cirugia 1.</li>
-                                <li>Cirugia 2.</li>
-                                <li>Cirugia 3.</li>
-                            </ul>
+                        <div class="antec_campo">
+                            <span class="label">Alergias</span>
+                            <span class="valor alergias">-</span>
                         </div>
-                        <div class="historial_card medi_actuales">
-                            <p>Medicamentos actuales:</p>
-                            <ul>
-                                <li>Medicamento 1.</li>
-                                <li>Medicamento 2.</li>
-                                <li>Medicamento 3.</li>
-                            </ul>
+                        <div class="antec_campo">
+                            <span class="label">Medicamentos actuales</span>
+                            <span class="valor med_act">-</span>
                         </div>
-                        <div class="historial_card alergias">
-                            <p>Alergias:</p>
-                            <ul>
-                                <li>Alergia 1.</li>
-                                <li>Alergia 2.</li>
-                                <li>Alergia 3.</li>
-                            </ul>
+                        <div class="antec_campo">
+                            <span class="label">Cirugías previas</span>
+                            <span class="valor cir_prev">-</span>
                         </div>
-                        <div class="historial_card habitos">
-                            <p>Hábitos:</p>
-                            <ul>
-                                <li>Hábito 1.</li>
-                                <li>Hábito 2.</li>
-                                <li>Hábito 3.</li>
-                            </ul>
-                        </div>
-                        <div class="historial_card dolor">
-                            <p>Dolor actual:</p>
-                            <ul>
-                                <li>Dolor 1.</li>
-                                <li>Dolor 2.</li>
-                                <li>Dolor 3.</li>
-                            </ul>
+                        <div class="antec_campo ancho_completo">
+                            <span class="label">Enfermedades sistémicas</span>
+                            <span class="valor enf_sistem">-</span>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="n_exp"><span>#N</span></div> -->
+
+                <br>
+
+                <div class="habitos_motivo">
+                    <div class="habitos_card">
+                        <div class="titulo_seccion"><h3>Hábitos</h3></div>
+                        <div class="div_habitos">
+                            <!-- Items generados por JS -->
+                        </div>
+                    </div>
+
+                    <!-- <div class="motivo_card">
+                        <div class="titulo_seccion"><h3>Motivo</h3></div>
+                        <div class="div_consulta">
+                            <div class="consulta_campo">
+                                <span class="label">Motivo</span>
+                                <span class="valor info_motivo">-</span>
+                            </div>
+                            <div class="consulta_campo">
+                                <span class="label">Dolor actual</span>
+                                <span class="valor info_dolor_act">-</span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <br>
+
+                <div class="info_consulta">
+                    <div class="titulo_info_consulta">
+                        <h3>Consulta</h3>
+                        <p>llenar información de última consulta</p>
+                    </div>
+                    <div class="div_info_consulta">
+                        <div class="div_info_consulta_campo">
+                            <span class="label">Diagnóstico:</span>
+                            <span class="valor diagnostico">-</span>
+                        </div>
+                        <div class="div_info_consulta_campo">
+                            <span class="label">Plan de Tratamiento</span>
+                            <span class="valor tratamiento">-</span>
+                        </div>
+                        <div class="div_info_consulta_campo">
+                            <span class="label">Observaciones:</span>
+                            <span class="valor observaciones">-</span>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="div_btn_consulta">
+                        <div class="btn_consulta">
+                            <p>Llenar consulta</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
-    <div class="overlay_nueva_cita overlay">
+    <div class="overlay_llenar_consulta overlay">
         <div class="form">
             <div class="div_form">
-                <svg class="cerrar cerrar_nueva_cita" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                <h3>Agendar una cita al paciente:</h3>
+                <svg class="cerrar cerrar_consulta" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                <h3>Llenar datos de consulta</h3>
+                
                 <div class="div_datos">
-                    <div class="juntos nom_edad">
-                        <div class="dato">
-                            <p>Nombre completo:</p>
-                            <input type="text" name="nombreCita" id="" placeholder="Ingrese el nombre completo..." readonly required>
-                        </div>
-                        <div class="dato">
-                            <p>Edad:</p>
-                            <input type="number" name="edadCita" id="" placeholder="Ingrese la edad..." readonly required min="0">
-                        </div>
-                    </div>
-                    <div class="juntos">
-                        <div class="dato">
-                            <p>Fecha y Hora:</p>
-                            <input type="datetime-local" name="fechaCita" id="" required>
-                        </div>
-                        <div class="dato">
-                            <p>Estado:</p>
-                            <input type="text" name="estadoCita" id="" value="Activo" readonly>
-                        </div>
+                    <div class="dato">
+                        <p>Diagnóstico:</p>
+                        <input type="text" name="diagnosticoConsulta" placeholder="Ingrese el diagnóstico...">
                     </div>
                     <div class="dato">
-                        <p>Especialidad:</p>
-                        <div class="estado">
-                            <div class="info_esp">
-                                <p>Selecciona una especialidad</p>
-                                <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                            </div>
-                            <div class="div_esp">
-                                <p>Selecciona una especialidad</p>
-                                <p>Ortodoncia</p>
-                                <p>Maxilofacial</p>
-                                <p>Rehabilitación</p>
-                                <p>Odontopediatría</p>
-                            </div>
-                        </div>
+                        <p>Plan de tratamiento:</p>
+                        <input type="text" name="tratamientoConsulta" placeholder="Ingrese el plan de tratamiento...">
                     </div>
-                    <div class="agregar_cita"><button type="submit" class="btn_agregar">Agregar cita</button></div>
+                    <div class="dato">
+                        <p>Observaciones:</p>
+                        <textarea name="observacionesConsulta" rows="4" placeholder="Ingrese las observaciones..."></textarea>
+                    </div>
+
+                    <div class="agregar_doc">
+                        <button class="btn_conf_consulta">Guardar consulta</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -228,67 +249,134 @@
 
     <div class="overlay_editar_exp overlay">
         <div class="form">
-            <div class="div_form">
-                <svg class="cerrar cerrar_nuevo_doc" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                <h3>Ingrese un nuevo documento clínico:</h3>
+            <div class="secciones_form">
+                <div class="seccion info_basica activo">
+                    <span>1</span>
+                    <h3>Información Básica</h3>
+                </div>
+                <div class="seccion antec_med">
+                    <span>2</span>
+                    <h3>Antecedentes Médicos</h3>
+                </div>
+                <div class="seccion perfil_dental">
+                    <span>3</span>
+                    <h3>Perfil Dental</h3>
+                </div>
+            </div>
 
-                <div class="div_datos">
+            <div class="carrusel_forms">
+                <div class="div_form">
+                    <svg class="cerrar cerrar_nuevo_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    <h3>Información Básica:</h3>
+                    <div class="div_datos">
 
-                    <div class="juntos n_nom_edad">
-                        <div class="dato">
-                            <p>N°:</p>
-                            <input type="number" name="edadCita" id="" placeholder="Ingrese el N°..." required min="0">
-                        </div>
-                        <div class="dato">
-                            <p>Nombre completo:</p>
-                            <input type="text" name="nombreCita" id="" placeholder="Ingrese el nombre completo..." required>
-                        </div>
-                        <div class="dato">
-                            <p>Edad:</p>
-                            <input type="number" name="edadCita" id="" placeholder="Ingrese la edad..." required min="0">
-                        </div>
-                    </div>
-
-                    <div class="juntos fecha_sexo_tel">
-                        <div class="dato">
-                            <p>Fecha de nacimiento:</p>
-                            <input type="datetime-local" name="" id="" required min="0">
-                        </div>
-
-                        <div class="dato">
-                            <p>Sexo:</p>
-                            <div class="sexo">
-                                <div class="info_sexo">
-                                    <p>Selecciona un sexo</p>
-                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                                </div>
-                                <div class="div_sexos">
-                                    <p>Selecciona un sexo</p>
-                                    <p>M <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
-                                    <p>F <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
+                        <div class="nombre_edad">
+                            <div class="dato">
+                                <p>Nombre completo:</p>
+                                <input type="text" name="nombreEditar" placeholder="Ingrese el nombre completo..." required>
+                            </div>
+                            <div class="dato">
+                                <p>Sexo:</p>
+                                <div class="sexo">
+                                    <div class="info_sexo">
+                                        <p>Selecciona un sexo</p>
+                                        <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                    </div>
+                                    <div class="div_sexos">
+                                        <p>Selecciona un sexo</p>
+                                        <p>M <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
+                                        <p>F <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="dato">
-                            <p>Teléfono:</p>
-                            <input type="tel" name="" id="" placeholder="Ingrese el teléfono..." required min="0">
+                        <div class="fecha_nac">
+                            <div class="dato">
+                                <p>Año de nacimiento:</p>
+                                <input type="number" inputmode="numeric" name="anioAgregar" placeholder="Ej: 1990" min="1920" max="2025" maxlength="4" pattern="\d{1,4}" oninput="if(this.value.length > 4) this.value = this.value.slice(0,4)">
+                            </div>
+                            <div class="dato">
+                                <p>Mes de nacimiento:</p>
+                                <div class="sexo select_mes_Editar">
+                                    <div class="info_sexo info_mes_Editar">
+                                        <p>Mes</p>
+                                        <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                    </div>
+                                    <div class="div_sexos div_mes_Editar">
+                                        <p>Mes</p>
+                                        <p data-val="01">Enero</p>
+                                        <p data-val="02">Febrero</p>
+                                        <p data-val="03">Marzo</p>
+                                        <p data-val="04">Abril</p>
+                                        <p data-val="05">Mayo</p>
+                                        <p data-val="06">Junio</p>
+                                        <p data-val="07">Julio</p>
+                                        <p data-val="08">Agosto</p>
+                                        <p data-val="09">Septiembre</p>
+                                        <p data-val="10">Octubre</p>
+                                        <p data-val="11">Noviembre</p>
+                                        <p data-val="12">Diciembre</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dato">
+                                <p>Día de nacimiento:</p>
+                                <div class="sexo select_dia_Editar">
+                                    <div class="info_sexo info_dia_Editar">
+                                        <p>Día</p>
+                                        <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                                    </div>
+                                    <div class="div_sexos div_dia_Editar">
+                                        <p>Día</p>
+                                        <!-- Los días se generan con JS -->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="juntos correo_sangre">
-                        <div class="dato">
-                            <p>Correo:</p>
-                            <input type="email" name="" id="" placeholder="Ingrese el correo..." required>
+                        <div class="tel_correo">
+                            <div class="dato">
+                                <p>Teléfono:</p>
+                                <input type="number" name="telefonoEditar" placeholder="Ingrese el teléfono..." maxlength="10" pattern="\d{1,10}" oninput="if(this.value.length > 10) this.value = this.value.slice(0,10)" required>
+                            </div>
+                            <div class="dato">
+                                <p>Correo:</p>
+                                <input type="email" name="correoEditar" placeholder="Ingrese el correo..." required>
+                            </div>
                         </div>
+
+                        <div class="dir_emergencia">
+                            <div class="dato">
+                                <p>Dirección:</p>
+                                <input type="text" name="direccionEditar" placeholder="Ingrese la dirección..." required>
+                            </div>
+                            <div class="dato">
+                                <p>Contacto de emergencia:</p>
+                                <input type="number" name="emergenciaEditar" placeholder="Ingrese el teléfono..." maxlength="10" pattern="\d{1,10}" oninput="if(this.value.length > 10) this.value = this.value.slice(0,10)" required>
+                            </div>
+                        </div>
+
+                        <!-- <div class="dato">
+                            <p>Motivo de consulta:</p>
+                            <input type="text" name="motivoEditar" placeholder="Ingrese el motivo de consulta...">
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="div_form">
+                    <svg class="cerrar cerrar_nuevo_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    <h3>Antecedentes Médicos:</h3>
+                    <div class="div_datos">
+
                         <div class="dato">
                             <p>Tipo de sangre:</p>
-                            <div class="sexo">
-                                <div class="info_sexo">
-                                    <p>Selecciona un tipo de sangre</p>
+                            <div class="sangre">
+                                <div class="info_sangre">
+                                    <p>Selecciona un tipo de sangre:</p>
                                     <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
                                 </div>
-                                <div class="div_sexos div_sangre">
+                                <div class="div_sangres">
                                     <p>Selecciona un tipo de sangre</p>
                                     <p>A+</p>
                                     <p>A-</p>
@@ -301,15 +389,90 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="dato">
+                            <p>Alergias:</p>
+                            <input type="text" name="alergiasEditar" placeholder="Ingrese las alergias..." required>
+                        </div>
 
-                    <div class="dato">
-                        <p>Motivo de consulta:</p>
-                        <textarea rows="3" name="" id="" placeholder="Ingrese el motivo de consulta del paciente..." maxlength="200"></textarea>
-                    </div>
+                        <div class="dato">
+                            <p>Medicamentos actuales:</p>
+                            <input type="text" name="medActEditar" placeholder="Ingrese los medicamentos..." required>
+                        </div>
+                        <div class="dato">
+                            <p>Cirugías previas:</p>
+                            <input type="text" name="cirugiasEditar" placeholder="Ingrese las cirugias..." required>
+                        </div>
 
-                    <div class="agregar_doc"><button type="submit" class="btn_agregar">Editar expediente</button></div>
+                        <div class="dato">
+                            <p>Enfermedades sistémicas:</p>
+                            <input type="text" name="enfEditar" placeholder="Ingrese las enfermedades...">
+                        </div>
+                    </div>
                 </div>
+
+                <div class="div_form">
+                    <svg class="cerrar cerrar_nuevo_paciente" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    <h3>Perfil Dental:</h3>
+                    <div class="div_datos">
+
+                        <div class="dato">
+                            <p>Hábitos:</p>
+                            <div class="habitos_grid">
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoFumar">
+                                    <span class="habito_label">🚬 Fumar</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoRefrescos">
+                                    <span class="habito_label">🥤 Consumir refrescos frecuentemente</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoDulces">
+                                    <span class="habito_label">🍬 Consumir dulces frecuentemente</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoBruxismo">
+                                    <span class="habito_label">😬 Bruxismo (rechinar dientes)</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoUnias">
+                                    <span class="habito_label">💅 Morder uñas</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoHielo">
+                                    <span class="habito_label">🧊 Masticar hielo</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoRespiracion">
+                                    <span class="habito_label">👄 Respirar por la boca</span>
+                                </label>
+                                <label class="habito_item">
+                                    <input type="checkbox" name="habitoEstres">
+                                    <span class="habito_label">😤 Apretar dientes por estrés</span>
+                                </label>
+                                <label class="habito_item habito_otro">
+                                    <input type="checkbox" name="habitoOtro" id="checkOtro">
+                                    <span class="habito_label">➕ Otro:</span>
+                                    <input type="text" name="habitoOtroTexto" class="input_habito_otro" placeholder="Especifique..." disabled>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="dato">
+                            <p>Dolor o sensación actual:</p>
+                            <input type="text" name="dolorEditar" placeholder="Ingrese el dolor o sensación actual...">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="div_btn_agregar">
+                <div class="div_btns_forms">
+                    <div class="btn_prev"><button class="btn_prev_form btns_prev_next desactivado"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/></svg></button></div>
+                    <div class="btn_next"><button class="btn_next_form btns_prev_next"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></button></div>
+                </div>
+                <div class="enviar"><button type="submit" class="btn_editar">Editar expediente</button></div>
             </div>
         </div>
     </div>
@@ -321,6 +484,16 @@
         </div>
         <div class="div_borrar_area">
             <svg class="borrar_area" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+        </div>
+    </div>
+
+    <div class="alerta">
+        <div class="div_alerta">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M508.5-291.5Q520-303 520-320t-11.5-28.5Q497-360 480-360t-28.5 11.5Q440-337 440-320t11.5 28.5Q463-280 480-280t28.5-11.5ZM440-440h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
+            <div class="info_alerta">
+                <h3>Campos incompletos</h3>
+                <p>Es necesario llenar todos los campos</p>
+            </div>
         </div>
     </div>
 
