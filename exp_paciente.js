@@ -9,6 +9,7 @@ const alerta = document.querySelector('.alerta')
 const overlayEditarExp = document.querySelector('.overlay_editar_exp')
 const btnEditarExp = document.querySelector('.editar_exp')
 const btnConfEditar = document.querySelector('.btn_editar')
+
 const cerrarPopups = document.querySelectorAll('.cerrar')
 
 const IDPaciente = document.querySelector('.expediente .ID')
@@ -164,14 +165,16 @@ if(checkOtro && inputOtro){
     })
 }
 
-const idPaciente = localStorage.getItem('idPaciente')
+const params = new URLSearchParams(window.location.search)
+const idDesdeURL = params.get('id')
+const idPaciente = idDesdeURL || localStorage.getItem('idPaciente')
 
-async function cargarExpediente(id) {
+async function cargarExpediente(id){
     try {
         const resPaciente = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_paciente&id=${id}`)
         const paciente = await resPaciente.json()
 
-        const resAnt = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_antecedmed&id=${id}`)
+        const resAnt = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_antecmed&id=${id}`)
         const ant = await resAnt.json()
 
         if(paciente){
@@ -195,26 +198,25 @@ async function cargarExpediente(id) {
                 habitos
             })
         } else { vaciarInformacion() }
-
-    } catch(error){
-        console.error('Error cargando expediente:', error)
-        vaciarInformacion()
-    }
+        if(sexoPaciente.textContent === "M"){ sexoPaciente.textContent = "Masculino" }
+        else if(sexoPaciente.textContent === "F"){ sexoPaciente.textContent = "Femenino" }
+    } catch(error){ vaciarInformacion() }
 }
+
+if(idDesdeURL) localStorage.setItem('idPaciente', idDesdeURL)
 
 if(idPaciente){ cargarExpediente(idPaciente) }
 else { vaciarInformacion() }
 
 btnEditarExp.addEventListener('click', async () => {
-    const id = localStorage.getItem('idPaciente')
-    if(!id){ return }
+    const id = IDPaciente.textContent.replace('#', '').trim()
+    if(!id || id === 'N' || id === '-') return
 
     try {
         const resPaciente = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_paciente&id=${id}`)
         const paciente = await resPaciente.json()
-        const resAnt = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_antecedmed&id=${id}`)
+        const resAnt = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_antecmed&id=${id}`)
         const ant = await resAnt.json()
-
         if(!paciente) return
 
         const [anio, mes, dia] = (paciente.fecha_nac || '').split('-')
@@ -275,16 +277,13 @@ btnEditarExp.addEventListener('click', async () => {
         }); generarDias(mes, anio)
 
         multiFormulario("200", seccionesForm[0], seccionesForm[1], seccionesForm[2])
-        btnPrevForm.classList.add('desactivado')
-        btnNextForm.classList.remove('desactivado')
-        i = 200
-        overlayEditarExp.style.display = 'flex'
-
+        btnPrevForm.classList.add('desactivado'); btnNextForm.classList.remove('desactivado')
+        i = 200; overlayEditarExp.style.display = 'flex'
     } catch(error){ console.error('Error abriendo editor:', error) }
 })
 
 btnConfEditar.addEventListener('click', async () => {
-    const id = localStorage.getItem('idPaciente')
+    const id = IDPaciente.textContent.replace('#', '').trim()
     if(!id) return
 
     const nuevoNombre = document.querySelector('[name="nombreEditar"]').value.trim()
@@ -331,20 +330,10 @@ btnConfEditar.addEventListener('click', async () => {
     const fechaNac = (nuevoAnio && nuevoMes && nuevoDia) ? `${nuevoAnio}-${nuevoMes}-${nuevoDia}` : ''
 
     const datosEditar = {
-        id_paciente: id,
-        nombre: nuevoNombre,
-        fecha_nac: fechaNac,
-        telefono: nuevoTelefono,
-        correo: nuevoCorreo,
-        sexo: nuevoSexo,
-        tipo_sangre: nuevoTipoSangre,
-        direccion: nuevaDireccion,
-        emergencia: nuevoEmergencia,
-        alergias: nuevasAlergias,
-        med_act: nuevosMeds,
-        cir_prev: nuevasCirugias,
-        enfermedades: nuevasEnf,
-        habitos: nuevosHabitos
+        id_paciente: id, nombre: nuevoNombre, fecha_nac: fechaNac, telefono: nuevoTelefono,
+        correo: nuevoCorreo, sexo: nuevoSexo, tipo_sangre: nuevoTipoSangre, direccion: nuevaDireccion,
+        emergencia: nuevoEmergencia, alergias: nuevasAlergias, med_act: nuevosMeds, cir_prev: nuevasCirugias,
+        enfermedades: nuevasEnf, habitos: nuevosHabitos
     }
 
     try {
@@ -352,9 +341,7 @@ btnConfEditar.addEventListener('click', async () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(datosEditar)
-        })
-        overlayEditarExp.style.display = 'none'
-        cargarExpediente(id)
+        }); overlayEditarExp.style.display = 'none'; cargarExpediente(id)
     } catch(error){ console.error('Error guardando edición:', error) }
 })
 
@@ -408,18 +395,18 @@ function llenarExpediente(p){
 
     IDPaciente.textContent = `#${p.ID}`
     nombrePaciente.textContent = p.nombre || 'Sin registro'
-    fechaNacPaciente.textContent = (p.anio && p.mes && p.dia) ? `${p.anio}-${p.mes}-${p.dia}` : 'Sin registro'
-    telefonoPaciente.textContent = p.telefono || 'Sin registro'
-    correoPaciente.textContent = p.correo || 'Sin registro'
-    dirPaciente.textContent = p.direccion || 'Sin registro'
-    contactoPaciente.textContent = p.emergencia || 'Sin registro'
-    sexoPaciente.textContent = p.sexo || 'Sin registro'
+    fechaNacPaciente.textContent = (p.anio && p.mes && p.dia) ? `${p.anio}-${p.mes}-${p.dia}` : '-'
+    telefonoPaciente.textContent = p.telefono || '-'
+    correoPaciente.textContent = p.correo || '-'
+    dirPaciente.textContent = p.direccion || '-'
+    contactoPaciente.textContent = p.emergencia || '-'
+    sexoPaciente.textContent = p.sexo || '-'
 
-    tipoSangrePaciente.textContent = p.tipoSangre || 'Sin registro'
-    alergiasPaciente.textContent = p.alergias || 'Sin registro'
-    medicamentosPaciente.textContent = p.medicamentos || 'Sin registro'
-    cirugPrevPaciente.textContent = p.cirugias || 'Sin registro'
-    enfSistemPaciente.textContent = p.enfermedades || 'Sin registro'
+    tipoSangrePaciente.textContent = p.tipoSangre || '-'
+    alergiasPaciente.textContent = p.alergias || '-'
+    medicamentosPaciente.textContent = p.medicamentos || '-'
+    cirugPrevPaciente.textContent = p.cirugias || '-'
+    enfSistemPaciente.textContent = p.enfermedades || '-'
 
     const divHabitos = document.querySelector('.div_habitos')
     divHabitos.innerHTML = ''
@@ -468,25 +455,18 @@ inputBusqueda.addEventListener('input', async () => {
         const res = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_paciente&id=${termino}`)
         const paciente = await res.json()
         if(paciente){
-            const resAnt = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_antecedmed&id=${termino}`)
+            const resAnt = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_antecmed&id=${termino}`)
             const ant = await resAnt.json()
             const [anio, mes, dia] = (paciente.fecha_nac || '').split('-')
-            const habitos = ant?.habitos ? ant.habitos.split(', ').filter(Boolean) : []
+            const habitosRaw = ant?.habitos || ''
+            let habitos = []
+            try { habitos = JSON.parse(habitosRaw) } 
+            catch { habitos = habitosRaw ? habitosRaw.split(', ').filter(Boolean) : [] }
             llenarExpediente({
-                ID: String(paciente.id_paciente).padStart(2, '0'),
-                nombre: paciente.nombre,
-                anio, mes, dia,
-                telefono: paciente.telefono,
-                correo: paciente.correo,
-                sexo: paciente.sexo,
-                tipoSangre: paciente.tipo_sangre,
-                direccion: paciente.direccion,
-                emergencia: paciente.tel_emergencia,
-                alergias: ant?.alergias || '',
-                medicamentos: ant?.med_act || '',
-                cirugias: ant?.cir_prev || '',
-                enfermedades: ant?.enfermedades || '',
-                habitos
+                ID: String(paciente.id_paciente).padStart(2, '0'), nombre: paciente.nombre, anio, mes, dia,
+                telefono: paciente.telefono, correo: paciente.correo, sexo: paciente.sexo, tipoSangre: paciente.tipo_sangre,
+                direccion: paciente.direccion, emergencia: paciente.tel_emergencia, alergias: ant?.alergias || '',
+                medicamentos: ant?.med_act || '', cirugias: ant?.cir_prev || '', enfermedades: ant?.enfermedades || '', habitos
             })
         } else { vaciarInformacion() }
     } catch(error){ vaciarInformacion() }
@@ -496,6 +476,7 @@ cerrarPopups.forEach(btnCerrar => {
     btnCerrar.addEventListener('click', () => {
         overlayEditarExp.style.display = 'none'
         overlayConsulta.style.display = 'none'
+        overlayInfoCitas.style.display = 'none'
     })
 })
 
@@ -507,51 +488,118 @@ const btnConfConsulta = document.querySelector('.btn_conf_consulta')
 cerrarConsulta.addEventListener('click', () => { overlayConsulta.style.display = 'none' })
 overlayConsulta.addEventListener('click', (e) => { if(e.target === overlayConsulta) overlayConsulta.style.display = 'none' })
 
-btnLlenarConsulta.addEventListener('click', () => {
+btnLlenarConsulta.addEventListener('click', async () => {
     const idActual = IDPaciente.textContent.replace('#', '').trim()
     if(idActual && idActual !== '-' && idActual !== 'N'){
-        const consultas = JSON.parse(localStorage.getItem('consultas') || '{}')
-        const consultaGuardada = consultas[idActual]
-        if(consultaGuardada){
-            document.querySelector('[name="diagnosticoConsulta"]').value = consultaGuardada.diagnostico || ''
-            document.querySelector('[name="tratamientoConsulta"]').value = consultaGuardada.tratamiento || ''
-            document.querySelector('[name="observacionesConsulta"]').value = consultaGuardada.observaciones || ''
-        } else {
+        try {
+            const res = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_consulta&id=${parseInt(idActual)}`)
+            const consulta = await res.json()
+            document.querySelector('[name="diagnosticoConsulta"]').value = consulta?.diagnostico || ''
+            document.querySelector('[name="tratamientoConsulta"]').value = consulta?.tratamiento || ''
+            document.querySelector('[name="observacionesConsulta"]').value = consulta?.observaciones || ''
+        } catch {
             document.querySelector('[name="diagnosticoConsulta"]').value = ''
             document.querySelector('[name="tratamientoConsulta"]').value = ''
             document.querySelector('[name="observacionesConsulta"]').value = ''
         }
-    }
-    overlayConsulta.style.display = 'flex'
+    }; overlayConsulta.style.display = 'flex'
 })
 
-btnConfConsulta.addEventListener('click', () => {
+btnConfConsulta.addEventListener('click', async () => {
     const diag = document.querySelector('[name="diagnosticoConsulta"]').value.trim()
     const trat = document.querySelector('[name="tratamientoConsulta"]').value.trim()
     const obs  = document.querySelector('[name="observacionesConsulta"]').value.trim()
 
     if(diag === '' || trat === '' || obs === ''){ mostrarAlerta(); return }
 
-    document.querySelector('.diagnostico').textContent = diag
-    document.querySelector('.tratamiento').textContent = trat
-    document.querySelector('.observaciones').textContent = obs
-
     const idActual = IDPaciente.textContent.replace('#', '').trim()
-    if(idActual && idActual !== '-' && idActual !== 'N'){
-        const consultas = JSON.parse(localStorage.getItem('consultas') || '{}')
-        consultas[idActual] = { diagnostico: diag, tratamiento: trat, observaciones: obs }
-        localStorage.setItem('consultas', JSON.stringify(consultas))
-    }
-    overlayConsulta.style.display = 'none'
+    const idUsuario = parseInt(localStorage.getItem('idUsuario') || '1')
+
+    try {
+        await fetch('http://localhost/clinicadental/base_de_datos.php?action=guardar_consulta', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id_paciente: parseInt(idActual),
+                id_usuario: idUsuario,
+                diagnostico: diag,
+                tratamiento: trat,
+                observaciones: obs
+            })
+        })
+        document.querySelector('.diagnostico').textContent = diag
+        document.querySelector('.tratamiento').textContent = trat
+        document.querySelector('.observaciones').textContent = obs
+        overlayConsulta.style.display = 'none'
+    } catch(error){ console.error('Error guardando consulta:', error) }
 })
 
-function cargarConsulta(id){
-    const idLimpio = String(id).trim()
-    const consultas = JSON.parse(localStorage.getItem('consultas') || '{}')
-    const c = consultas[idLimpio]
-    document.querySelector('.diagnostico').textContent = c?.diagnostico || '-'
-    document.querySelector('.tratamiento').textContent = c?.tratamiento || '-'
-    document.querySelector('.observaciones').textContent = c?.observaciones || '-'
+const overlayInfoCitas = document.querySelector('.overlay_info_citas')
+const btnInfoCitas = document.querySelector('.btn_cita')
+
+btnInfoCitas.addEventListener('click', async () => {
+    const idActual = IDPaciente.textContent.replace('#', '').trim()
+    if(!idActual || idActual === '-' || idActual === 'N') return
+
+    const divInfoCita = overlayInfoCitas.querySelector('.info_cita')
+    divInfoCita.innerHTML = '<p style="color:#ddd; text-align:center;">Cargando...</p>'
+    overlayInfoCitas.style.display = 'flex'
+
+    try {
+        const res = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_ultima_cita&id=${parseInt(idActual)}`)
+        const cita = await res.json()
+
+        if(!cita){
+            divInfoCita.innerHTML = '<p style="color:#ddd; text-align:center;">Este paciente no tiene citas registradas.</p>'; return
+        }
+
+        const estadoColor = cita.estado === 'Completada' ? '#7bed9f' : cita.estado === 'Cancelada' ? '#ff6b81' : '#ffd32a'
+
+        divInfoCita.innerHTML = `
+            <div class="cita_estado_badge" style="background-color:${estadoColor}20; border:1px solid ${estadoColor}; color:${estadoColor}">
+                ${cita.estado}
+            </div>
+            <div class="cita_fecha_hora">
+                <div class="cita_dato">
+                    <span class="cita_label">📅 Fecha</span>
+                    <span class="cita_valor">${cita.fecha}</span>
+                </div>
+                <div class="cita_dato">
+                    <span class="cita_label">🕐 Hora</span>
+                    <span class="cita_valor">${cita.hora}</span>
+                </div>
+            </div>
+            <div class="cita_dato">
+                <span class="cita_label">🦷 Servicio</span>
+                <span class="cita_valor">${cita.servicio || '-'}</span>
+            </div>
+            <div class="cita_dato">
+                <span class="cita_label">📋 Motivo de consulta</span>
+                <span class="cita_valor">${cita.motivo_cita || '-'}</span>
+            </div>
+            <div class="cita_dato">
+                <span class="cita_label">📝 Notas</span>
+                <span class="cita_valor">${cita.nota || 'Sin notas'}</span>
+            </div>
+        `
+    } catch(error){
+        divInfoCita.innerHTML = '<p style="color:#ddd; text-align:center;">Error al cargar la cita.</p>'
+        console.error('Error cargando última cita:', error)
+    }
+})
+
+async function cargarConsulta(id){
+    try{
+        const res = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_consulta&id=${parseInt(id)}`)
+        const c = await res.json()
+        document.querySelector('.diagnostico').textContent = c?.diagnostico || '-'
+        document.querySelector('.tratamiento').textContent = c?.tratamiento || '-'
+        document.querySelector('.observaciones').textContent = c?.observaciones || '-'
+    } catch{
+        document.querySelector('.diagnostico').textContent = '-'
+        document.querySelector('.tratamiento').textContent = '-'
+        document.querySelector('.observaciones').textContent = '-'
+    }
 }
 
 function calcularEdad(anioNac, mesNac, diaNac){

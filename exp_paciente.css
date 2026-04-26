@@ -450,11 +450,10 @@ body{
 
     .div_btn_consulta{
         display: flex;
-        justify-content: right;
+        justify-content: space-between;
         width: 100%;
-        margin-top: 0.8rem;
 
-        .btn_consulta{
+        .btn_consulta, .btn_cita{
             background-color: var(--morado_medio);
             color: white;
             border: none;
@@ -476,7 +475,7 @@ body{
                 color: white;
             }
         }
-        .btn_consulta:hover{
+        .btn_consulta:hover, .btn_cita:hover{
             background-color: var(--morado_claro);
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(111, 74, 142, 0.4);
@@ -488,6 +487,12 @@ body{
         margin-top: 1.5rem;
         padding: 0;
         height: 0;
+    }
+}
+.div_seccion{
+    p{
+        font-size: 0.85rem;
+        color: var(--morado_claro);
     }
 }
 
@@ -1064,7 +1069,100 @@ body{
         }
     }
 }
-/* .overlay_editar_exp{ display: flex; } */
+
+.overlay_llenar_consulta{ .form{ width: 50%; } }
+
+.overlay_info_citas{
+    display: none;
+
+    .div_info_citas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 550px;
+        max-width: 95vw;
+        padding: 2.5rem 2rem 2rem 2rem;
+        border-radius: 16px;
+        position: relative;
+        background-color: var(--morado_principal);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        border: 1px solid rgba(255,255,255,0.1);
+
+        h3{
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info_citas{
+            width: 100%;
+
+            .info_cita{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+
+                .cita_estado_badge{
+                    text-align: center;
+                    padding: 0.4rem 1rem;
+                    border-radius: 20px;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    letter-spacing: 0.05rem;
+                    align-self: center;
+                }
+                .cita_fecha_hora{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0.8rem;
+                }
+                .cita_dato{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.3rem;
+                    background-color: rgba(255,255,255,0.08);
+                    border-radius: 10px;
+                    padding: 0.75rem 1rem;
+                    border: 1px solid rgba(255,255,255,0.1);
+                    transition: background-color 0.2s ease;
+                }
+                .cita_dato:hover{ background-color: rgba(255,255,255,0.13); }
+                .cita_label{
+                    font-size: 0.7rem;
+                    font-weight: 500;
+                    color: var(--morado_claro);
+                    text-transform: uppercase;
+                    letter-spacing: 0.08rem;
+                }
+                .cita_valor{
+                    font-weight: 500;
+                    color: white;
+                    font-size: 0.95rem;
+                }
+            }
+        }
+
+        .cerrar{
+            width: 38px;
+            height: 38px;
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.4rem;
+            border-radius: 50%;
+            fill: white;
+            transition: background-color 0.3s ease;
+        }
+        .cerrar:hover{ background-color: var(--morado_medio); }
+    }
+}
 
 .alerta{
     position: absolute;

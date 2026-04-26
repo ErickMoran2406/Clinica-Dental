@@ -86,7 +86,7 @@ function limpiarDocs(){
     textoSinDocs.style.display = 'none'
 }
 
-async function cargarDocsDelPaciente(pacienteID) {
+async function cargarDocsDelPaciente(pacienteID){
     limpiarDocs()
     const divDocsContenedor = document.querySelector('.div_docs')
     const docs = await obtenerDocumentos(pacienteID)
@@ -137,10 +137,7 @@ tablaCuerpo.addEventListener('click', (e) => {
         pacienteIDSeleccionado = fila.dataset.idPaciente
         btnNuevoDoc.classList.add('activo')
 
-        todasLasFilas.forEach(f => {
-            if(f !== fila) f.style.display = 'none'
-        })
-
+        todasLasFilas.forEach(f => { if(f !== fila) f.style.display = 'none' })
         cargarDocsDelPaciente(pacienteIDSeleccionado)
     } else{
         filaSeleccionada = null

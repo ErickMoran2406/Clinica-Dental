@@ -63,8 +63,8 @@
                     <li class="seccion avatar">
                         <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
                         <div class="seccion_info">
-                            <h3 class="nombre_usuario">Dra. <span class="usuario"></span></h3>
-                            <p class="desc">Doctora</p>
+                            <h3 class="nombre_usuario"><span class="saludo_sexo"></span> <span class="usuario"></span></h3>
+                            <p class="desc usuario_puesto"></p>
                         </div>
                     </li>
                 </a>
@@ -77,7 +77,7 @@
             <h2>Expediente del paciente</h2>
             <div class="div_usuario">
                 <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
-                <h3><strong>Dra. <span class="usuario"></span></strong></h3>
+                <h3><strong><span class="saludo_sexo"></span> <span class="usuario"></span></strong></h3>
             </div>
         </div>
         <hr>
@@ -98,7 +98,10 @@
             <div class="div_expediente">
                 <div class="info_basica">
                     <div class="titulo_info_basica">
-                        <h3>Información Básica</h3>
+                        <div class="div_seccion">
+                            <h3>Información Básica</h3>
+                            <p>Datos generales de identificación y contacto del paciente.</p>
+                        </div>
                         <span class="ID">-</span>
                     </div>
                     <div class="info_info_basica">
@@ -137,7 +140,10 @@
                 <br>
                 
                 <div class="antec_med">
-                    <div class="titulo_antec_med"><h3>Antecedentes Médicos</h3></div>
+                    <div class="titulo_antec_med div_seccion">
+                        <h3>Antecedentes Médicos</h3>
+                        <p>Condiciones clínicas, historial de enfermedades, alergias y procedimientos médicos.</p>
+                    </div>
                     <div class="div_antec_med">
                         <div class="antec_campo">
                             <span class="label">Tipo de sangre</span>
@@ -166,7 +172,10 @@
 
                 <div class="habitos_motivo">
                     <div class="habitos_card">
-                        <div class="titulo_seccion"><h3>Hábitos</h3></div>
+                        <div class="titulo_seccion div_seccion">
+                            <h3>Hábitos</h3>
+                            <p>Rutinas y estilos de vida influyentes de la salud del paciente.</p>
+                        </div>
                         <div class="div_habitos">
                             <!-- Items generados por JS -->
                         </div>
@@ -192,7 +201,7 @@
                 <div class="info_consulta">
                     <div class="titulo_info_consulta">
                         <h3>Consulta</h3>
-                        <p>llenar información de última consulta</p>
+                        <p>Llenar información de última consulta.</p>
                     </div>
                     <div class="div_info_consulta">
                         <div class="div_info_consulta_campo">
@@ -210,6 +219,9 @@
                     </div>
                     <br>
                     <div class="div_btn_consulta">
+                        <div class="btn_cita">
+                            <p>Ver última cita</p>
+                        </div>
                         <div class="btn_consulta">
                             <p>Llenar consulta</p>
                         </div>
@@ -458,10 +470,10 @@
                             </div>
                         </div>
 
-                        <div class="dato">
+                        <!-- <div class="dato">
                             <p>Dolor o sensación actual:</p>
                             <input type="text" name="dolorEditar" placeholder="Ingrese el dolor o sensación actual...">
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -473,6 +485,35 @@
                     <div class="btn_next"><button class="btn_next_form btns_prev_next"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></svg></button></div>
                 </div>
                 <div class="enviar"><button type="submit" class="btn_editar">Editar expediente</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay_info_citas overlay">
+        <div class="div_info_citas">
+            <svg class="cerrar cerrar_info_citas" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            <h3>Información de las citas</h3>
+            <div class="info_citas">
+
+                <div class="info_cita">
+
+                    <!-- <div class="info_paciente">
+                        <div class="nombre_hora">
+                            <p>Persona</p>
+                            <p>Hora</p>
+                        </div>
+                        <div class="interac_info">
+                            <svg class="svg_borrar" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+                            <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+                        </div>
+                    </div>
+                    <div class="motivo_cita">
+                        <span>MOTIVO DE CONSULTA</span>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum labore amet porro sunt in quidem quasi eligendi, repellendus maxime unde illo fugiat magni eaque nemo nisi? Nemo eos molestiae dicta.</p>
+                    </div> -->
+
+                </div>
+
             </div>
         </div>
     </div>

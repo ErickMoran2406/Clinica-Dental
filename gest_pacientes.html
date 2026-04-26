@@ -63,8 +63,8 @@
                     <li class="seccion avatar">
                         <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
                         <div class="seccion_info">
-                            <h3 class="nombre_usuario">Dra. <span class="usuario"></span></h3>
-                            <p class="desc">Doctora</p>
+                            <h3 class="nombre_usuario"><span class="saludo_sexo"></span> <span class="usuario"></span></h3>
+                            <p class="desc usuario_puesto"></p>
                         </div>
                     </li>
                 </a>
@@ -77,7 +77,7 @@
             <h2>Gestión de pacientes</h2>
             <div class="div_usuario">
                 <svg class="gest_usuario" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z"/></svg> 
-                <h3><strong>Dra. <span class="usuario"></span></strong></h3>
+                <h3><strong><span class="saludo_sexo"></span> <span class="usuario"></span></strong></h3>
             </div>
         </div>
         <hr>
@@ -132,117 +132,6 @@
             </table>
         </div>
     </main>
-
-    <div class="overlay_editar overlay">
-        <div class="form">
-            <div class="div_form">
-                <svg class="cerrar cerrar_editar" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                <h3>Ingrese los nuevos datos:</h3>
-                <div class="div_datos">
-
-                    <div class="nombre_edad">
-                        <div class="dato">
-                            <p>Nombre completo:</p>
-                            <input type="text" name="nombreEditar" placeholder="Ingrese el nombre completo..." required>
-                        </div>
-                    </div>
-
-                    <!-- Fecha nacimiento editar -->
-                    <div class="fecha_nac">
-                        <div class="dato">
-                            <p>Año de nacimiento:</p>
-                            <input type="number" name="anioEditar" placeholder="Ej: 1990" min="1920" max="2025">
-                        </div>
-                        <div class="dato">
-                            <p>Mes de nacimiento:</p>
-                            <div class="sexo select_mes_editar">
-                                <div class="info_sexo info_mes_editar">
-                                    <p>Mes</p>
-                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                                </div>
-                                <div class="div_sexos div_mes_editar">
-                                    <p>Mes</p>
-                                    <p data-val="01">Enero</p>
-                                    <p data-val="02">Febrero</p>
-                                    <p data-val="03">Marzo</p>
-                                    <p data-val="04">Abril</p>
-                                    <p data-val="05">Mayo</p>
-                                    <p data-val="06">Junio</p>
-                                    <p data-val="07">Julio</p>
-                                    <p data-val="08">Agosto</p>
-                                    <p data-val="09">Septiembre</p>
-                                    <p data-val="10">Octubre</p>
-                                    <p data-val="11">Noviembre</p>
-                                    <p data-val="12">Diciembre</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dato">
-                            <p>Día de nacimiento:</p>
-                            <div class="sexo select_dia_editar">
-                                <div class="info_sexo info_dia_editar">
-                                    <p>Día</p>
-                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                                </div>
-                                <div class="div_sexos div_dia_editar">
-                                    <p>Día</p>
-                                    <!-- Los días se generan con JS -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tel_correo">
-                        <div class="dato">
-                            <p>Teléfono:</p>
-                            <input type="number" name="telefonoEditar" placeholder="Ingrese el teléfono..." maxlength="10" pattern="\d{1,10}" oninput="if(this.value.length > 10) this.value = this.value.slice(0,10)" required>
-                        </div>
-                        <div class="dato">
-                            <p>Correo:</p>
-                            <input type="email" name="correoEditar" placeholder="Ingrese el correo..." required>
-                        </div>
-                    </div>
-
-                    <div class="correo_sexo_sangre">
-                        <div class="dato">
-                            <p>Sexo:</p>
-                            <div class="sexo">
-                                <div class="info_sexo">
-                                    <p>Selecciona un sexo</p>
-                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                                </div>
-                                <div class="div_sexos">
-                                    <p>Selecciona un sexo</p>
-                                    <p>M <svg class="flecha_sexo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
-                                    <p>F <svg class="flecha_sexo" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dato">
-                            <p>Tipo de sangre:</p>
-                            <div class="sexo">
-                                <div class="info_sexo info_sangre">
-                                    <p>Selecciona un tipo de sangre</p>
-                                    <svg class="svg_select" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
-                                </div>
-                                <div class="div_sexos div_sangre">
-                                    <p>Selecciona un tipo de sangre</p>
-                                    <p>A+</p><p>A-</p><p>B+</p><p>B-</p>
-                                    <p>AB+</p><p>AB-</p><p>O+</p><p>O-</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- <div class="dato">
-                        <p>Motivo de consulta:</p>
-                        <input type="text" name="motivoEditar" placeholder="Ingrese el motivo de consulta...">
-                    </div> -->
-                    <div class="enviar"><button type="submit" class="btn_editar">Editar datos</button></div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="overlay_nuevo_paciente overlay">
         <div class="form">
@@ -329,8 +218,8 @@
                                     </div>
                                     <div class="div_sexos">
                                         <p>Selecciona un sexo:</p>
-                                        <p>M <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Masculino</p>
-                                        <p>F <svg class="flecha" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg> Femenino</p>
+                                        <p>Masculino</p>
+                                        <p>Femenino</p>
                                     </div>
                                 </div>
                             </div>

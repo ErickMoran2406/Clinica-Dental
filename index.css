@@ -57,7 +57,10 @@ form{ width: 100%; }
 .contenedor.activo .div_form.registro{ visibility: visible; }
 
 .contenedor .titulo_form{ font-size: 2rem; color: var(--morado_principal); }
-.dato{ position: relative; margin: 30px 0; }
+.dato{ 
+    position: relative; 
+    margin: 30px 0;
+}
 .dato input{
     width: 100%;
     padding: 13px 50px 13px 20px;
@@ -78,6 +81,71 @@ form{ width: 100%; }
     transform: translateY(-50%);
     font-size: 1.2rem;
     color: #888;
+}
+.dato .sexo, .dato .rol{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #eee;
+    width: 100%;
+    padding: 13px 50px 13px 20px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: #333;
+
+    .info_sexo, .info_rol{
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        p{
+            color: gray;
+            margin-bottom: 0;
+            user-select: none;
+        }
+        .svg_select{
+            fill: var(--morado_principal);
+            width: 25px;
+            height: 25px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .svg_select.activo{ 
+            transform: translateY(-50%) rotate(180deg);
+        }
+    }
+    .div_sexos, .div_roles{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 110%;
+        left: 0;
+        width: 100%;
+        border-radius: 5px;
+        background-color: #eee;
+        color: #aaa;
+        z-index: 1001;
+
+        max-height: 180px;
+        overflow-y: auto;
+        /* background-color: red; */
+
+        p{
+            display: flex;
+            /* align-items: center; */
+            padding: 0.5rem 0.8rem;
+            color: gray;
+            /* margin-bottom: 0; */
+            gap: 0.5rem;
+            user-select: none;
+        }
+        p:hover{
+            background-color: var(--morado_claro);
+            color: white;
+            cursor: pointer;
+        }
+    }
 }
 
 .div_recuperar_contra{ margin: -15px 0 15px; }

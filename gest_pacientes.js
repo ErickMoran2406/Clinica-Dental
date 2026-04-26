@@ -31,28 +31,6 @@ const editar = document.querySelector('.div_opc_tabla .editar')
 const btnCerrarEditar = document.querySelector('.cerrar_editar')
 const btnEditar = document.querySelector('.btn_editar')
 
-const selectSexosEditar = document.querySelector('.overlay_editar .correo_sexo_sangre .dato:nth-child(1) .sexo')
-const divSexoOpcionEditar = selectSexosEditar.querySelector('.div_sexos')
-const svgSelectSexoEditar = selectSexosEditar.querySelector('.svg_select')
-const sexoOpcionEditar = selectSexosEditar.querySelectorAll('.div_sexos p')
-const infoSexoEditar = selectSexosEditar.querySelector('.info_sexo p')
-
-const selectSangreEditar = document.querySelector('.overlay_editar .correo_sexo_sangre .dato:nth-child(2) .sexo')
-const divSangreOpcionEditar = selectSangreEditar.querySelector('.div_sexos')
-const svgSelectSangreEditar = selectSangreEditar.querySelector('.svg_select')
-const sangreOpcionEditar = selectSangreEditar.querySelectorAll('.div_sexos p')
-const infoSangreEditar = selectSangreEditar.querySelector('.info_sexo p')
-
-const selectMesEditar = document.querySelector('.select_mes_editar')
-const infoMesEditar = document.querySelector('.info_mes_editar p')
-const svgMesEditar = document.querySelector('.select_mes_editar .svg_select')
-const divMesEditar = document.querySelector('.div_mes_editar')
-
-const selectDiaEditar = document.querySelector('.select_dia_editar')
-const infoDiaEditar = document.querySelector('.info_dia_editar p')
-const svgDiaEditar = document.querySelector('.select_dia_editar .svg_select')
-const divDiaEditar = document.querySelector('.div_dia_editar')
-
 const overlayEliminar = document.querySelector('.overlay_eliminar_paciente')
 const eliminar = document.querySelector('.div_opc_tabla .eliminar')
 const btnCerrarEliminar = document.querySelector('.cerrar_eliminar_paciente')
@@ -70,10 +48,9 @@ let modoEditar = false
 
 const mesesNombres = ['Mes','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
 
-function generarDias(divDia, infoDia, mesVal, anioVal) {
+function generarDias(divDia, infoDia, mesVal, anioVal){
     const diaActual = infoDia.textContent.trim()
-    const totalDias = (mesVal && anioVal)
-        ? new Date(Number(anioVal), Number(mesVal), 0).getDate() : 31
+    const totalDias = (mesVal && anioVal) ? new Date(Number(anioVal), Number(mesVal), 0).getDate() : 31
 
     divDia.innerHTML = '<p>Día</p>'
     for (let d = 1; d <= totalDias; d++) {
@@ -99,7 +76,6 @@ function generarDias(divDia, infoDia, mesVal, anioVal) {
 }
 
 generarDias(divDiaAgregar, infoDiaAgregar, null, null)
-generarDias(divDiaEditar, infoDiaEditar, null, null)
 
 function toggleSelect(divOpcion, svg) {
     const isOpen = divOpcion.style.display === 'flex'
@@ -131,7 +107,7 @@ sexoOpcionAgregar.forEach(opc => {
         e.stopPropagation()
         const opcion = opc.textContent.trim()
         if (opcion === 'Selecciona un sexo') return
-        infoSexoAgregar.textContent = opcion[0]
+        infoSexoAgregar.textContent = opcion
         infoSexoAgregar.style.color = '#333'
         svgSelectSexoAgregar.classList.remove('activo')
         divSexoOpcionAgregar.style.display = 'none'
@@ -179,83 +155,19 @@ sangreOpcionAgregar.forEach(opc => {
     })
 })
 
-selectSexosEditar.addEventListener('click', (e) => {
-    e.stopPropagation()
-    cerrarTodo([svgSelectSangreEditar, divSangreOpcionEditar], [svgMesEditar, divMesEditar], [svgDiaEditar, divDiaEditar])
-    toggleSelect(divSexoOpcionEditar, svgSelectSexoEditar)
-})
-sexoOpcionEditar.forEach(opc => {
-    opc.addEventListener('click', (e) => {
-        e.stopPropagation()
-        const opcion = opc.textContent.trim()
-        if (opcion === 'Selecciona un sexo') return
-        infoSexoEditar.textContent = opcion[0]
-        infoSexoEditar.style.color = '#333'
-        svgSelectSexoEditar.classList.remove('activo')
-        divSexoOpcionEditar.style.display = 'none'
-    })
-})
-
-selectSangreEditar.addEventListener('click', (e) => {
-    e.stopPropagation()
-    cerrarTodo([svgSelectSexoEditar, divSexoOpcionEditar], [svgMesEditar, divMesEditar], [svgDiaEditar, divDiaEditar])
-    toggleSelect(divSangreOpcionEditar, svgSelectSangreEditar)
-})
-sangreOpcionEditar.forEach(opc => {
-    opc.addEventListener('click', (e) => {
-        e.stopPropagation()
-        const opcion = opc.textContent.trim()
-        if (opcion === 'Selecciona un tipo de sangre') return
-        infoSangreEditar.textContent = opcion
-        infoSangreEditar.style.color = '#333'
-        svgSelectSangreEditar.classList.remove('activo')
-        divSangreOpcionEditar.style.display = 'none'
-    })
-})
-
-selectMesEditar.addEventListener('click', (e) => {
-    e.stopPropagation()
-    cerrarTodo([svgSelectSexoEditar, divSexoOpcionEditar], [svgSelectSangreEditar, divSangreOpcionEditar], [svgDiaEditar, divDiaEditar])
-    toggleSelect(divMesEditar, svgMesEditar)
-})
-divMesEditar.querySelectorAll('p[data-val]').forEach(opc => {
-    opc.addEventListener('click', (e) => {
-        e.stopPropagation()
-        const val = opc.dataset.val
-        infoMesEditar.textContent = mesesNombres[Number(val)]
-        infoMesEditar.style.color = '#333'
-        svgMesEditar.classList.remove('activo')
-        divMesEditar.style.display = 'none'
-        const anio = document.querySelector('input[name="anioEditar"]').value.trim()
-        generarDias(divDiaEditar, infoDiaEditar, val, anio)
-    })
-})
-
-selectDiaEditar.addEventListener('click', (e) => {
-    e.stopPropagation()
-    cerrarTodo([svgSelectSexoEditar, divSexoOpcionEditar], [svgSelectSangreEditar, divSangreOpcionEditar], [svgMesEditar, divMesEditar])
-    toggleSelect(divDiaEditar, svgDiaEditar)
-})
-
 document.addEventListener('click', (e) => {
     cerrarSiClickFuera(selectSexoAgregar, e, svgSelectSexoAgregar, divSexoOpcionAgregar)
     cerrarSiClickFuera(selectMesAgregar, e, svgMesAgregar, divMesAgregar)
     cerrarSiClickFuera(selectDiaAgregar, e, svgDiaAgregar, divDiaAgregar)
     cerrarSiClickFuera(selectSangreAgregar, e, svgSelectSangreAgregar, divSangreOpcionAgregar)
-    cerrarSiClickFuera(selectSexosEditar, e, svgSelectSexoEditar, divSexoOpcionEditar)
-    cerrarSiClickFuera(selectSangreEditar, e, svgSelectSangreEditar, divSangreOpcionEditar)
-    cerrarSiClickFuera(selectMesEditar, e, svgMesEditar, divMesEditar)
-    cerrarSiClickFuera(selectDiaEditar, e, svgDiaEditar, divDiaEditar)
 })
 
 async function cargarPacientes(){
     try{
         const response = await fetch('http://localhost/clinicadental/base_de_datos.php?action=obtener_pacientes')
         const pacientes = await response.json()
-
         tablaCuerpo.innerHTML = ''
         if(!pacientes || pacientes.length === 0){ totalPacientes.textContent = 0; return }
-
         pacientes.forEach(p => {
             const img = p.estado === 'Inactivo' ? 'img/inactivo.png' : 'img/activo.png'
             const numero = String(p.id_paciente).padStart(2, '0')
@@ -276,16 +188,11 @@ async function cargarPacientes(){
                 <td>${p.sexo || ''}</td>
                 <td>${p.tipo_sangre}</td>
                 <td class="estado"><img src="${img}" alt=""></td>
-            `
-            tablaCuerpo.appendChild(fila)
-        })
-
-        totalPacientes.textContent = tablaCuerpo.querySelectorAll('.tabla_filas').length
+            `; tablaCuerpo.appendChild(fila)
+        }); totalPacientes.textContent = tablaCuerpo.querySelectorAll('.tabla_filas').length
         localStorage.setItem('totalPacientes', totalPacientes.textContent)
-
     } catch(error){ console.error('Error cargando pacientes:', error) }
-}
-cargarPacientes()
+} cargarPacientes()
 
 async function agregarNuevoPaciente(){
     const hoy = new Date()
@@ -299,6 +206,7 @@ async function agregarNuevoPaciente(){
     let telefono = document.querySelector('input[name="telefonoAgregar"]').value.trim()
     const correo = document.querySelector('input[name="correoAgregar"]').value.trim()
     let sexo = infoSexoAgregar.textContent.trim()
+    sexo = sexo === 'M' ? 'Masculino' : sexo === 'F' ? 'Femenino' : sexo
     const tipoSan = infoSangreAgregar.textContent.trim()
     const fechaRegistro = hoy.toISOString().split('T')[0]
 
@@ -316,14 +224,13 @@ async function agregarNuevoPaciente(){
     const habitos = Array.from(checkboxes)
         .filter(cb => cb.checked)
         .map(cb => {
-            if (cb.name === 'habitoOtro') {
+            if(cb.name === 'habitoOtro'){
                 const otro = document.querySelector('input[name="habitoOtroTexto"]').value.trim()
                 return otro ? `Otro: ${otro}` : null
             }
             const span = cb.closest('label')?.querySelector('.habito_label')
             return span ? span.textContent.trim().replace(/^[^\w\s]+/, '').replace(/:$/, '').trim() : cb.name
-        })
-        .filter(Boolean)
+        }).filter(Boolean)
 
     telefono = telefono.replace(/-/g, '')
     telefono = `${telefono.slice(0, 2)}-${telefono.slice(2, 6)}-${telefono.slice(6, 10)}`
@@ -332,23 +239,11 @@ async function agregarNuevoPaciente(){
         tipoSan === 'Selecciona un tipo de sangre' || tipoSan === 'Selecciona un tipo de sangre:'
     ){ mostrarAlerta(); return }
 
-    sexo = sexo === 'M' ? 'Masculino' : sexo === 'F' ? 'Femenino' : sexo
-
     const datosPaciente = {
-        nombre,
-        fecha_nac: fechaNac,
-        telefono,
-        correo,
-        sexo,
-        tipo_sangre: tipoSan,
-        direccion,
-        emergencia,
-        alergias,
-        med_act: medicamentos,
-        cir_prev: cirugias,
-        enfermedades,
-        habitos,
-        id_usuario: 1
+        nombre, fecha_nac: fechaNac, telefono, correo, sexo, 
+        tipo_sangre: tipoSan, direccion, emergencia, alergias, 
+        med_act: medicamentos, cir_prev: cirugias, enfermedades, habitos,
+        id_usuario: Number(localStorage.getItem('id_usuario') || 1)
     }
 
     try{
@@ -447,7 +342,6 @@ async function confirmarEdicionPaciente(){
         })
         .filter(Boolean)
 
-    // Guardar el ID antes de nullear filaSeleccionada
     const idPaciente = filaSeleccionada.dataset.idPaciente
 
     if(filaSeleccionada){
@@ -468,22 +362,10 @@ async function confirmarEdicionPaciente(){
     resetCheckboxes()
     filaSeleccionada = null
 
-    // Enviar a MySQL
     const datosEditar = {
-        id_paciente: idPaciente,
-        nombre,
-        fecha_nac: fechaNac,
-        telefono,
-        correo,
-        sexo,
-        tipo_sangre: tipoSangre,
-        direccion,
-        emergencia,
-        alergias,
-        med_act: medicamentos,
-        cir_prev: cirugias,
-        enfermedades,
-        habitos
+        id_paciente: idPaciente, nombre, fecha_nac: fechaNac, telefono, correo,
+        sexo, tipo_sangre: tipoSangre, direccion, emergencia, alergias,
+        med_act: medicamentos, cir_prev: cirugias, enfermedades, habitos
     }
 
     try{
@@ -495,15 +377,12 @@ async function confirmarEdicionPaciente(){
     } catch(error){ console.error('Error editando:', error) }
 }
 
-btnEditar.addEventListener('click', confirmarEdicionPaciente)
 editar.addEventListener('click', abrirEditar)
 eliminar.addEventListener('click', abrirEliminar)
 verExp.addEventListener('click', verExpediente)
 
-btnCerrarEditar.addEventListener('click', () => { overlayEditar.style.display = 'none'; resetCheckboxes() })
 btnCerrarEliminar.addEventListener('click', () => { overlayEliminar.style.display = 'none'; resetCheckboxes() })
 btnCancelarEliminar.addEventListener('click', () => { overlayEliminar.style.display = 'none'; resetCheckboxes() })
-overlayEditar.addEventListener('click', (e) => { if (e.target === overlayEditar) overlayEditar.style.display = 'none' })
 overlayEliminar.addEventListener('click', (e) => { if (e.target === overlayEliminar) overlayEliminar.style.display = 'none' })
 
 function resetCheckboxes() {
@@ -517,9 +396,7 @@ async function abrirEditar(){
     filaSeleccionada = checkboxMarcado.closest('.tabla_filas')
     modoEditar = true
 
-    // Declarar idPaciente PRIMERO
     const idPaciente = filaSeleccionada.dataset.idPaciente
-
     const [anio, mes, dia] = filaSeleccionada.cells[3].textContent.trim().split('-')
 
     document.querySelector('input[name="nombreAgregar"]').value = filaSeleccionada.cells[2].textContent.trim()
@@ -529,8 +406,8 @@ async function abrirEditar(){
 
     const sexoVal = filaSeleccionada.cells[6].textContent.trim()
     infoSexoAgregar.textContent = 
-        (sexoVal === 'M' || sexoVal === 'Masculino') ? 'M → Masculino' : 
-        (sexoVal === 'F' || sexoVal === 'Femenino') ? 'F → Femenino' : sexoVal
+        (sexoVal === 'M' || sexoVal === 'Masculino') ? 'Masculino' : 
+        (sexoVal === 'F' || sexoVal === 'Femenino') ? 'Femenino' : sexoVal
     infoSexoAgregar.style.color = '#333'
 
     infoMesAgregar.textContent = mes ? mesesNombres[Number(mes)] : 'Mes'
@@ -538,7 +415,6 @@ async function abrirEditar(){
     generarDias(divDiaAgregar, infoDiaAgregar, mes, anio)
     if (dia) { infoDiaAgregar.textContent = dia; infoDiaAgregar.style.color = '#333' }
 
-    // Cargar datos del paciente desde MySQL
     try {
         const resPaciente = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_paciente&id=${idPaciente}`)
         const paciente = await resPaciente.json()
@@ -552,7 +428,6 @@ async function abrirEditar(){
     infoSangreAgregar.textContent = filaSeleccionada.cells[7].textContent.trim()
     infoSangreAgregar.style.color = '#333'
 
-    // Cargar antecedentes desde MySQL
     try {
         const res = await fetch(`http://localhost/clinicadental/base_de_datos.php?action=obtener_antecedmed&id=${idPaciente}`)
         const ant = await res.json()
