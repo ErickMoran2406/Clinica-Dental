@@ -226,8 +226,8 @@ dias.addEventListener('mousemove', (e) => {
         </div>`
     ).join('')
     tooltip.style.display = 'flex'
-    tooltip.style.left = e.pageX + 10 + 'px'
-    tooltip.style.top = e.pageY - 100 + 'px'
+    tooltip.style.left = e.pageX + 30 + 'px'
+    tooltip.style.top = e.pageY - 200 + 'px'
 })
 
 dias.addEventListener('mouseout', (e) => {

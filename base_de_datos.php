@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === 'OPTIONS'){
     exit();
 }
 
-$conn = new mysqli("localhost", "root", "", "clinicadental");
+$conn = new mysqli("localhost", "root", "", "clinica_dent");
 
 if($conn -> connect_error){
     http_response_code(500);
@@ -233,8 +233,7 @@ switch($action){
         $stmt2 -> bind_param($tipos, ...$ids);
         $stmt2 -> execute();
 
-        echo json_encode(["success" => true]);
-        break;
+        echo json_encode(["success" => true]); break;
 
     case 'subir_documento':
         $id_paciente = intval($_POST['id_paciente'] ?? 0);
@@ -341,7 +340,7 @@ switch($action){
         $stmt = $conn -> prepare("DELETE FROM citas WHERE id_cita = ?");
         $stmt -> bind_param("i", $id_cita);
         $stmt -> execute();
-        echo json_encode(["success" => true, "service" => $servicio_cita]); break;
+        echo json_encode(["success" => true]); break;
 
     case 'actualizar_estado_cita':
         $datos = json_decode(file_get_contents("php://input"), true);
